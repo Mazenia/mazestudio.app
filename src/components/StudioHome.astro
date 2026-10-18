@@ -1,66 +1,86 @@
 ---
+// Portada del estudio, direccion C del lienzo: titulo enorme y las apps como
+// filas de un indice que se tinen del color de cada app al pasar por encima.
 import Base from '../layouts/Base.astro';
 interface Props { lang: 'en' | 'es' }
 const { lang } = Astro.props;
 const es = lang === 'es';
 const c = es ? {
-  title: 'Maze Studio · Apps pequeñas, hechas con cuidado',
+  title: 'Maze Studio · Apps pequeñas para tu tiempo y tu atención',
   description: 'Maze Studio hace apps para iPhone y Android que te ayudan con tu tiempo y tu atención: Dear Wander y Tolli.',
-  h1: 'Apps pequeñas para cuidar tu tiempo y tu atención.',
-  lead: 'Somos un estudio de una persona. Cada app hace una cosa, la hace bien y no te pide más datos de los que necesita.',
+  h1: 'Apps pequeñas para tu tiempo y tu atención.',
   tolli: 'Una campanita que suena cada pocos minutos para que no pierdas la noción del tiempo.',
   tolliMeta: 'Android · Pronto',
   dw: 'Una respiración de un minuto antes de abrir las apps donde más haces scroll.',
-  dwMeta: 'iPhone · Android',
-  more: 'Ver',
+  ringwell: 'La alarma para quien trabaja por turnos.',
+  soon: 'En camino',
+  about: 'Un estudio de una persona. Cada app hace una cosa y la hace bien.',
+  aboutBody: 'Ninguna pide cuenta, ninguna tiene anuncios y lo que guardas se queda en tu teléfono. Son gratis o se pagan una vez. Si algo no funciona, escríbeme a',
+  aboutEnd: 'y te contesto yo.',
 } : {
-  title: 'Maze Studio · Small apps, made with care',
+  title: 'Maze Studio · Small apps for your time and attention',
   description: 'Maze Studio makes iPhone and Android apps that help with your time and attention: Dear Wander and Tolli.',
-  h1: 'Small apps that look after your time and attention.',
-  lead: 'We are a one-person studio. Each app does one thing, does it well, and asks for no more data than it needs.',
+  h1: 'Small apps for your time and attention.',
   tolli: 'A little bell that dings every few minutes so you keep track of time.',
   tolliMeta: 'Android · Coming soon',
   dw: 'A one-minute breath before you open the apps you scroll most.',
-  dwMeta: 'iPhone · Android',
-  more: 'See',
+  ringwell: 'The alarm for people who work rotating shifts.',
+  soon: 'On the way',
+  about: 'A one-person studio. Each app does one thing and does it well.',
+  aboutBody: 'None of them asks for an account, none has ads, and what you save stays on your phone. They are free or paid once. If something does not work, write to',
+  aboutEnd: 'and I will answer myself.',
 };
 ---
 <Base title={c.title} description={c.description} lang={lang} altPath={es ? '/' : '/es/'}>
-  <section class="hero">
-    <h1>{c.h1}</h1>
-    <p>{c.lead}</p>
+  <section class="hero"><h1>{c.h1}</h1></section>
+
+  <section class="index" aria-label="Apps">
+    <a class="row tolli" href={es ? '/es/tolli/' : '/tolli/'}>
+      <img src="/img/tolli-icon.png" alt="" width="96" height="96" />
+      <div class="text"><span class="name tolli-name">Tolli</span><span class="line">{c.tolli}</span></div>
+      <span class="meta">{c.tolliMeta}<span class="arrow" aria-hidden="true">→</span></span>
+    </a>
+    <a class="row dw" href="https://dearwander.com">
+      <img src="/img/dear-wander-icon.png" alt="" width="96" height="96" />
+      <div class="text"><span class="name">Dear Wander</span><span class="line">{c.dw}</span></div>
+      <span class="meta">iPhone · Android<span class="arrow" aria-hidden="true">↗</span></span>
+    </a>
+    <div class="row soon">
+      <span class="placeholder" aria-hidden="true"></span>
+      <div class="text"><span class="name">Ringwell</span><span class="line">{c.ringwell}</span></div>
+      <span class="meta">{c.soon}</span>
+    </div>
   </section>
-  <section class="apps" aria-label="Apps">
-    <a class="app tolli" href={es ? '/es/tolli/' : '/tolli/'}>
-      <img src="/img/tolli-icon.png" alt="" width="88" height="88" />
-      <div>
-        <h2>Tolli</h2>
-        <p>{c.tolli}</p>
-        <span class="meta">{c.tolliMeta}</span>
-      </div>
-    </a>
-    <a class="app dw" href="https://dearwander.com">
-      <img src="/img/dear-wander-icon.png" alt="" width="88" height="88" />
-      <div>
-        <h2>Dear Wander</h2>
-        <p>{c.dw}</p>
-        <span class="meta">{c.dwMeta} · dearwander.com ↗</span>
-      </div>
-    </a>
+
+  <section class="about">
+    <p class="big">{c.about}</p>
+    <p>{c.aboutBody} <a href="mailto:hola@mazestudio.app">hola@mazestudio.app</a> {c.aboutEnd}</p>
   </section>
 </Base>
 <style>
-  .hero { padding-block: 72px 56px; }
-  .hero h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 700; max-width: 16ch; }
-  .hero p { font-size: 19px; color: var(--muted); margin-top: 20px; }
-  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-  .app { display: flex; gap: 20px; align-items: flex-start; padding: 24px; border-radius: 24px; text-decoration: none; transition: transform 200ms cubic-bezier(.34,1.56,.64,1); min-width: 0; }
-  .app:hover { transform: translateY(-3px); }
-  .app img { border-radius: 22px; flex-shrink: 0; }
-  .app h2 { font-size: 26px; }
-  .app p { margin: 6px 0 10px; }
-  .meta { font-size: 13px; font-weight: 600; opacity: 0.75; }
-  .tolli { background: #F4C230; color: #1E1A16; border: 3px solid #1E1A16; }
-  .tolli h2 { font-family: 'Fredoka', sans-serif; }
-  .dw { background: #F7E3C4; color: #3B2A1E; }
+  .hero { padding-block: 56px 56px; border-bottom: 2px solid var(--ink); }
+  h1 { font-size: clamp(48px, 9vw, 132px); line-height: 0.9; letter-spacing: -0.05em; font-weight: 750; max-width: none; }
+  .row { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 20px 32px; align-items: center; padding: 32px 16px; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); transition: background-color 200ms ease, color 200ms ease; }
+  .row img, .placeholder { width: 96px; height: 96px; border-radius: 22px; }
+  .placeholder { border: 2px dashed var(--line); }
+  .text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .name { font: 700 clamp(36px, 5vw, 64px)/1 var(--display); letter-spacing: -0.03em; }
+  .tolli-name { font-family: 'Fredoka', sans-serif; letter-spacing: 0; }
+  .line { font-size: 18px; color: var(--muted); }
+  .meta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+  .arrow { font-size: 28px; transition: transform 260ms cubic-bezier(.34,1.56,.64,1); }
+  .row:hover .arrow { transform: translateX(8px); }
+  .row.tolli:hover { background: #F4C230; color: #1E1A16; }
+  .row.dw:hover { background: #F3DDBA; color: #3B2A1E; }
+  .row:hover .line { color: inherit; }
+  .row.soon { color: var(--muted); border-bottom: 2px solid var(--ink); }
+  .about { margin-top: 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px 64px; }
+  .about p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
+  .about .big { font: 600 30px/1.2 var(--display); letter-spacing: -0.02em; color: var(--ink); }
+  .about a { font-weight: 700; color: var(--ink); }
+  @media (max-width: 640px) {
+    .row { grid-template-columns: 64px minmax(0, 1fr); padding: 24px 8px; }
+    .row img, .placeholder { width: 64px; height: 64px; border-radius: 16px; }
+    .meta { grid-column: 2; align-items: flex-start; flex-direction: row; }
+  }
 </style>

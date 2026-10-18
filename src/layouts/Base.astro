@@ -42,19 +42,22 @@ const t = {
   <style is:global>
     @font-face { font-family: 'Fredoka'; src: url('/fonts/Fredoka.ttf') format('truetype'); font-weight: 300 700; font-display: swap; }
     @font-face { font-family: 'DM Sans'; src: url('/fonts/DMSans.ttf') format('truetype'); font-weight: 100 1000; font-display: swap; }
+    @font-face { font-family: 'Bricolage Grotesque'; src: url('/fonts/BricolageGrotesque.ttf') format('truetype'); font-weight: 200 800; font-display: swap; }
+    @font-face { font-family: 'Schibsted Grotesk'; src: url('/fonts/SchibstedGrotesk.ttf') format('truetype'); font-weight: 400 900; font-display: swap; }
 
-    /* Estudio: papel frio, tinta casi negra, sin acento propio: el color lo ponen las apps. */
+    /* Estudio (direccion C, el indice): blanco, tinta casi negra y tipografia grande.
+       Sin acento propio: el color lo pone cada app. */
     :root {
-      --bg: #F6F6F3; --surface: #FFFFFF; --ink: #17171A; --muted: #5C5C66; --line: #E2E2DD; --accent: #17171A;
-      --display: 'DM Sans', system-ui, sans-serif; --body: 'DM Sans', system-ui, sans-serif;
+      --bg: #FBFBFA; --surface: #FFFFFF; --ink: #101114; --muted: #5F626A; --line: #D9DADD; --accent: #101114;
+      --display: 'Bricolage Grotesque', system-ui, sans-serif; --body: 'Schibsted Grotesk', system-ui, sans-serif;
     }
     /* Tolli: los colores de la app, tema Mostaza. */
     [data-theme='tolli'] {
       --bg: #F4C230; --surface: #FFF8E6; --ink: #1E1A16; --muted: #5B5148; --line: #1E1A16; --accent: #E2482E;
-      --display: 'Fredoka', 'DM Sans', system-ui, sans-serif;
+      --display: 'Fredoka', 'DM Sans', system-ui, sans-serif; --body: 'DM Sans', system-ui, sans-serif;
     }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme='tolli']) { --bg: #121214; --surface: #1C1C20; --ink: #EDEDEA; --muted: #A0A0A8; --line: #2C2C32; --accent: #EDEDEA; }
+      :root:not([data-theme='tolli']) { --bg: #111214; --surface: #1A1B1F; --ink: #EDEDEA; --muted: #A3A6AE; --line: #2E3036; --accent: #EDEDEA; }
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
@@ -62,9 +65,11 @@ const t = {
     a { color: inherit; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
     .wrap { max-width: 1040px; margin: 0 auto; padding-inline: max(20px, env(safe-area-inset-left, 0px)); }
-    header.site { display: flex; align-items: center; justify-content: space-between; padding-block: 22px; }
-    .brand { font: 700 18px/1 var(--body); letter-spacing: -0.01em; text-decoration: none; }
-    .lang { font-size: 14px; color: var(--muted); }
+    header.site { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; padding-block: 28px; }
+    .brand { font: 700 20px/1 'Bricolage Grotesque', system-ui, sans-serif; letter-spacing: -0.02em; text-decoration: none; }
+    header.site nav { display: flex; gap: 24px; font-size: 15px; }
+    header.site nav a { text-decoration: none; }
+    .lang { color: var(--muted); }
     footer.site { margin-top: 96px; padding-block: 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
     footer.site nav { display: flex; gap: 20px; flex-wrap: wrap; }
     h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
@@ -76,7 +81,10 @@ const t = {
   <div class="wrap">
     <header class="site">
       <a class="brand" href={home}>Maze Studio</a>
-      <a class="lang" href={withSlash(altPath)} hreflang={lang === 'en' ? 'es' : 'en'}>{t.other}</a>
+      <nav>
+        <a href="mailto:hola@mazestudio.app">hola@mazestudio.app</a>
+        <a class="lang" href={withSlash(altPath)} hreflang={lang === 'en' ? 'es' : 'en'}>{t.other}</a>
+      </nav>
     </header>
     <main><slot /></main>
     <footer class="site">
