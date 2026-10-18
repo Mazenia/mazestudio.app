@@ -3,7 +3,7 @@
 interface Props { size?: number; label: string }
 const { size = 260, label } = Astro.props;
 ---
-<svg class="tolli" width={size} height={size} viewBox="-12 -4 174 154" role="img" aria-label={label}>
+<svg class="tolli" data-bell width={size} height={size} viewBox="-12 -4 174 154" role="img" aria-label={label}>
   <g class="waves">
     <path d="M12 64 Q4 54 12 44" fill="none" stroke="#1E1A16" stroke-width="4" stroke-linecap="round" />
     <path d="M138 64 Q146 54 138 44" fill="none" stroke="#1E1A16" stroke-width="4" stroke-linecap="round" />
@@ -21,6 +21,7 @@ const { size = 260, label } = Astro.props;
 <style>
   .tolli { max-width: 100%; height: auto; }
   .swing { transform-box: view-box; transform-origin: 75px 12px; animation: swing 2.6s ease-in-out infinite; }
+  :global(.ringing) .swing, :global(.ringing) .clapper { animation-duration: 0.7s; }
   .clapper { transform-box: view-box; transform-origin: 75px 100px; animation: swing 2.6s ease-in-out infinite reverse; }
   .waves { animation: waves 2.6s ease-out infinite; }
   @keyframes swing { 0%, 60%, 100% { transform: rotate(0); } 10% { transform: rotate(-12deg); } 25% { transform: rotate(10deg); } 40% { transform: rotate(-5deg); } }

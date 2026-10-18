@@ -1,0 +1,20 @@
+---
+// Las caras de Tolli, del tablero de estados de la app.
+interface Props { mood: 'awake' | 'soon' | 'paused' | 'sleeping' | 'worried' | 'happy'; size?: number }
+const { mood, size = 96 } = Astro.props;
+const night = mood === 'sleeping';
+const outline = night ? '#FFF8E6' : '#1E1A16';
+const fill = night ? '#F4C230' : '#E2482E';
+const ink = '#1E1A16';
+---
+<svg width={size} height={size} viewBox="0 0 150 150" aria-hidden="true">
+  <circle cx="75" cy="18" r="9" fill="none" stroke={outline} stroke-width="6" />
+  <path d="M75 26 C46 26 36 52 35 86 L33 100 Q24 108 22 116 L128 116 Q126 108 117 100 L115 86 C114 52 104 26 75 26 Z" fill={fill} stroke={outline} stroke-width="5" stroke-linejoin="round" />
+  {mood === 'awake' && <><circle cx="61" cy="72" r="6" fill={ink} /><circle cx="89" cy="72" r="6" fill={ink} /><path d="M66 86 Q75 94 84 86" fill="none" stroke={ink} stroke-width="4.5" stroke-linecap="round" /></>}
+  {mood === 'soon' && <><circle cx="61" cy="68" r="7" fill="#FFF8E6" /><circle cx="89" cy="68" r="7" fill="#FFF8E6" /><circle cx="62" cy="66" r="4" fill={ink} /><circle cx="90" cy="66" r="4" fill={ink} /><ellipse cx="75" cy="90" rx="5" ry="6" fill={ink} /></>}
+  {mood === 'paused' && <><path d="M54 72 L68 72 M82 72 L96 72" stroke={ink} stroke-width="5" stroke-linecap="round" /><circle cx="61" cy="76" r="4" fill={ink} /><circle cx="89" cy="76" r="4" fill={ink} /><path d="M68 89 L82 89" stroke={ink} stroke-width="4.5" stroke-linecap="round" /></>}
+  {mood === 'sleeping' && <><path d="M54 72 Q61 78 68 72 M82 72 Q89 78 96 72" fill="none" stroke={ink} stroke-width="4.5" stroke-linecap="round" /><circle cx="75" cy="90" r="3.5" fill={ink} /><path d="M116 30 h12 l-12 12 h12" fill="none" stroke="#FFF8E6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></>}
+  {mood === 'worried' && <><path d="M52 66 L66 61 M98 66 L84 61" stroke={ink} stroke-width="4" stroke-linecap="round" /><circle cx="61" cy="75" r="5.5" fill={ink} /><circle cx="89" cy="75" r="5.5" fill={ink} /><path d="M65 93 Q75 85 85 93" fill="none" stroke={ink} stroke-width="4.5" stroke-linecap="round" /><path d="M112 50 Q106 60 112 64 Q118 60 112 50 Z" fill="#9CC9E8" stroke={ink} stroke-width="2.5" /></>}
+  {mood === 'happy' && <><path d="M54 73 Q61 63 68 73 M82 73 Q89 63 96 73" fill="none" stroke={ink} stroke-width="4.5" stroke-linecap="round" /><path d="M60 84 Q75 104 90 84 Z" fill={ink} /><ellipse cx="50" cy="86" rx="6" ry="3.5" fill="#F7A08E" /><ellipse cx="100" cy="86" rx="6" ry="3.5" fill="#F7A08E" /></>}
+  <circle cx="75" cy="124" r="9" fill={outline} />
+</svg>

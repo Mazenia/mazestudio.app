@@ -1,0 +1,300 @@
+---
+// La pagina de Tolli. Habla como Tolli, en primera persona, igual que la app,
+// y deja escucharla: el hero suena al tocarlo y la demo calcula el proximo
+// ding con la hora real de quien la visita.
+import Base from '../../layouts/Base.astro';
+import Bell from './Bell.astro';
+import Face from './Face.astro';
+import { appPath, statusLabel, type App, type Lang } from '../../data/apps';
+
+interface Props { app: App; lang: Lang }
+const { app, lang } = Astro.props;
+const es = lang === 'es';
+const other: Lang = es ? 'en' : 'es';
+
+const c = es ? {
+  title: 'Tolli · Una campanita que te lleva el tiempo',
+  description: 'Tolli suena cada 10, 15, 30 o 60 minutos para que sepas cuánto tiempo pasó sin mirar el reloj. Para Android, sin cuenta y sin anuncios.',
+  bell: 'Tolli, una campanita roja con cara sonriente. Tócala para oírla.',
+  h1: 'Hola, soy Tolli.',
+  lead: 'Soy una campanita que suena cada pocos minutos para que sepas cuánto tiempo pasó, sin mirar el reloj.',
+  tapHint: 'Tócame para oírme',
+  test: 'Quiero probarla antes',
+  testSubject: 'Quiero probar Tolli',
+  demoTitle: 'Si me activaras ahora',
+  demoNext: 'mi próximo ding sería a las',
+  demoIn: 'en',
+  demoMin: 'min',
+  every: 'Cada',
+  bellsTitle: 'Mis cinco campanas',
+  bells: [
+    ['tolli', 'Campanita', 'Clara y corta. Mi voz', false],
+    ['wood', 'Madera', 'Un toque seco para reuniones y clases', false],
+    ['bowl', 'Cuenco', 'Largo y suave, se apaga despacio', true],
+    ['tower', 'Torre', 'Grave, para oírla desde otro cuarto', true],
+    ['glass', 'Gota de cristal', 'Aguda y limpia', true],
+  ],
+  play: 'Escuchar',
+  featuresTitle: 'Lo que hago',
+  features: [
+    ['Sueno a tiempo', 'Uso alarmas exactas: el ding de las 10:45 llega a las 10:45. Cada día puedes ver si cada ding sonó, vibró o se quedó callado.'],
+    ['Te digo si algo me calla', 'Si el ahorro de batería o No molestar pueden impedirme sonar, te digo qué es y cómo arreglarlo, con los pasos de tu marca de teléfono.'],
+    ['Sueno a mi volumen', 'Me oyes aunque tengas la música en silencio, con mi propio volumen. En vibración sientes mi ding en la mano.'],
+    ['Digo la hora, si quieres', 'Después del ding digo en voz alta "Son las 10:45", con la voz de tu teléfono y sin internet.'],
+    ['En tu pantalla de inicio', 'Mi widget muestra el próximo ding. Y me pausas desde los ajustes rápidos, sin abrir la app.'],
+    ['Tu horario, tus días', 'Elige desde qué hora hasta qué hora sueno y qué días. Fuera de ese horario, duermo.'],
+  ],
+  facesTitle: 'Mi cara te cuenta cómo voy',
+  faces: [['awake', 'Despierta'], ['soon', 'Ya casi'], ['paused', 'En pausa'], ['sleeping', 'Dormida'], ['worried', 'Algo me calla'], ['happy', 'Día completo']],
+  proTitle: 'Gratis. Y Pro, si quieres más.',
+  proBody: 'Todo lo de arriba es gratis. Tolli Pro suma tres temas (Menta, Chicle y Cielo) y tres campanas más, con un solo pago y sin suscripción.',
+  proPrice: '2,99 US$ una vez',
+  faqTitle: 'Preguntas',
+  faq: [
+    ['¿Gasto mucha batería?', 'Muy poca. Solo despierto el teléfono un instante en cada ding y vuelvo a dormir.'],
+    ['¿Funciono sin internet?', 'Sí. Sueno sin conexión. Solo uso internet para que Google Play confirme si tienes Pro.'],
+    ['¿Y si el teléfono está en silencio?', 'Tú eliges. Al principio me callo en silencio y, en vibración, sientes el ding en la mano.'],
+    ['¿Estoy en iPhone?', 'Por ahora solo en Android. Si quieres que llegue a iPhone, escríbenos.'],
+  ],
+  privacy: 'Sin cuenta y sin anuncios. Sueno sin conexión y todo se queda en tu teléfono.',
+  privacyLink: 'Política de privacidad',
+} : {
+  title: 'Tolli · A little bell that keeps time with you',
+  description: 'Tolli dings every 10, 15, 30 or 60 minutes so you know how much time has passed without looking at the clock. For Android, no account, no ads.',
+  bell: 'Tolli, a little red bell with a smiling face. Tap her to hear her.',
+  h1: "Hi, I'm Tolli.",
+  lead: "I'm a little bell who rings every few minutes, so you know how much time has passed without looking at the clock.",
+  tapHint: 'Tap me to hear me',
+  test: 'I want to try it early',
+  testSubject: 'I want to try Tolli',
+  demoTitle: 'If you turned me on now',
+  demoNext: 'my next ding would be at',
+  demoIn: 'in',
+  demoMin: 'min',
+  every: 'Every',
+  bellsTitle: 'My five bells',
+  bells: [
+    ['tolli', 'Little bell', "Bright and short. My voice", false],
+    ['wood', 'Wood', 'A dry tap for meetings and class', false],
+    ['bowl', 'Bowl', 'Long and soft, fades slowly', true],
+    ['tower', 'Tower', 'Deep, to hear from another room', true],
+    ['glass', 'Glass drop', 'High and clean', true],
+  ],
+  play: 'Play',
+  featuresTitle: 'What I do',
+  features: [
+    ['I ring on time', 'I use exact alarms, so the 10:45 ding arrives at 10:45. Each day you can see whether every ding rang, vibrated or stayed quiet.'],
+    ['I tell you if something stops me', 'If battery saver or Do Not Disturb could keep me quiet, I tell you what it is and how to fix it, with the steps for your phone’s brand.'],
+    ['I ring at my own volume', 'You hear me even with music muted, at my own volume. On vibrate you feel my ding in your hand.'],
+    ['I say the time, if you like', 'After the ding I say "It\'s 10:45" out loud, with your phone\'s voice and no internet.'],
+    ['On your home screen', 'My widget shows the next ding. And you can pause me from Quick Settings without opening the app.'],
+    ['Your hours, your days', 'Choose when I start, when I stop and on which days. Outside those hours, I sleep.'],
+  ],
+  facesTitle: 'My face tells you how I’m doing',
+  faces: [['awake', 'Awake'], ['soon', 'Almost'], ['paused', 'Paused'], ['sleeping', 'Asleep'], ['worried', 'Something stops me'], ['happy', 'Full day']],
+  proTitle: 'Free. And Pro, if you want more.',
+  proBody: 'Everything above is free. Tolli Pro adds three themes (Mint, Bubblegum and Sky) and three more bells, with one payment and no subscription.',
+  proPrice: 'US$2.99 once',
+  faqTitle: 'Questions',
+  faq: [
+    ['Do I use much battery?', 'Very little. I only wake the phone for a moment at each ding, then go back to sleep.'],
+    ['Do I work offline?', 'Yes. I ring without a connection. I only use the internet so Google Play can confirm whether you have Pro.'],
+    ['What if the phone is on silent?', "You choose. By default I stay quiet on silent, and on vibrate you feel the ding in your hand."],
+    ['Am I on iPhone?', 'Only on Android for now. If you want me on iPhone, write to us.'],
+  ],
+  privacy: 'No account and no ads. I ring offline and everything stays on your phone.',
+  privacyLink: 'Privacy policy',
+};
+const mail = `mailto:hola@mazestudio.app?subject=${encodeURIComponent(c.testSubject)}`;
+---
+<Base title={c.title} description={c.description} lang={lang} altPath={appPath(app, other)} app={app} ogImage={es ? '/img/tolli-og-es.png' : '/img/tolli-og.png'}>
+
+  <section class="hero">
+    <div class="copy">
+      <h1>{c.h1}</h1>
+      <p class="lead">{c.lead}</p>
+      <div class="ctas">
+        {app.playUrl
+          ? <a class="btn primary" href={app.playUrl}>Google Play</a>
+          : <span class="btn primary is-soon">{statusLabel[app.status][lang]} · Google Play</span>}
+        <a class="btn" href={mail}>{c.test}</a>
+      </div>
+    </div>
+    <button class="bell-button" type="button" data-sound="tolli" aria-label={c.bell}>
+      <Bell label="" size={300} />
+      <span class="hint">{c.tapHint}</span>
+    </button>
+  </section>
+
+  <section class="demo" aria-labelledby="demo-title">
+    <div class="demo-clock">
+      <h2 id="demo-title" class="eyebrow">{c.demoTitle}</h2>
+      <p class="next">{c.demoNext} <strong data-next>--:--</strong></p>
+      <p class="countdown">{c.demoIn} <span data-left>--</span> {c.demoMin}</p>
+      <div class="chips" role="radiogroup" aria-label={c.every}>
+        <span class="chips-label">{c.every}</span>
+        {[10, 15, 30, 60].map((m) => (
+          <button type="button" role="radio" aria-checked={m === 15 ? 'true' : 'false'} data-interval={m}>{m}</button>
+        ))}
+        <span class="chips-label">min</span>
+      </div>
+    </div>
+    <div class="demo-bells">
+      <h2 class="eyebrow">{c.bellsTitle}</h2>
+      <ul>
+        {c.bells.map(([key, name, note, pro]) => (
+          <li>
+            <button type="button" class="play" data-sound={key as string} aria-label={`${c.play}: ${name}`}>
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+            </button>
+            <span class="bell-name">{name}{pro && <span class="pro-tag">PRO</span>}</span>
+            <span class="bell-note">{note}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="features" aria-labelledby="features-title">
+    <h2 id="features-title" class="section-title">{c.featuresTitle}</h2>
+    <div class="grid">
+      {c.features.map(([h, p]) => <article><h3>{h}</h3><p>{p}</p></article>)}
+    </div>
+  </section>
+
+  <section class="faces" aria-labelledby="faces-title">
+    <h2 id="faces-title" class="section-title">{c.facesTitle}</h2>
+    <ul>
+      {c.faces.map(([mood, label]) => (
+        <li class={mood === 'sleeping' ? 'night' : ''}>
+          <Face mood={mood as any} size={88} />
+          <span>{label}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="pro">
+    <div>
+      <h2>{c.proTitle}</h2>
+      <p>{c.proBody}</p>
+    </div>
+    <span class="price">{c.proPrice}</span>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="section-title">{c.faqTitle}</h2>
+    {c.faq.map(([q, a]) => (
+      <details><summary>{q}</summary><p>{a}</p></details>
+    ))}
+  </section>
+
+  <section class="closing">
+    <p>{c.privacy}</p>
+    <a href={appPath(app, lang, 'privacy')}>{c.privacyLink}</a>
+  </section>
+</Base>
+
+<script>
+  // Sonidos: los mismos archivos que la app (convertidos a AAC para Safari).
+  const audio: Record<string, HTMLAudioElement> = {};
+  const play = (key: string) => {
+    const a = (audio[key] ??= new Audio(`/audio/bell_${key}.m4a`));
+    a.currentTime = 0;
+    a.play().catch(() => {});
+  };
+  document.querySelectorAll<HTMLButtonElement>('[data-sound]').forEach((b) => {
+    b.addEventListener('click', () => {
+      play(b.dataset.sound!);
+      if (b.classList.contains('bell-button')) {
+        b.classList.remove('ringing'); void b.offsetWidth; b.classList.add('ringing');
+        setTimeout(() => b.classList.remove('ringing'), 2400);
+      }
+    });
+  });
+
+  // La demo: el proximo ding con la hora de quien visita, en multiplos del intervalo.
+  let interval = 15;
+  const next = document.querySelector('[data-next]')!;
+  const left = document.querySelector('[data-left]')!;
+  const tick = () => {
+    const now = new Date();
+    const mins = now.getHours() * 60 + now.getMinutes();
+    const nextMins = (Math.floor(mins / interval) + 1) * interval;
+    const h = Math.floor(nextMins / 60) % 24, m = nextMins % 60;
+    next.textContent = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+    left.textContent = String(nextMins - mins);
+  };
+  document.querySelectorAll<HTMLButtonElement>('[data-interval]').forEach((b) => {
+    b.addEventListener('click', () => {
+      interval = Number(b.dataset.interval);
+      document.querySelectorAll('[data-interval]').forEach((x) => x.setAttribute('aria-checked', String(x === b)));
+      tick();
+    });
+  });
+  tick();
+  setInterval(tick, 15000);
+</script>
+
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 32px 56px; }
+  h1 { font-size: clamp(48px, 8vw, 92px); line-height: 0.96; font-weight: 700; }
+  .lead { font-size: 21px; margin: 20px 0 28px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 3px solid var(--ink); background: var(--surface); font: 700 17px/1 var(--display); text-decoration: none; transition: transform 240ms cubic-bezier(.34,1.56,.64,1); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: scale(.96); }
+  .btn.primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 5px 0 var(--ink); }
+  .btn.is-soon { cursor: default; }
+  .bell-button { background: none; border: 0; padding: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--ink); font: 600 14px/1 var(--body); justify-self: center; }
+  .bell-button :global(svg) { max-width: 100%; height: auto; }
+  .hint { opacity: .7; }
+
+  .demo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 16px; }
+  .demo > div { background: var(--surface); border: 3px solid var(--ink); border-radius: 28px; padding: 26px; min-width: 0; }
+  .eyebrow { font: 600 14px/1.3 var(--body); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .next { font-size: 18px; margin: 10px 0 0; }
+  .next strong { display: block; font: 700 clamp(64px, 9vw, 96px)/0.95 var(--display); font-variant-numeric: tabular-nums; }
+  .countdown { margin: 4px 0 18px; color: var(--muted); }
+  .chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .chips-label { font-weight: 600; }
+  .chips button { min-width: 52px; height: 48px; border-radius: 16px; border: 2.5px solid var(--ink); background: transparent; font: 700 18px/1 var(--display); color: var(--ink); cursor: pointer; transition: transform 240ms cubic-bezier(.34,1.56,.64,1), background-color 150ms; }
+  .chips button:active { transform: scale(.94); }
+  .chips button[aria-checked='true'] { background: var(--ink); color: var(--bg); }
+  .demo-bells ul { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .demo-bells li { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: 14px; align-items: center; padding: 6px 0; }
+  .play { grid-row: span 2; width: 48px; height: 48px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--bg); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: transform 240ms cubic-bezier(.34,1.56,.64,1); }
+  .play:active { transform: scale(.9); }
+  .bell-name { font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .bell-note { font-size: 14px; color: var(--muted); }
+  .pro-tag { font-size: 11px; letter-spacing: .08em; background: var(--accent); color: var(--on-accent); border-radius: 999px; padding: 3px 8px; }
+
+  .section-title { font-size: clamp(30px, 4vw, 44px); margin: 72px 0 20px; }
+  .features .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .features article { background: var(--surface); border: 3px solid var(--ink); border-radius: 24px; padding: 22px; min-width: 0; }
+  .features h3 { font-size: 22px; line-height: 1.2; }
+  .features p { margin: 8px 0 0; font-size: 16px; }
+
+  .faces ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+  .faces li { background: var(--surface); border: 3px solid var(--ink); border-radius: 22px; padding: 16px 10px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; text-align: center; }
+  .faces li.night { background: #1E1A16; color: #FFF8E6; }
+
+  section.pro { margin-top: 72px; background: var(--ink); color: var(--bg); border-radius: 28px; padding: clamp(24px, 4vw, 40px); display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between; }
+  section.pro h2 { font-size: clamp(28px, 3.6vw, 40px); }
+  section.pro p { margin: 10px 0 0; font-size: 17px; }
+  .price { font: 700 24px/1 var(--display); background: var(--bg); color: var(--ink); border-radius: 999px; padding: 14px 22px; white-space: nowrap; }
+
+  .faq details { border-bottom: 2px solid var(--ink); padding: 16px 4px; }
+  .faq summary { cursor: pointer; font: 700 20px/1.3 var(--display); }
+  .faq p { margin: 10px 0 0; }
+
+  .closing { margin-top: 56px; }
+  .closing p { font-size: 18px; margin-bottom: 6px; }
+  .closing a { font-weight: 700; }
+
+  @media (max-width: 760px) {
+    .hero, .demo { grid-template-columns: 1fr; }
+    .bell-button { order: -1; }
+    .bell-button :global(svg) { width: 220px; }
+  }
+</style>

@@ -2,6 +2,7 @@
 // Portada del estudio, direccion C del lienzo: titulo enorme y las apps como
 // filas de un indice que se tinen del color de cada app al pasar por encima.
 import Base from '../layouts/Base.astro';
+import { apps, appPath, statusLabel } from '../data/apps';
 interface Props { lang: 'en' | 'es' }
 const { lang } = Astro.props;
 const es = lang === 'es';
@@ -9,11 +10,6 @@ const c = es ? {
   title: 'Maze Studio · Apps pequeñas para tu tiempo y tu atención',
   description: 'Maze Studio hace apps para iPhone y Android que te ayudan con tu tiempo y tu atención: Dear Wander y Tolli.',
   h1: 'Apps pequeñas para tu tiempo y tu atención.',
-  tolli: 'Una campanita que suena cada pocos minutos para que no pierdas la noción del tiempo.',
-  tolliMeta: 'Android · Pronto',
-  dw: 'Una respiración de un minuto antes de abrir las apps donde más haces scroll.',
-  ringwell: 'La alarma para quien trabaja por turnos.',
-  soon: 'En camino',
   about: 'Un estudio de una persona. Cada app hace una cosa y la hace bien.',
   aboutBody: 'Ninguna pide cuenta, ninguna tiene anuncios y lo que guardas se queda en tu teléfono. Son gratis o se pagan una vez. Si algo no funciona, escríbeme a',
   aboutEnd: 'y te contesto yo.',
@@ -21,11 +17,6 @@ const c = es ? {
   title: 'Maze Studio · Small apps for your time and attention',
   description: 'Maze Studio makes iPhone and Android apps that help with your time and attention: Dear Wander and Tolli.',
   h1: 'Small apps for your time and attention.',
-  tolli: 'A little bell that dings every few minutes so you keep track of time.',
-  tolliMeta: 'Android · Coming soon',
-  dw: 'A one-minute breath before you open the apps you scroll most.',
-  ringwell: 'The alarm for people who work rotating shifts.',
-  soon: 'On the way',
   about: 'A one-person studio. Each app does one thing and does it well.',
   aboutBody: 'None of them asks for an account, none has ads, and what you save stays on your phone. They are free or paid once. If something does not work, write to',
   aboutEnd: 'and I will answer myself.',
@@ -35,21 +26,22 @@ const c = es ? {
   <section class="hero"><h1>{c.h1}</h1></section>
 
   <section class="index" aria-label="Apps">
-    <a class="row tolli" href={es ? '/es/tolli/' : '/tolli/'}>
-      <img src="/img/tolli-icon.png" alt="" width="96" height="96" />
-      <div class="text"><span class="name tolli-name">Tolli</span><span class="line">{c.tolli}</span></div>
-      <span class="meta">{c.tolliMeta}<span class="arrow" aria-hidden="true">→</span></span>
-    </a>
-    <a class="row dw" href="https://dearwander.com">
-      <img src="/img/dear-wander-icon.png" alt="" width="96" height="96" />
-      <div class="text"><span class="name">Dear Wander</span><span class="line">{c.dw}</span></div>
-      <span class="meta">iPhone · Android<span class="arrow" aria-hidden="true">↗</span></span>
-    </a>
-    <div class="row soon">
-      <span class="placeholder" aria-hidden="true"></span>
-      <div class="text"><span class="name">Ringwell</span><span class="line">{c.ringwell}</span></div>
-      <span class="meta">{c.soon}</span>
-    </div>
+    {apps.map((app) => {
+      const href = app.externalUrl ?? (app.status === 'building' ? undefined : appPath(app, lang));
+      const Tag = href ? 'a' : 'div';
+      const meta = `${app.status === 'building' ? '' : `${app.platforms} · `}${statusLabel[app.status][lang]}`;
+      return (
+        <Tag class:list={['row', { soon: app.status === 'building' }]} href={href}
+          style={`--hover-bg:${app.hover.bg};--hover-ink:${app.hover.ink}`}>
+          {app.icon ? <img src={app.icon} alt="" width="96" height="96" /> : <span class="placeholder" aria-hidden="true"></span>}
+          <div class="text">
+            <span class="name" style={app.nameFont ? `font-family:${app.nameFont};letter-spacing:0` : undefined}>{app.name}</span>
+            <span class="line">{app.tagline[lang]}</span>
+          </div>
+          <span class="meta">{meta}{href && <span class="arrow" aria-hidden="true">{app.externalUrl ? '↗' : '→'}</span>}</span>
+        </Tag>
+      );
+    })}
   </section>
 
   <section class="about">
@@ -65,13 +57,11 @@ const c = es ? {
   .placeholder { border: 2px dashed var(--line); }
   .text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
   .name { font: 700 clamp(36px, 5vw, 64px)/1 var(--display); letter-spacing: -0.03em; }
-  .tolli-name { font-family: 'Fredoka', sans-serif; letter-spacing: 0; }
   .line { font-size: 18px; color: var(--muted); }
   .meta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; font-size: 14px; font-weight: 600; white-space: nowrap; }
   .arrow { font-size: 28px; transition: transform 260ms cubic-bezier(.34,1.56,.64,1); }
   .row:hover .arrow { transform: translateX(8px); }
-  .row.tolli:hover { background: #F4C230; color: #1E1A16; }
-  .row.dw:hover { background: #F3DDBA; color: #3B2A1E; }
+  a.row:hover { background: var(--hover-bg); color: var(--hover-ink); }
   .row:hover .line { color: inherit; }
   .row.soon { color: var(--muted); border-bottom: 2px solid var(--ink); }
   .about { margin-top: 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px 64px; }

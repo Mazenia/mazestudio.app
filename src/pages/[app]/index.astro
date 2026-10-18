@@ -1,0 +1,13 @@
+---
+// Una pagina por app con pagina propia (src/data/apps.ts). El contenido de
+// cada una vive en src/apps/<slug>/Page.astro.
+import { appsWithPage } from '../../data/apps';
+import TolliPage from '../../apps/tolli/Page.astro';
+export function getStaticPaths() {
+  return appsWithPage.map((app) => ({ params: { app: app.slug }, props: { app } }));
+}
+const pages = { tolli: TolliPage } as const;
+const { app } = Astro.props;
+const Page = pages[app.slug as keyof typeof pages];
+---
+<Page app={app} lang="en" />

@@ -1,0 +1,28 @@
+---
+// La politica de privacidad de cualquier app, con los colores de la app.
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { appPath, type App, type Lang } from '../data/apps';
+interface Props { app: App; lang: Lang }
+const { app, lang } = Astro.props;
+const entry = await getEntry('privacy', `${app.slug}.${lang}`);
+if (!entry) throw new Error(`Falta src/content/privacy/${app.slug}.${lang}.md`);
+const { Content } = await render(entry);
+const other: Lang = lang === 'es' ? 'en' : 'es';
+---
+<Base title={entry.data.title} description={entry.data.description} lang={lang} altPath={appPath(app, other, 'privacy')} app={app}>
+  <article class="policy">
+    <a class="back" href={appPath(app, lang)}>← {app.name}</a>
+    <h1>{entry.data.title}</h1>
+    <p class="date">{entry.data.effective}</p>
+    <Content />
+  </article>
+</Base>
+<style>
+  .policy { background: var(--surface); border: 3px solid var(--ink); border-radius: 28px; padding: clamp(22px, 4vw, 48px); margin-top: 8px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 15px; }
+  .policy h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.05; margin-top: 16px; }
+  .policy :global(h2) { font-size: 22px; margin-top: 32px; }
+  .date { color: var(--muted); font-size: 15px; }
+  .policy :global(ul) { padding-left: 22px; }
+</style>

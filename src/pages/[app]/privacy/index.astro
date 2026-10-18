@@ -1,0 +1,9 @@
+---
+import { appsWithPage } from '../../../data/apps';
+import AppPrivacy from '../../../components/AppPrivacy.astro';
+export function getStaticPaths() {
+  return appsWithPage.map((app) => ({ params: { app: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+---
+<AppPrivacy app={app} lang="en" />
