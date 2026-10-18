@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import TolliBell from './TolliBell.astro';
+interface Props { lang: 'en' | 'es' }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const c = es ? {
+  title: 'Tolli · Una campanita que te lleva el tiempo',
+  description: 'Tolli suena cada 10, 15, 30 o 60 minutos para que sepas cuánto tiempo pasó sin mirar el reloj. Para Android, sin cuenta y sin anuncios.',
+  bell: 'Tolli, una campanita roja con cara sonriente, sonando',
+  h1: 'Hola, soy Tolli.',
+  lead: 'Soy una campanita que suena cada pocos minutos para que sepas cuánto tiempo pasó, sin mirar el reloj.',
+  cta: 'Pronto en Google Play',
+  ctaNote: '¿Quieres probarla antes? Escríbenos a hola@mazestudio.app y te sumamos a la prueba.',
+  features: [
+    ['Sueno a tiempo', 'Uso alarmas exactas: el ding de las 10:45 llega a las 10:45. Cada día puedes ver si cada ding sonó, vibró o se quedó callado.'],
+    ['Te digo si algo me calla', 'Si el ahorro de batería o No molestar pueden impedirme sonar, te digo qué es y cómo arreglarlo, con los pasos de tu marca de teléfono.'],
+    ['Sueno a mi volumen', 'Me oyes aunque tengas la música en silencio, con mi propio volumen. En vibración sientes mi ding en la mano.'],
+    ['En tu pantalla de inicio', 'Mi widget muestra el próximo ding y mi cara cambia durante el día: despierta, descansando o dormida.'],
+  ],
+  privacy: 'Sin cuenta y sin anuncios. Sueno sin conexión y todo se queda en tu teléfono.',
+  privacyLink: 'Política de privacidad',
+  pro: 'Gratis, con Tolli Pro opcional por un solo pago: más temas y campanas.',
+} : {
+  title: 'Tolli · A little bell that keeps time with you',
+  description: 'Tolli dings every 10, 15, 30 or 60 minutes so you know how much time has passed without looking at the clock. For Android, no account, no ads.',
+  bell: 'Tolli, a little red bell with a smiling face, ringing',
+  h1: "Hi, I'm Tolli.",
+  lead: "I'm a little bell who rings every few minutes, so you know how much time has passed without looking at the clock.",
+  cta: 'Coming soon to Google Play',
+  ctaNote: 'Want to try it early? Write to hola@mazestudio.app and we will add you to the test.',
+  features: [
+    ['I ring on time', 'I use exact alarms, so the 10:45 ding arrives at 10:45. Each day you can see whether every ding rang, vibrated or stayed quiet.'],
+    ['I tell you if something stops me', 'If battery saver or Do Not Disturb could keep me quiet, I tell you what it is and how to fix it, with the steps for your phone’s brand.'],
+    ['I ring at my own volume', 'You hear me even with music muted, at my own volume. On vibrate you feel my ding in your hand.'],
+    ['On your home screen', 'My widget shows the next ding and my face changes through the day: awake, resting or asleep.'],
+  ],
+  privacy: 'No account and no ads. I ring offline and everything stays on your phone.',
+  privacyLink: 'Privacy policy',
+  pro: 'Free, with an optional one-time Tolli Pro: more themes and bells.',
+};
+---
+<Base title={c.title} description={c.description} lang={lang} altPath={es ? '/tolli/' : '/es/tolli/'} theme="tolli" ogImage={es ? '/img/tolli-og-es.png' : '/img/tolli-og.png'}>
+  <section class="hero">
+    <div class="copy">
+      <h1>{c.h1}</h1>
+      <p class="lead">{c.lead}</p>
+      <span class="cta">{c.cta}</span>
+      <p class="note">{c.ctaNote}</p>
+    </div>
+    <TolliBell label={c.bell} />
+  </section>
+  <section class="features">
+    {c.features.map(([h, p]) => (
+      <article><h2>{h}</h2><p>{p}</p></article>
+    ))}
+  </section>
+  <section class="closing">
+    <p>{c.privacy} {c.pro}</p>
+    <a href={es ? '/es/tolli/privacy/' : '/tolli/privacy/'}>{c.privacyLink}</a>
+  </section>
+</Base>
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 48px 64px; }
+  @media (max-width: 720px) { .hero { grid-template-columns: 1fr; } .hero :global(svg) { order: -1; width: 200px; justify-self: center; } }
+  h1 { font-size: clamp(44px, 8vw, 84px); line-height: 0.98; font-weight: 700; }
+  .lead { font-size: 21px; margin: 20px 0 28px; }
+  .cta { display: inline-block; padding: 16px 28px; border-radius: 999px; border: 3px solid var(--ink); background: var(--accent); color: #fff; font: 700 19px/1 var(--display); box-shadow: 0 5px 0 var(--ink); }
+  .note { font-size: 15px; color: var(--muted); margin-top: 18px; }
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .features article { background: var(--surface); border: 3px solid var(--ink); border-radius: 24px; padding: 22px; min-width: 0; }
+  .features h2 { font-size: 22px; font-weight: 700; }
+  .features p { margin: 8px 0 0; font-size: 16px; }
+  .closing { margin-top: 48px; }
+  .closing p { font-size: 18px; }
+  .closing a { font-weight: 700; }
+</style>

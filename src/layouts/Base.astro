@@ -1,0 +1,92 @@
+---
+// El marco de todas las paginas del estudio. Cada app trae su propio tema
+// (colores y tipografia) para que su pagina se parezca a la app.
+interface Props {
+  title: string;
+  description: string;
+  lang: 'en' | 'es';
+  /** La misma pagina en el otro idioma, para el selector y hreflang. */
+  altPath: string;
+  theme?: 'studio' | 'tolli';
+  ogImage?: string;
+}
+const { title, description, lang, altPath, theme = 'studio', ogImage = '/img/tolli-og.png' } = Astro.props;
+const withSlash = (p: string) => (p.endsWith('/') ? p : `${p}/`);
+const canonical = new URL(withSlash(Astro.url.pathname), Astro.site);
+const alt = new URL(withSlash(altPath), Astro.site);
+const enUrl = lang === 'en' ? canonical : alt;
+const esUrl = lang === 'es' ? canonical : alt;
+const home = lang === 'es' ? '/es/' : '/';
+const t = {
+  en: { other: 'Español', apps: 'Apps', contact: 'Contact', rights: 'Small apps, made with care.' },
+  es: { other: 'English', apps: 'Apps', contact: 'Contacto', rights: 'Apps pequeñas, hechas con cuidado.' },
+}[lang];
+---
+<!doctype html>
+<html lang={lang} data-theme={theme}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="es" href={esUrl} />
+  <link rel="alternate" hreflang="x-default" href={enUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href={theme === 'tolli' ? '/img/tolli-icon.png' : '/favicon.svg'} />
+  <style is:global>
+    @font-face { font-family: 'Fredoka'; src: url('/fonts/Fredoka.ttf') format('truetype'); font-weight: 300 700; font-display: swap; }
+    @font-face { font-family: 'DM Sans'; src: url('/fonts/DMSans.ttf') format('truetype'); font-weight: 100 1000; font-display: swap; }
+
+    /* Estudio: papel frio, tinta casi negra, sin acento propio: el color lo ponen las apps. */
+    :root {
+      --bg: #F6F6F3; --surface: #FFFFFF; --ink: #17171A; --muted: #5C5C66; --line: #E2E2DD; --accent: #17171A;
+      --display: 'DM Sans', system-ui, sans-serif; --body: 'DM Sans', system-ui, sans-serif;
+    }
+    /* Tolli: los colores de la app, tema Mostaza. */
+    [data-theme='tolli'] {
+      --bg: #F4C230; --surface: #FFF8E6; --ink: #1E1A16; --muted: #5B5148; --line: #1E1A16; --accent: #E2482E;
+      --display: 'Fredoka', 'DM Sans', system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme='tolli']) { --bg: #121214; --surface: #1C1C20; --ink: #EDEDEA; --muted: #A0A0A8; --line: #2C2C32; --accent: #EDEDEA; }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 var(--body); }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding-inline: max(20px, env(safe-area-inset-left, 0px)); }
+    header.site { display: flex; align-items: center; justify-content: space-between; padding-block: 22px; }
+    .brand { font: 700 18px/1 var(--body); letter-spacing: -0.01em; text-decoration: none; }
+    .lang { font-size: 14px; color: var(--muted); }
+    footer.site { margin-top: 96px; padding-block: 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+    footer.site nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+    p { max-width: 62ch; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <a class="brand" href={home}>Maze Studio</a>
+      <a class="lang" href={withSlash(altPath)} hreflang={lang === 'en' ? 'es' : 'en'}>{t.other}</a>
+    </header>
+    <main><slot /></main>
+    <footer class="site">
+      <span>© 2026 Maze Studio · {t.rights}</span>
+      <nav aria-label={t.apps}>
+        <a href={lang === 'es' ? '/es/tolli/' : '/tolli/'}>Tolli</a>
+        <a href="https://dearwander.com">Dear Wander</a>
+        <a href="mailto:hola@mazestudio.app">{t.contact}: hola@mazestudio.app</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
