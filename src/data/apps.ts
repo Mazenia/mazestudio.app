@@ -31,7 +31,21 @@ export interface App {
   nameFont?: string;
 }
 
+// Orden de la portada: primero lo que se puede descargar hoy.
 export const apps: App[] = [
+  {
+    slug: 'dear-wander',
+    name: 'Dear Wander',
+    status: 'live',
+    platforms: 'iPhone · Android',
+    icon: '/img/dear-wander-icon.png',
+    tagline: {
+      en: 'A one-minute breath before you open the apps you scroll most.',
+      es: 'Una respiración de un minuto antes de abrir las apps donde más haces scroll.',
+    },
+    externalUrl: 'https://dearwander.com',
+    hover: { bg: '#F3DDBA', ink: '#3B2A1E' },
+  },
   {
     slug: 'tolli',
     name: 'Tolli',
@@ -48,19 +62,6 @@ export const apps: App[] = [
     },
     hover: { bg: '#F4C230', ink: '#1E1A16' },
     nameFont: "'Fredoka', sans-serif",
-  },
-  {
-    slug: 'dear-wander',
-    name: 'Dear Wander',
-    status: 'live',
-    platforms: 'iPhone · Android',
-    icon: '/img/dear-wander-icon.png',
-    tagline: {
-      en: 'A one-minute breath before you open the apps you scroll most.',
-      es: 'Una respiración de un minuto antes de abrir las apps donde más haces scroll.',
-    },
-    externalUrl: 'https://dearwander.com',
-    hover: { bg: '#F3DDBA', ink: '#3B2A1E' },
   },
   {
     slug: 'ringwell',

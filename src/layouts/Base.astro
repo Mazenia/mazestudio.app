@@ -21,8 +21,8 @@ const enUrl = lang === 'en' ? canonical : alt;
 const esUrl = lang === 'es' ? canonical : alt;
 const home = lang === 'es' ? '/es/' : '/';
 const t = {
-  en: { other: 'Español', apps: 'Apps', rights: 'Small apps, made with care.', privacy: 'privacy' },
-  es: { other: 'English', apps: 'Apps', rights: 'Apps pequeñas, hechas con cuidado.', privacy: 'privacidad' },
+  en: { other: 'Español', apps: 'Apps', privacy: 'privacy' },
+  es: { other: 'English', apps: 'Apps', privacy: 'privacidad' },
 }[lang];
 const th = app?.theme;
 const themeStyle = th
@@ -94,7 +94,7 @@ const footerApps = apps.filter((a) => a.status !== 'building');
     </header>
     <main><slot /></main>
     <footer class="site">
-      <span>© 2026 Maze Studio · {t.rights}</span>
+      <span>© 2026 Maze Studio</span>
       <nav aria-label={t.apps}>
         {footerApps.map((a) => <a href={a.externalUrl ?? appPath(a, lang)}>{a.name}</a>)}
         {footerApps.filter((a) => !a.externalUrl).map((a) => <a href={appPath(a, lang, 'privacy')}>{a.name} · {t.privacy}</a>)}
