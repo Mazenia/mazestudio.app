@@ -64,16 +64,17 @@ export const apps: App[] = [
     nameFont: "'Fredoka', sans-serif",
   },
   {
-    slug: 'ringwell',
-    name: 'Ringwell',
+    slug: 'tolli-study',
+    name: 'Tolli: Study',
     status: 'building',
     platforms: 'Android',
-    icon: '',
+    icon: '/img/tolli-study-icon.png',
     tagline: {
-      en: 'The alarm for people who work rotating shifts.',
-      es: 'La alarma para quien trabaja por turnos.',
+      en: 'Tolli as your study buddy: she quizzes you in your Pomodoro breaks.',
+      es: 'Tolli como compañera de estudio: te pregunta en las pausas del Pomodoro.',
     },
-    hover: { bg: '#0E1724', ink: '#E8EEF3' },
+    hover: { bg: '#4F6A99', ink: '#FFF8E6' },
+    nameFont: "'Fredoka', sans-serif",
   },
 ];
 
