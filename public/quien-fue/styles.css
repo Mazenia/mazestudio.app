@@ -562,3 +562,62 @@ h1 {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Récords: una pantallita de recreativa pegada en la libreta. */
+.records .hs-level { margin: 0 0 10px; color: #6E6280; font-size: 0.9rem; }
+
+.hs-list {
+  margin: 0;
+  padding: 14px 14px 12px;
+  list-style: none;
+  border: 3px solid var(--ink);
+  border-radius: 10px 14px 12px 8px;
+  background: radial-gradient(ellipse at 50% 40%, #2E2550, #191330 75%);
+  box-shadow: inset 0 0 0 3px #3A3060, 0 4px 0 var(--ink);
+  color: #FFD84A;
+  font: 0.68rem/1 "Press Start 2P", ui-monospace, monospace;
+}
+
+.hs-list li { display: flex; gap: 10px; padding: 5px 0; }
+.hs-list li:nth-child(2) { color: #8FE0B6; }
+.hs-list li:nth-child(3) { color: #8FC3FF; }
+.hs-list li:nth-child(n+4) { color: #F1EAFB; }
+.hs-list li.empty { color: #6E6290; }
+.hs-list li.new { animation: hs-blink 0.5s steps(1) 6; }
+.hs-pos { width: 1.4em; }
+.hs-ini { width: 3.6em; letter-spacing: 0.1em; }
+.hs-time { flex: 1; }
+.hs-day { opacity: 0.6; }
+
+@keyframes hs-blink { 50% { color: transparent; } }
+
+/* Pedir las iniciales dentro del diálogo de victoria. */
+.hs-entry { margin: 14px 0 4px; padding: 12px; border: 3px solid var(--ink); border-radius: 12px; background: #191330; color: #F1EAFB; }
+.hs-entry .hs-title { margin: 0 0 6px; color: #FFD84A; font: 0.66rem/1.5 "Press Start 2P", ui-monospace, monospace; }
+.hs-entry .hs-score { margin: 0 0 8px; font: 1rem/1.2 "Press Start 2P", ui-monospace, monospace; }
+.hs-entry .hs-score small { font-size: 0.55rem; opacity: 0.7; }
+.hs-entry label { display: block; margin-bottom: 6px; font-size: 0.9rem; }
+.hs-row { display: flex; gap: 8px; justify-content: center; }
+
+.hs-entry input {
+  width: 5.4em;
+  padding: 8px 0 6px 0.3em;
+  border: 3px solid #FFD84A;
+  border-radius: 8px;
+  background: #000;
+  color: #FFD84A;
+  font: 1.3rem/1 "Press Start 2P", ui-monospace, monospace;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-transform: uppercase;
+  caret-color: #FFD84A;
+}
+
+.hs-entry button {
+  padding: 0 14px;
+  border: 3px solid #FFD84A;
+  border-radius: 8px;
+  background: #FFD84A;
+  color: var(--ink);
+  font-weight: 800;
+}

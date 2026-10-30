@@ -63,6 +63,7 @@
       $('timer').textContent = fmtTime(state.elapsed);
       if (state.elapsed % 5 === 0) save();
     }, 1000);
+    renderRecords();
     if (state.solved) showWin();
   }
 
@@ -193,6 +194,17 @@
     $('win-stats').textContent = `Tiempo ${fmtTime(state.elapsed)}, ${pl(state.hints, 'pista', 'pistas')}, ${pl(state.errors, 'fallo', 'fallos')}`;
     const dialog = $('win');
     if (!dialog.open) dialog.showModal();
+    if (practiceSeed === null && !state.recorded) {
+      Records.offer(dialog, { game: 'interro', level, ...state }, (at) => {
+        state.recorded = true;
+        save();
+        renderRecords(at);
+      });
+    }
+  }
+
+  function renderRecords(highlight) {
+    Records.renderBoard($('records'), 'interro', level, LEVELS[level].label, highlight);
   }
 
   function shareText() {

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Cómo jugar · ¿Quién fue?</title>
+  <meta name="description" content="Las reglas del Caso del día y del Interrogatorio, explicadas paso a paso, con los sospechosos y las preguntas frecuentes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="wide">
+  <svg class="defs" width="0" height="0" aria-hidden="true">
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+    <filter id="rough-s"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+  </svg>
+  <header class="mast">
+    <div class="mast-in">
+      <a class="brand" href="index.html">¿Quién fue?</a>
+      <div class="lineup" id="lineup" aria-hidden="true"></div>
+      <nav class="tabs" aria-label="Secciones">
+      <a href="index.html">Hoy</a>
+      <a href="interrogatorio.html">Interrogatorio</a>
+      <a href="como-jugar.html" aria-current="page">Cómo jugar</a>
+      <a href="peques.html">Peques</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <h1>Cómo jugar</h1>
+    <p class="lede">Cada día hay dos misterios nuevos: el Caso del día, que se resuelve en un tablero, y el Interrogatorio, que se resuelve leyendo lo que dice cada sospechoso. Los dos tienen una sola solución y se pueden resolver solo pensando.</p>
+
+    <h2>Los sospechosos</h2>
+    <p>Son siempre los mismos cinco, y siempre llevan el mismo número. Cada uno tiene su color y su accesorio, para que se distingan aunque no veas bien los colores.</p>
+    <ul class="cast" id="cast"></ul>
+
+    <h2>El Caso del día</h2>
+    <ol class="steps">
+      <li>
+        <h3>Mira la casa</h3>
+        <p>El tablero es una casa vista desde arriba, dividida en habitaciones. Hay sillas, plantas, estanterías y relojes. Nadie puede estar encima de una planta, una estantería o un reloj; en las sillas sí.</p>
+      </li>
+      <li>
+        <h3>Coloca a los sospechosos</h3>
+        <p>En cada fila y en cada columna hay exactamente una persona, contando a la víctima. Toca un personaje y luego una casilla, o arrástralo. Si quieres apuntar que alguien no puede estar en una casilla, usa «Marcar casillas».</p>
+      </li>
+      <li>
+        <h3>Sigue las pistas</h3>
+        <p>Todas son ciertas. Toca una pista para tacharla cuando ya la hayas usado.</p>
+        <ul class="clue-list">
+          <li>«Jade estaba en la cocina» o «no estaba en el salón».</li>
+          <li>«Rubí estaba en la fila 2» o «en la columna 3». Las filas se cuentan de arriba abajo y las columnas, de izquierda a derecha.</li>
+          <li>«Zafiro estaba junto a una planta»: en una casilla pegada, en horizontal o en vertical, nunca en diagonal.</li>
+          <li>«Ámbar estaba más arriba que Violeta» o «más a la izquierda»: no hace falta que estén pegados.</li>
+          <li>«Violeta no compartió habitación con nadie»: estaba sola en su habitación.</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Acusa</h3>
+        <p>El culpable es la única persona que estuvo en la misma habitación que la víctima. Cuando todos estén colocados, pulsa «Acusar». Si algo no cuadra, el tablero tiembla y puedes seguir intentándolo.</p>
+      </li>
+    </ol>
+    <p>Hay tres tamaños, y cada uno es un caso distinto: fácil (4×4, con Rubí, Ámbar y Jade), medio (5×5, se suma Zafiro) y difícil (6×6, con los cinco).</p>
+
+    <h2>El Interrogatorio</h2>
+    <ol class="steps">
+      <li>
+        <h3>Lee las declaraciones</h3>
+        <p>Cada sospechoso dice una frase. El culpable siempre miente. Quien miente, lo que dice es falso; quien dice la verdad, nunca se equivoca.</p>
+      </li>
+      <li>
+        <h3>Mira cuántos mienten</h3>
+        <p>En fácil solo miente el culpable. En medio mienten dos: el culpable y alguien que lo encubre. En difícil no sabes cuántos son, pero nunca más de tres.</p>
+      </li>
+      <li>
+        <h3>Prueba qué pasaría si…</h3>
+        <p>Elige a alguien y supón que miente: mira qué otras frases tendrían que ser falsas o ciertas. Si llegas a una contradicción, esa suposición era mala. Marca a cada uno con «Dice la verdad» o «Miente» para no perderte.</p>
+      </li>
+      <li>
+        <h3>Señala y acusa</h3>
+        <p>Toca al blob que crees culpable y pulsa «Acusar». Si te equivocas, ese sospechoso queda con el sello «Tiene coartada».</p>
+      </li>
+    </ol>
+    <p>Cuando alguien habla de «mi número», se refiere al cartel que lleva: Rubí es el 1 y Violeta, el 5.</p>
+
+    <h2>Preguntas</h2>
+    <h3>¿Cuándo hay misterios nuevos?</h3>
+    <p>A medianoche, según la hora de tu dispositivo. Todo el mundo tiene los mismos casos el mismo día.</p>
+    <h3>¿Se guarda lo que llevo?</h3>
+    <p>Sí, en este navegador. Si cambias de dispositivo o borras los datos del sitio, empiezas de cero.</p>
+    <h3>¿Y si me atasco?</h3>
+    <p>Pide una pista: en el Caso del día coloca a una persona en su sitio y en el Interrogatorio te dice si alguien miente. Las pistas cuentan en tu resultado, pero no te impiden terminar.</p>
+    <h3>¿Puedo jugar más de un caso al día?</h3>
+    <p>Sí, con los casos de práctica que hay debajo de las reglas de cada juego. No cuentan para el caso del día.</p>
+    <h3>¿Cómo funcionan los récords?</h3>
+    <p>Como en las máquinas recreativas: si resuelves el caso del día lo bastante rápido, entras en la tabla de tu nivel y puedes dejar tres iniciales. Cuenta el tiempo más 30 segundos por cada pista o fallo. La tabla es de tu dispositivo: si juegan varias personas en el mismo, compiten entre sí.</p>
+    <h3>¿Hay algo para peques?</h3>
+    <p>Sí: en <a href="peques.html">Peques</a> hay un misterio sin crímenes, «¿Quién se comió el pastel?», con tableros pequeños y pistas con dibujos.</p>
+
+    <p><a class="cta" href="index.html">Jugar el caso de hoy</a></p>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="Información">
+      <a href="acerca.html">Acerca y contacto</a>
+      <a href="privacidad.html">Privacidad y cookies</a>
+    </nav>
+    <p>Un caso nuevo cada día.</p>
+  </footer>
+
+  <script src="art.js"></script>
+  <script src="site.js"></script>
+  <script>
+    (function () {
+      const { LOOKS, VICTIM_LOOK, blob } = window.Art;
+      const cast = [
+        ['Rubí', 'lazo'], ['Ámbar', 'corona'], ['Jade', 'brote'], ['Zafiro', 'pajarita'], ['Violeta', 'antena'],
+      ].map(([name, extra], k) => `<li>${blob(LOOKS[k])}<strong>${k + 1}. ${name}</strong><span>${extra}</span></li>`);
+      cast.push(`<li class="victim">${blob(VICTIM_LOOK)}<strong>Conde Grafito</strong><span>la víctima</span></li>`);
+      document.getElementById('cast').innerHTML = cast.join('');
+    })();
+  </script>
+</body>
+</html>

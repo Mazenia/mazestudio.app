@@ -228,3 +228,33 @@
   color: var(--text-soft);
   font-size: 0.92rem;
 }
+
+.page h3 { margin: 18px 0 4px; font: 800 1.05rem/1.25 var(--display); }
+.page .meta { margin: -4px 0 14px; }
+
+@media (min-width: 820px) {
+  .wide .page { max-width: 1216px; padding: 36px 32px 64px 80px; }
+  .wide .page > * { max-width: 680px; }
+}
+
+/* Reparto: los cinco sospechosos con su número y accesorio, y la víctima. */
+.page .cast {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cast li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.cast svg { width: 76px; height: 76px; }
+.cast strong { font-size: 0.95rem; }
+.cast span { color: var(--text-soft); font-size: 0.85rem; }
