@@ -1,0 +1,188 @@
+/* Interrogatorio: una ficha por sospechoso, con su declaración en un bocadillo
+   y dos botones para marcar si dice la verdad o miente. */
+
+.witnesses {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.witnesses.shake { animation: shake 0.4s; }
+
+.witness {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 6px 14px;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.witness.flash { animation: flash-row 1.4s; }
+
+@keyframes flash-row {
+  0%, 100% { background: transparent; }
+  30% { background: rgb(255 216 74 / 0.5); }
+}
+
+/* El blob: al tocarlo queda señalado con un círculo de rotulador rojo. */
+.who {
+  position: relative;
+  isolation: isolate;
+  width: 84px;
+  height: 84px;
+  padding: 0;
+  border: 0;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.who svg { width: 100%; height: 100%; overflow: visible; transition: transform 0.15s; }
+.who:disabled { cursor: default; }
+
+.who .num {
+  position: absolute;
+  left: -4px;
+  top: 2px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 2.5px solid var(--ink);
+  border-radius: 6px 8px 5px 7px;
+  background: #fff;
+  color: var(--ink);
+  font: 800 0.9rem/1 var(--display);
+  transform: rotate(-6deg);
+}
+
+.who::before {
+  content: "";
+  position: absolute;
+  inset: -6px -8px -2px;
+  z-index: -1;
+  border: 3.5px solid transparent;
+  border-radius: 48% 52% 45% 55%;
+  transform: rotate(-8deg) scale(0.8);
+  opacity: 0;
+  filter: url(#rough);
+  transition: transform 0.18s cubic-bezier(.3, 1.6, .5, 1), opacity 0.12s;
+}
+
+.witness.picked .who::before { border-color: var(--jam); opacity: 1; transform: rotate(-8deg); }
+.witness.picked .who svg { transform: translateY(-4px) scale(1.04); }
+
+.say { min-width: 0; }
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 4px 14px;
+  font: 800 1.05rem/1.1 var(--display);
+}
+
+/* Sello que aparece tras acusar a alguien inocente. */
+.stamp {
+  padding: 1px 7px;
+  border: 2px solid #23915F;
+  border-radius: 6px 9px 5px 8px;
+  color: #23915F;
+  font-size: 0.75rem;
+  font-weight: 800;
+  transform: rotate(-4deg);
+}
+
+/* Bocadillo dibujado, con el pico hacia el blob. */
+.bubble {
+  position: relative;
+  isolation: isolate;
+  --bg: #fff;
+  margin: 0;
+  padding: 10px 14px 9px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 2.5px solid var(--ink);
+  border-radius: 16px 20px 18px 6px;
+  background: var(--bg);
+  filter: url(#rough);
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: -11px;
+  bottom: 10px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  border-bottom: 2.5px solid var(--ink);
+}
+
+.bubble .chip { line-height: 1.5; }
+
+.witness.truth .bubble { --bg: #DFF6E8; }
+.witness.lie .bubble { --bg: #FFE4E9; }
+.witness.lie .bubble { text-decoration: line-through wavy 1.5px var(--jam); }
+.witness.guilty .bubble { --bg: #FFD3DB; }
+
+.verdict {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 0 14px;
+}
+
+.verdict button {
+  position: relative;
+  isolation: isolate;
+  --bg: transparent;
+  padding: 3px 12px 2px;
+  border: 0;
+  background: none;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.verdict button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 2px dashed currentColor;
+  border-radius: 12px 14px 10px 13px;
+  background: var(--bg);
+  filter: url(#rough-s);
+}
+
+.verdict button[aria-pressed="true"] { color: var(--ink); }
+.verdict button[aria-pressed="true"]::before { border-style: solid; border-color: var(--ink); }
+.verdict [data-mark="1"][aria-pressed="true"] { --bg: #8FE0B6; }
+.verdict [data-mark="2"][aria-pressed="true"] { --bg: var(--jam); color: #fff; }
+.verdict button:disabled { cursor: default; }
+
+/* Libreta lateral */
+.tally ul { list-style: none; margin: 0; padding: 0; }
+.tally li { position: relative; padding: 4px 0 4px 22px; }
+.tally li::before { content: "~"; position: absolute; left: 2px; top: 2px; color: var(--jam); font-weight: 800; }
+.tally li.warn { color: var(--jam); font-weight: 700; }
+.tally li.warn::before { content: "!"; }
+
+@media (max-width: 420px) {
+  .witness { grid-template-columns: 64px minmax(0, 1fr); gap: 6px 10px; }
+  .who { width: 64px; height: 64px; }
+  .who .num { width: 22px; height: 22px; font-size: 0.8rem; }
+  .verdict button { padding: 3px 10px 2px; }
+}

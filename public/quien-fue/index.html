@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>¿Quién fue? Un misterio lógico cada día</title>
+  <meta name="description" content="Coloca a los sospechosos en el tablero siguiendo las pistas y descubre quién fue. Un caso nuevo cada día, gratis y en español.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="wide">
+  <!-- Trazo de rotulador: desplaza un poco los bordes para que parezcan dibujados a mano. -->
+  <svg class="defs" width="0" height="0" aria-hidden="true">
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+    <filter id="rough-s"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+  </svg>
+  <header class="mast">
+    <div class="mast-in">
+      <a class="brand" href="index.html">¿Quién fue?</a>
+      <div class="lineup" id="lineup" aria-hidden="true"></div>
+      <nav class="tabs" aria-label="Secciones">
+      <a href="index.html" aria-current="page">Hoy</a>
+      <a href="interrogatorio.html">Interrogatorio</a>
+      <a href="como-jugar.html">Cómo jugar</a>
+      <a href="peques.html">Peques</a>
+      </nav>
+    </div>
+  </header>
+  <main class="app case">
+    <section class="play">
+      <header class="top">
+        <div>
+          <h1>Caso del día</h1>
+          <p class="meta" id="meta"></p>
+        </div>
+        <div class="timer" id="timer" aria-label="Tiempo">0:00</div>
+      </header>
+
+      <nav class="sizes" id="sizes" aria-label="Dificultad"></nav>
+
+      <p class="brief" id="brief"></p>
+
+      <div class="board" id="board" role="grid"></div>
+
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <section class="tray" id="tray" aria-label="Personajes"></section>
+
+      <div class="tools">
+        <button class="tool" id="mode" type="button" aria-pressed="false">✕ Marcar casillas</button>
+        <button class="tool" id="hint" type="button">Pedir una pista</button>
+        <button class="tool" id="reset" type="button">Vaciar tablero</button>
+      </div>
+    </section>
+
+    <aside class="side side-clues">
+      <section class="clues card">
+        <h2>Pistas</h2>
+        <ul id="clues"></ul>
+        <p class="card-foot">Toca una pista para tacharla cuando ya la hayas usado.</p>
+      </section>
+
+      <button class="accuse" id="accuse" type="button">Acusar</button>
+    </aside>
+
+    <aside class="side side-rules">
+      <section class="rules card">
+        <h2>Cómo se juega</h2>
+        <ul>
+          <li>En cada fila y en cada columna hay exactamente una persona.</li>
+          <li>Nadie puede estar sobre una planta, una estantería o un reloj. En las sillas sí.</li>
+          <li>«Junto a» es en una casilla pegada, en horizontal o vertical.</li>
+          <li>El culpable es la única persona que estuvo en la misma habitación que la víctima.</li>
+          <li>Todas las pistas son ciertas y solo hay una solución.</li>
+          <li>Toca un personaje y luego una casilla, o arrástralo. Arrástralo fuera del tablero para quitarlo.</li>
+        </ul>
+      </section>
+
+      <button class="practice" id="practice" type="button">Jugar un caso de práctica</button>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="Información">
+      <a href="acerca.html">Acerca y contacto</a>
+      <a href="privacidad.html">Privacidad y cookies</a>
+    </nav>
+    <p>Un caso nuevo cada día.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog class="modal" id="win">
+    <div class="reveal" id="reveal"></div>
+    <h2 id="win-title"></h2>
+    <p id="win-text"></p>
+    <p class="win-stats" id="win-stats"></p>
+    <div class="modal-actions">
+      <button type="button" id="share">Compartir resultado</button>
+      <button type="button" id="close-win" class="secondary">Cerrar</button>
+    </div>
+  </dialog>
+
+  <script src="generator.js"></script>
+  <script src="art.js"></script>
+  <script src="site.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

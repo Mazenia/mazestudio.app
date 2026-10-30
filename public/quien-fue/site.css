@@ -1,0 +1,230 @@
+/* Piezas comunes del sitio: cabecera con rueda de reconocimiento, pestañas, pie y textos. */
+
+:root {
+  --wall: #DCD2EC;
+  --wall-line: rgb(43 28 61 / 0.18);
+  --star: #FFD84A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wall: #362C4E;
+    --wall-line: rgb(241 234 251 / 0.14);
+  }
+}
+
+/* Cabecera */
+
+.mast { padding: 14px 16px 0; }
+
+.mast-in { max-width: 480px; margin: 0 auto; }
+
+@media (min-width: 820px) {
+  .wide .mast { padding: 24px 32px 0 80px; }
+  .wide .mast-in, .wide .foot { max-width: 1216px; }
+  .wide .brand { font-size: 2.8rem; }
+  .wide .lineup { height: 140px; padding-left: 48px; }
+  .wide .lineup .ruler { left: 14px; padding: 10px 0 8px; font-size: 0.8rem; }
+  .wide .suspect { max-width: 104px; }
+}
+
+.brand {
+  display: inline-block;
+  color: var(--text);
+  font: 800 2.2rem/1 var(--display);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+/* La rueda: pared con líneas de estatura y los cinco sospechosos con su cartel. */
+.lineup {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 104px;
+  margin-top: 10px;
+  --bg: repeating-linear-gradient(to top, transparent 0 15px, var(--wall-line) 15px 16.5px), var(--wall);
+  --bw: 3px;
+  --r: 20px 26px 4px 4px;
+  padding: 0 4px 0 30px;
+}
+
+.lineup .ruler {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  padding: 6px 0 4px;
+  color: var(--text-soft);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.suspect {
+  position: relative;
+  width: 17%;
+  max-width: 70px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.suspect svg { display: block; width: 100%; height: auto; margin-bottom: -4px; }
+.suspect:nth-child(odd) svg { transform: translateY(2px); }
+.suspect:nth-child(odd) .plate { transform: translateX(-50%) rotate(-3deg); }
+.suspect:nth-child(even) .plate { transform: translateX(-50%) rotate(2deg); }
+
+.suspect .plate {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  padding: 0 7px;
+  border: 2px solid var(--ink);
+  border-radius: 6px 9px 5px 8px;
+  background: #fff;
+  color: var(--ink);
+  font: 800 0.78rem/1.3 var(--display);
+}
+
+/* Pestañas de separador colgando bajo la rueda, cada una de un color. */
+.tabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 12px;
+}
+
+.tabs a {
+  --r: 0 0 14px 16px;
+  padding: 9px 16px 8px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 520px) {
+  .tabs { gap: 5px; padding: 0 4px; }
+  .tabs a { flex: 1 1 auto; padding: 8px 8px 7px; font-size: 0.82rem; white-space: nowrap; }
+}
+
+.tabs a[href="interrogatorio.html"] { --bg: #FFE1E7; }
+.tabs a[href="como-jugar.html"] { --bg: #FFF6D6; }
+.tabs a[href="peques.html"] { --bg: #DDF5E6; }
+.tabs a[aria-current="page"] { --bg: var(--ink); color: #fff; }
+
+@media (prefers-color-scheme: dark) {
+  .tabs a[aria-current="page"] { --bg: var(--text); --line: var(--text); color: var(--ink); }
+}
+
+/* Pie */
+
+.foot {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  border-top: 2px dashed rgb(110 98 128 / 0.4);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.foot nav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 6px; }
+.foot a { color: var(--text); }
+.foot p { margin: 0; }
+
+/* Páginas de texto */
+
+.page { max-width: 480px; margin: 0 auto; padding: 22px 16px 48px; }
+
+.page h1 { margin: 0 0 12px; font: 800 2.1rem/1.05 var(--display); }
+.page h2 { margin: 34px 0 8px; font: 800 1.35rem/1.15 var(--display); }
+.page p, .page li { max-width: 62ch; }
+.page p { margin: 0 0 12px; }
+.page .lede { font-size: 1.1rem; }
+.page a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* Pasos de la explicación: sí son una secuencia, por eso van numerados. */
+.steps { list-style: none; margin: 18px 0 0; padding: 0; counter-reset: step; }
+
+.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 26px 44px;
+}
+
+.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--star);
+  color: var(--ink);
+  font: 800 1rem/1 var(--display);
+}
+
+.steps > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 34px;
+  bottom: 4px;
+  border-left: 2.5px dashed var(--text-soft);
+}
+
+.steps h3 { margin: 0 0 4px; font-size: 1.05rem; }
+
+.board.mini {
+  width: min(220px, 100%);
+  margin: 10px 0 0;
+  border-width: 3px;
+  border-radius: 12px;
+  box-shadow: 0 4px 0 var(--ink);
+}
+
+.board.mini .cell.wt { border-top-width: 3px; }
+.board.mini .cell.wl { border-left-width: 3px; }
+.board.mini .room-tag { display: none; }
+.board.mini .cell.new { box-shadow: inset 0 0 0 3px var(--jam); }
+
+.clue-list { margin: 8px 0 0; padding-left: 1.2em; }
+.clue-list li { margin-bottom: 4px; }
+.clue-list li.used { font-weight: 700; }
+
+.rule-list { padding-left: 1.2em; }
+.rule-list li { margin-bottom: 6px; }
+
+.cta {
+  display: inline-block;
+  --bg: var(--jam);
+  --bw: 3px;
+  --r: 16px 20px 14px 18px;
+  --drop: 0 5px 0 var(--ink);
+  margin-top: 8px;
+  padding: 12px 22px 10px;
+  color: #fff;
+  font: 800 1.3rem/1 var(--display);
+  text-decoration: none;
+}
+
+.page a.cta { color: #fff; text-decoration: none; }
+.cta:active { --drop: 0 1px 0 var(--ink); transform: translateY(4px); }
+
+.note {
+  --bg: transparent;
+  --line: var(--text-soft);
+  --bw: 2px;
+  padding: 10px 14px;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}

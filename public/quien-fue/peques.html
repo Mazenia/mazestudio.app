@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Peques: ¿Quién se comió el pastel? | ¿Quién fue?</title>
+  <meta name="description" content="Un misterio de lógica para niños, con pistas en dibujos que se leen en voz alta. Sin anuncios.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="travesuras.css">
+</head>
+<body class="kids wide">
+  <!-- Trazo de rotulador: desplaza un poco los bordes para que parezcan dibujados a mano. -->
+  <svg class="defs" width="0" height="0" aria-hidden="true">
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+    <filter id="rough-s"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+  </svg>
+  <header class="mast">
+    <div class="mast-in">
+      <a class="brand" href="index.html">¿Quién fue?</a>
+      <div class="lineup" id="lineup" aria-hidden="true"></div>
+      <nav class="tabs" aria-label="Secciones">
+      <a href="index.html">Hoy</a>
+      <a href="interrogatorio.html">Interrogatorio</a>
+      <a href="como-jugar.html">Cómo jugar</a>
+      <a href="peques.html" aria-current="page">Peques</a>
+      </nav>
+    </div>
+  </header>
+  <main class="app case">
+    <section class="play">
+      <header class="top">
+        <h1>¿Quién se comió el pastel?</h1>
+        <div class="stars" id="stars" aria-label="Estrellas"></div>
+      </header>
+
+      <nav class="sizes" id="sizes" aria-label="Tamaño"></nav>
+
+      <button type="button" class="brief" id="brief"></button>
+
+      <div class="board" id="board" role="grid"></div>
+
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <section class="tray" id="tray" aria-label="Blobs"></section>
+
+      <div class="tools">
+        <button class="tool" id="help" type="button" aria-pressed="true">✓ Ver si se cumplen</button>
+        <button class="tool" id="hint" type="button">Ayúdame</button>
+        <button class="tool" id="reset" type="button">Empezar otra vez</button>
+      </div>
+    </section>
+
+    <aside class="side side-clues">
+      <section class="clues card">
+        <h2>Pistas</h2>
+        <p class="clue-help">Toca una pista para escucharla.</p>
+        <ul class="kclues" id="clues"></ul>
+      </section>
+
+      <button class="accuse" id="next" type="button">Otro misterio</button>
+    </aside>
+
+    <aside class="side side-rules">
+      <section class="rules card">
+        <h2>Cómo se juega</h2>
+        <ul>
+          <li>En cada fila y en cada columna va un solo blob.</li>
+          <li>Nadie se puede subir al pastel, a la planta ni al reloj. A la silla sí.</li>
+          <li>«Al lado» es pegadito: arriba, abajo, a la izquierda o a la derecha.</li>
+          <li>Se comió el pastel quien estaba en la misma habitación que el pastel.</li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="Información">
+      <a href="acerca.html">Acerca y contacto</a>
+      <a href="privacidad.html">Privacidad y cookies</a>
+    </nav>
+    <p>Un caso nuevo cada día.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog class="modal" id="win">
+    <div class="reveal" id="reveal"></div>
+    <h2 id="win-title"></h2>
+    <p id="win-text"></p>
+    <p class="win-star" id="win-star">⭐</p>
+    <div class="modal-actions">
+      <button type="button" id="again">Otro misterio</button>
+      <button type="button" id="close-win" class="secondary">Ver el tablero</button>
+    </div>
+  </dialog>
+
+  <script src="travesuras-gen.js"></script>
+  <script src="art.js"></script>
+  <script src="site.js"></script>
+  <script src="travesuras.js"></script>
+</body>
+</html>
