@@ -547,16 +547,20 @@ h1 {
   .case .side-rules, .case .side-clues { padding-top: 64px; }
 }
 
-/* Parpadeo ocasional: lo único que se mueve sin que lo toques */
+/* Parpadeo ocasional: lo único que se mueve sin que lo toques.
+   art.js pone .blinking a un blob al azar por un instante. No usar una animación
+   infinita aquí: obligaba a repintar el tablero (que lleva filtro SVG) en cada
+   fotograma, y en móvil eso gastaba batería y calentaba el teléfono. */
 .blob.cute .eyes {
   transform-box: fill-box;
   transform-origin: center;
-  animation: blink 6s var(--blink, 0s) infinite;
 }
 
+.blob.cute.blinking .eyes { animation: blink 0.2s ease-in-out; }
+
 @keyframes blink {
-  0%, 95%, 100% { transform: scaleY(1); }
-  97% { transform: scaleY(0.1); }
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
