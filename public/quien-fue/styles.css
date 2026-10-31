@@ -149,6 +149,7 @@ h1 {
   filter: url(#rough-s);
   /* El scroll pasa por las casillas vacías; solo se bloquea donde hay un blob que arrastrar. */
   touch-action: manipulation;
+  -webkit-touch-callout: none;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -276,6 +277,7 @@ h1 {
   --r: 18px 14px 20px 12px;
   padding: 10px 6px 6px;
   touch-action: manipulation;
+  -webkit-touch-callout: none;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -314,7 +316,10 @@ h1 {
 
 .ghost {
   position: fixed;
+  left: 0;
+  top: 0;
   z-index: 50;
+  will-change: transform;
   width: 72px;
   height: 72px;
   margin: -36px 0 0 -36px;
