@@ -147,7 +147,8 @@ h1 {
   overflow: hidden;
   box-shadow: 5px 7px 0 rgb(43 28 61 / 0.85);
   filter: url(#rough-s);
-  touch-action: none;
+  /* El scroll pasa por las casillas vacías; solo se bloquea donde hay un blob que arrastrar. */
+  touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -187,6 +188,7 @@ h1 {
 .cell > svg.blob { z-index: 2; }
 .cell.on-chair > svg.blob { inset: 2% 12% 22%; width: 76%; height: 76%; }
 
+.cell.occupied { touch-action: none; }
 .cell.obstacle { cursor: not-allowed; }
 .cell.drop-target { box-shadow: inset 0 0 0 4px var(--jam); }
 .cell.pop > svg.blob { animation: pop 0.32s cubic-bezier(.3, 1.6, .5, 1); }
@@ -273,7 +275,7 @@ h1 {
   --bg: var(--surface);
   --r: 18px 14px 20px 12px;
   padding: 10px 6px 6px;
-  touch-action: none;
+  touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -297,6 +299,7 @@ h1 {
   aspect-ratio: 1;
   max-width: 60px;
   border-radius: 50%;
+  touch-action: none;
   border: 2px dashed transparent;
 }
 
@@ -547,16 +550,20 @@ h1 {
   .case .side-rules, .case .side-clues { padding-top: 64px; }
 }
 
-/* Parpadeo ocasional: lo único que se mueve sin que lo toques */
+/* Parpadeo ocasional: lo único que se mueve sin que lo toques.
+   art.js pone .blinking a un blob al azar por un instante. No usar una animación
+   infinita aquí: obligaba a repintar el tablero (que lleva filtro SVG) en cada
+   fotograma, y en móvil eso gastaba batería y calentaba el teléfono. */
 .blob.cute .eyes {
   transform-box: fill-box;
   transform-origin: center;
-  animation: blink 6s var(--blink, 0s) infinite;
 }
 
+.blob.cute.blinking .eyes { animation: blink 0.2s ease-in-out; }
+
 @keyframes blink {
-  0%, 95%, 100% { transform: scaleY(1); }
-  97% { transform: scaleY(0.1); }
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

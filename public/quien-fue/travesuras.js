@@ -124,6 +124,7 @@
       if (c === N - 1) cls.push('er');
       if (r === N - 1) cls.push('eb');
       if (blocks(objects[i])) cls.push('obstacle');
+      if (p >= 0) cls.push('occupied');
       if (objects[i] === 'silla' && p >= 0) cls.push('on-chair');
       if (p >= 0 && (rowCount[r] > 1 || colCount[c] > 1)) cls.push('conflict');
       if (p >= 0 && p === selected) cls.push('selected');
