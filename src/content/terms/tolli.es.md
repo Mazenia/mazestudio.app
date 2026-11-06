@@ -15,18 +15,26 @@ Maze Studio te da permiso para instalar Tolli en tus dispositivos y usarla para 
 Tolli hace todo lo posible por sonar a la hora: usa alarmas exactas y te ayuda a revisar los permisos. Aun así, Android, el ahorro de batería, el volumen del teléfono o No molestar pueden atrasar o callar un ding. Por eso:
 
 - No uses Tolli para despertarte, para tomar medicamentos ni para nada en lo que perderte un aviso tenga consecuencias serias.
-- Tolli se ofrece tal como es, sin garantías. Dentro de lo que permita la ley, Maze Studio no responde por daños que vengan de un ding que no sonó o sonó tarde.
+- Tolli se ofrece tal como es, sin garantías. Dentro de lo que permita la ley, Maze Studio no responde por daños que vengan de un ding que no sonó o sonó tarde, y en ningún caso responde por más de lo que pagaste por Tolli Pro.
 
 ## Tolli Pro
 
 - Tolli Pro es un solo pago a través de Google Play. No es una suscripción y no se renueva.
 - Queda en tu cuenta de Google: en otro teléfono, lo recuperas con "Restaurar compra".
 - Lo que llegue después a Pro lo recibes sin pagar otra vez.
-- Los reembolsos siguen las reglas de Google Play. Si tienes un problema con tu compra, escríbenos.
+- La compra también se rige por los términos de Google Play. Los reembolsos siguen sus reglas; si tienes un problema con tu compra, escríbenos.
 
 ## Lo que es de Maze Studio
 
 El nombre Tolli, la campanita y sus caras, los sonidos y la app son de Maze Studio. No los copies, vendas ni redistribuyas, y no publiques versiones modificadas de la app.
+
+## Si no se cumplen estos términos
+
+Si no cumples estos términos, tu licencia para usar Tolli se termina y tienes que dejar de usarla.
+
+## Ley aplicable
+
+Estos términos se rigen por las leyes de Venezuela. Si vives en otro país, conservas los derechos que las leyes de tu país te dan como consumidor y que no se pueden quitar por contrato. Si alguna parte de estos términos no vale donde vives, el resto sigue vigente.
 
 ## Cambios
 
