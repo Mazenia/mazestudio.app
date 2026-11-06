@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import { appsWithPage } from '../../../data/apps';
+import AppPrivacy from '../../../components/AppPrivacy.astro';
+// Solo las apps que tienen sus terminos en src/content/terms.
+export async function getStaticPaths() {
+  const ids = new Set((await getCollection('terms')).map((e) => e.id.split('.')[0]));
+  return appsWithPage.filter((app) => ids.has(app.slug)).map((app) => ({ params: { app: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+---
+<AppPrivacy app={app} lang="en" kind="terms" />

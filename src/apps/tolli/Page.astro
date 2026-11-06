@@ -58,6 +58,7 @@ const c = es ? {
   ],
   privacy: 'Sin cuenta y sin anuncios. Sueno sin conexión y todo se queda en tu teléfono.',
   privacyLink: 'Política de privacidad',
+  termsLink: 'Términos de uso',
 } : {
   title: 'Tolli · A little bell that keeps time with you',
   description: 'Tolli dings every 10, 15, 30 or 60 minutes so you know how much time has passed without looking at the clock. For Android, no account, no ads.',
@@ -104,6 +105,7 @@ const c = es ? {
   ],
   privacy: 'No account and no ads. I ring offline and everything stays on your phone.',
   privacyLink: 'Privacy policy',
+  termsLink: 'Terms of use',
 };
 const mail = `mailto:hola@mazestudio.app?subject=${encodeURIComponent(c.testSubject)}`;
 ---
@@ -191,7 +193,7 @@ const mail = `mailto:hola@mazestudio.app?subject=${encodeURIComponent(c.testSubj
 
   <section class="closing">
     <p>{c.privacy}</p>
-    <a href={appPath(app, lang, 'privacy')}>{c.privacyLink}</a>
+    <a href={appPath(app, lang, 'privacy')}>{c.privacyLink}</a> · <a href={appPath(app, lang, 'terms')}>{c.termsLink}</a>
   </section>
 </Base>
 

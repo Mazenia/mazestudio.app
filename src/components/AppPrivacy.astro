@@ -1,16 +1,16 @@
 ---
-// La politica de privacidad de cualquier app, con los colores de la app.
+// La politica de privacidad (o los terminos de uso) de cualquier app, con los colores de la app.
 import { getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { appPath, type App, type Lang } from '../data/apps';
-interface Props { app: App; lang: Lang }
-const { app, lang } = Astro.props;
-const entry = await getEntry('privacy', `${app.slug}.${lang}`);
-if (!entry) throw new Error(`Falta src/content/privacy/${app.slug}.${lang}.md`);
+interface Props { app: App; lang: Lang; kind?: 'privacy' | 'terms' }
+const { app, lang, kind = 'privacy' } = Astro.props;
+const entry = await getEntry(kind, `${app.slug}.${lang}`);
+if (!entry) throw new Error(`Falta src/content/${kind}/${app.slug}.${lang}.md`);
 const { Content } = await render(entry);
 const other: Lang = lang === 'es' ? 'en' : 'es';
 ---
-<Base title={entry.data.title} description={entry.data.description} lang={lang} altPath={appPath(app, other, 'privacy')} app={app}>
+<Base title={entry.data.title} description={entry.data.description} lang={lang} altPath={appPath(app, other, kind)} app={app}>
   <article class="policy">
     <a class="back" href={appPath(app, lang)}>← {app.name}</a>
     <h1>{entry.data.title}</h1>

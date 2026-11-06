@@ -2,6 +2,7 @@
 // El marco de todas las paginas del estudio. Si la pagina es de una app, toma
 // los colores y la tipografia de esa app (src/data/apps.ts), asi su pagina se
 // parece a la app; la cabecera y el pie siguen siendo del estudio.
+import { getCollection } from 'astro:content';
 import { apps, appPath, type App, type Lang } from '../data/apps';
 
 interface Props {
@@ -21,14 +22,15 @@ const enUrl = lang === 'en' ? canonical : alt;
 const esUrl = lang === 'es' ? canonical : alt;
 const home = lang === 'es' ? '/es/' : '/';
 const t = {
-  en: { other: 'Español', apps: 'Apps', privacy: 'privacy' },
-  es: { other: 'English', apps: 'Apps', privacy: 'privacidad' },
+  en: { other: 'Español', apps: 'Apps', privacy: 'privacy', terms: 'terms' },
+  es: { other: 'English', apps: 'Apps', privacy: 'privacidad', terms: 'términos' },
 }[lang];
 const th = app?.theme;
 const themeStyle = th
   ? `--bg:${th.bg};--surface:${th.surface};--ink:${th.ink};--muted:${th.muted};--line:${th.ink};--accent:${th.accent};--on-accent:${th.onAccent};--display:${th.display};--body:${th.body};`
   : undefined;
 const footerApps = apps.filter((a) => a.status !== 'building');
+const withTerms = new Set((await getCollection('terms')).map((e) => e.id.split('.')[0]));
 ---
 <!doctype html>
 <html lang={lang} data-app={app?.slug} style={themeStyle}>
@@ -99,6 +101,7 @@ const footerApps = apps.filter((a) => a.status !== 'building');
       <nav aria-label={t.apps}>
         {footerApps.map((a) => <a href={a.externalUrl ?? appPath(a, lang)}>{a.name}</a>)}
         {footerApps.filter((a) => !a.externalUrl).map((a) => <a href={appPath(a, lang, 'privacy')}>{a.name} · {t.privacy}</a>)}
+        {footerApps.filter((a) => withTerms.has(a.slug)).map((a) => <a href={appPath(a, lang, 'terms')}>{a.name} · {t.terms}</a>)}
       </nav>
     </footer>
   </div>
