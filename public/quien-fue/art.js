@@ -188,5 +188,21 @@
     return `<svg class="thing ${kind}" viewBox="0 0 100 100" aria-hidden="true">${OBJECTS[kind]}</svg>`;
   }
 
+  // Parpadeo: de vez en cuando un blob al azar parpadea. Va con un temporizador y no
+  // con una animación CSS infinita, que repintaba el tablero en cada fotograma.
+  const calm = root.matchMedia && root.matchMedia('(prefers-reduced-motion: reduce)');
+  function blinkSomeone() {
+    if (!document.hidden && !(calm && calm.matches)) {
+      const all = document.querySelectorAll('svg.blob.cute:not(.blinking)');
+      if (all.length) {
+        const b = all[Math.floor(Math.random() * all.length)];
+        b.classList.add('blinking');
+        setTimeout(() => b.classList.remove('blinking'), 250);
+      }
+    }
+    setTimeout(blinkSomeone, 700 + Math.random() * 1300);
+  }
+  setTimeout(blinkSomeone, 1500);
+
   root.Art = { LOOKS, VICTIM_LOOK, blob, object };
 })(window);
