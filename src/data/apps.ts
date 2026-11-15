@@ -65,15 +65,20 @@ export const apps: App[] = [
   },
   {
     slug: 'tolli-study',
-    name: 'Tolli: Study',
-    status: 'building',
+    name: 'Tolli Study',
+    status: 'soon',
     platforms: 'Android',
     icon: '/img/tolli-study-icon.png',
     tagline: {
-      en: 'Tolli as your study buddy: she quizzes you in your Pomodoro breaks.',
-      es: 'Tolli como compañera de estudio: te pregunta en las pausas del Pomodoro.',
+      en: 'Flashcard questions in your pomodoro breaks, with cards your own AI makes.',
+      es: 'Preguntas de repaso en las pausas del pomodoro, con tarjetas que arma tu IA.',
     },
-    hover: { bg: '#4F6A99', ink: '#FFF8E6' },
+    // Los colores de Pizarra, el estilo con que abre la app; el coral es el de Tolli en el icono.
+    theme: {
+      bg: '#AFBDD6', surface: '#F5F7FB', ink: '#1A2236', muted: '#2F3A52', accent: '#EE7A5C', onAccent: '#1A2236',
+      display: "'Fredoka', 'DM Sans', system-ui, sans-serif", body: "'DM Sans', system-ui, sans-serif",
+    },
+    hover: { bg: '#AFBDD6', ink: '#1A2236' },
     nameFont: "'Fredoka', sans-serif",
   },
 ];

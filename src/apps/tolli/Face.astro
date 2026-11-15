@@ -1,10 +1,11 @@
 ---
 // Las caras de Tolli, las mismas de la app (guía de expresiones: ojos con blanco grande y boca en U).
-interface Props { mood: 'awake' | 'soon' | 'paused' | 'sleeping' | 'worried' | 'happy'; size?: number }
-const { mood, size = 96 } = Astro.props;
+interface Props { mood: 'awake' | 'soon' | 'paused' | 'sleeping' | 'worried' | 'happy'; size?: number; fill?: string }
+// fill: el color de la campana de dia (Tolli Estudio es coral).
+const { mood, size = 96, fill: day = '#E2482E' } = Astro.props;
 const night = mood === 'sleeping';
 const outline = night ? '#FFF8E6' : '#1E1A16';
-const fill = night ? '#F4C230' : '#E2482E';
+const fill = night ? '#F4C230' : day;
 const ink = '#1E1A16';
 ---
 <svg width={size} height={size} viewBox="0 0 150 150" aria-hidden="true">

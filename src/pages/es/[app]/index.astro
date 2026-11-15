@@ -3,10 +3,11 @@
 // cada una vive en src/apps/<slug>/Page.astro.
 import { appsWithPage } from '../../../data/apps';
 import TolliPage from '../../../apps/tolli/Page.astro';
+import TolliStudyPage from '../../../apps/tolli-study/Page.astro';
 export function getStaticPaths() {
   return appsWithPage.map((app) => ({ params: { app: app.slug }, props: { app } }));
 }
-const pages = { tolli: TolliPage } as const;
+const pages = { tolli: TolliPage, 'tolli-study': TolliStudyPage } as const;
 const { app } = Astro.props;
 const Page = pages[app.slug as keyof typeof pages];
 ---
