@@ -207,22 +207,17 @@
     Records.renderBoard($('records'), 'interro', level, LEVELS[level].label, highlight);
   }
 
+  // Sin spoilers: ni el culpable ni quién miente.
   function shareText() {
     const title = practiceSeed === null ? `¿Quién fue? Interrogatorio ${caseNumber}` : '¿Quién fue? Interrogatorio (práctica)';
-    const row = NAMES.map((_, p) => (p === cs.guilty ? '🔪' : cs.liars[p] ? '🤥' : EMOJI[p])).join('');
-    return `🔍 ${title}, ${cs.label.toLowerCase()}\n⏱️ ${fmtTime(state.elapsed)}  💡 ${state.hints}  ❌ ${state.errors}\n${row}`;
+    return QFShare.text({
+      game: 'interro',
+      title: `${title}, ${cs.label.toLowerCase()}`,
+      line: `⏱️ ${fmtTime(state.elapsed)}  💡 ${state.hints}  ❌ ${state.errors}  ${EMOJI.join('')}`,
+    });
   }
 
-  async function share() {
-    const text = shareText();
-    try {
-      if (navigator.share) await navigator.share({ text });
-      else {
-        await navigator.clipboard.writeText(text);
-        toast('Resultado copiado.');
-      }
-    } catch { /* compartir cancelado */ }
-  }
+  const share = () => QFShare.share(shareText(), toast);
 
   let toastId;
   function toast(msg) {

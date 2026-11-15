@@ -124,7 +124,6 @@
       if (c === N - 1) cls.push('er');
       if (r === N - 1) cls.push('eb');
       if (blocks(objects[i])) cls.push('obstacle');
-      if (p >= 0) cls.push('occupied');
       if (objects[i] === 'silla' && p >= 0) cls.push('on-chair');
       if (p >= 0 && (rowCount[r] > 1 || colCount[c] > 1)) cls.push('conflict');
       if (p >= 0 && p === selected) cls.push('selected');
@@ -325,45 +324,20 @@
     }
   }
 
-  // Con el dedo, el fantasma va por encima para que se vea la casilla donde cae;
-  // la casilla destino es la que queda bajo el fantasma, no bajo el dedo.
-  const LIFT = 60;
-
   function onPointerMove(e) {
     if (!press) return;
     if (!press.ghost) {
       if (press.p < 0 || Math.hypot(e.clientX - press.x, e.clientY - press.y) < 8) return;
-      press.lift = e.pointerType === 'touch' ? LIFT : 0;
-      press.target = null;
       press.ghost = document.createElement('div');
       press.ghost.className = 'ghost';
       press.ghost.innerHTML = blob(LOOKS[press.p]);
       document.body.appendChild(press.ghost);
-      if (e.pointerType === 'touch' && navigator.vibrate) navigator.vibrate(8);
     }
-    press.lastX = e.clientX;
-    press.lastY = e.clientY;
-    // Un solo repintado por fotograma aunque lleguen varios eventos de movimiento.
-    if (!press.frame) press.frame = requestAnimationFrame(paintDrag);
-  }
-
-  function paintDrag() {
-    if (!press || !press.ghost) return;
-    press.frame = 0;
-    const x = press.lastX, y = press.lastY - press.lift;
-    press.ghost.style.transform = `translate(${x}px, ${y}px)`;
-    // Tocar el tablero (que lleva filtro SVG) solo cuando cambia la casilla destino.
-    const target = cellAt(x, y);
-    if (target === press.target) return;
-    if (press.target !== null) document.querySelector(`[data-cell="${press.target}"]`)?.classList.remove('drop-target');
-    if (target !== null) document.querySelector(`[data-cell="${target}"]`).classList.add('drop-target');
-    press.target = target;
-  }
-
-  function endDrag(p) {
-    cancelAnimationFrame(p.frame);
-    p.ghost.remove();
+    press.ghost.style.left = `${e.clientX}px`;
+    press.ghost.style.top = `${e.clientY}px`;
+    const target = cellAt(e.clientX, e.clientY);
     document.querySelectorAll('.drop-target').forEach((el) => el.classList.remove('drop-target'));
+    if (target !== null) document.querySelector(`[data-cell="${target}"]`).classList.add('drop-target');
   }
 
   function onPointerUp(e) {
@@ -371,8 +345,8 @@
     const p = press;
     press = null;
     if (p.ghost) {
-      endDrag(p);
-      drop(p.p, p.from, cellAt(e.clientX, e.clientY - p.lift));
+      p.ghost.remove();
+      drop(p.p, p.from, cellAt(e.clientX, e.clientY));
     } else if (p.from === 'board') {
       tapCell(p.cell);
     } else {
@@ -381,8 +355,9 @@
   }
 
   function onPointerCancel() {
-    if (press && press.ghost) endDrag(press);
+    if (press && press.ghost) press.ghost.remove();
     press = null;
+    document.querySelectorAll('.drop-target').forEach((el) => el.classList.remove('drop-target'));
   }
 
   $('board').addEventListener('pointerdown', onPointerDown);
