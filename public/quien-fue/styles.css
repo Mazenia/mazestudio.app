@@ -573,6 +573,14 @@ h1 {
 .case .side-clues { grid-area: clues; min-width: 0; }
 .case .side-rules { grid-area: rules; min-width: 0; }
 
+/* En el móvil, "Acusar" va justo bajo el tablero y no al final de las pistas. */
+@media (max-width: 819.98px) {
+  .case:has(#accuse) { grid-template-areas: "play" "accuse" "clues" "rules"; }
+  .case:has(#accuse) .side-clues { display: contents; }
+  .case:has(#accuse) .side-clues > .card { grid-area: clues; }
+  .case #accuse { grid-area: accuse; margin-top: 20px; }
+}
+
 @media (min-width: 820px) {
   body.wide { background:
     linear-gradient(90deg, transparent 54px, var(--margin-line) 54px 56px, transparent 56px),
