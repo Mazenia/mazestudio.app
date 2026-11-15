@@ -141,6 +141,7 @@
     const board = $('board');
     board.style.gridTemplateColumns = `repeat(${N}, 1fr)`;
     board.innerHTML = html;
+    Art.walls($('walls'), N, room);
     justPlaced = -1;
 
     $('tray').innerHTML = people
@@ -251,7 +252,7 @@
     } else {
       state.errors++;
       save();
-      const board = $('board');
+      const board = $('board-wrap');
       board.classList.remove('shake');
       void board.offsetWidth;
       board.classList.add('shake');
@@ -341,7 +342,10 @@
       const i = Number(cell.dataset.cell);
       press = { from: 'board', cell: i, p: state.placed.indexOf(i), x: e.clientX, y: e.clientY };
     } else if (slot) {
-      press = { from: 'tray', p: Number(slot.dataset.person), x: e.clientX, y: e.clientY };
+      // Quien ya está en el tablero se mueve desde el tablero, no desde la bandeja.
+      const p = Number(slot.dataset.person);
+      if (state.placed[p] >= 0) return;
+      press = { from: 'tray', p, x: e.clientX, y: e.clientY };
     }
   }
 
@@ -354,7 +358,13 @@
     if (!press.ghost) {
       if (press.p < 0 || mode === 'mark' || Math.hypot(e.clientX - press.x, e.clientY - press.y) < 8) return;
       press.lift = e.pointerType === 'touch' ? LIFT : 0;
+      press.t0 = performance.now();
       press.target = null;
+      // El original se queda atenuado mientras lo llevas, para que no se vean dos.
+      press.source = press.from === 'board'
+        ? document.querySelector(`[data-cell="${press.cell}"]`)
+        : document.querySelector(`#tray [data-person="${press.p}"]`);
+      press.source?.classList.add('dragging');
       press.ghost = document.createElement('div');
       press.ghost.className = 'ghost';
       press.ghost.innerHTML = blob(lookOf(press.p), 'sly');
@@ -370,7 +380,11 @@
   function paintDrag() {
     if (!press || !press.ghost) return;
     press.frame = 0;
-    const x = press.lastX, y = press.lastY - press.lift;
+    // El fantasma nace bajo el dedo y sube hasta su sitio en 140 ms, sin saltar.
+    const k = Math.min(1, (performance.now() - press.t0) / 140);
+    press.cur = press.lift * (1 - (1 - k) ** 3);
+    if (k < 1) press.frame = requestAnimationFrame(paintDrag);
+    const x = press.lastX, y = press.lastY - press.cur;
     press.ghost.style.transform = `translate(${x}px, ${y}px)`;
     // Tocar el tablero (que lleva filtro SVG) solo cuando cambia la casilla destino.
     const target = cellAt(x, y);
@@ -383,6 +397,7 @@
   function endDrag(p) {
     cancelAnimationFrame(p.frame);
     p.ghost.remove();
+    p.source?.classList.remove('dragging');
     document.querySelectorAll('.drop-target').forEach((el) => el.classList.remove('drop-target'));
   }
 
@@ -392,7 +407,7 @@
     press = null;
     if (p.ghost) {
       endDrag(p);
-      drop(p.p, p.from, cellAt(e.clientX, e.clientY - p.lift));
+      drop(p.p, p.from, cellAt(e.clientX, e.clientY - (p.cur ?? p.lift)));
     } else if (p.from === 'board') {
       tapCell(p.cell);
     } else {
@@ -418,7 +433,7 @@
   });
   $('tray').addEventListener('click', (e) => {
     const slot = e.target.closest('[data-person]');
-    if (slot && e.detail === 0) tapSlot(Number(slot.dataset.person));
+    if (slot && e.detail === 0 && state.placed[Number(slot.dataset.person)] < 0) tapSlot(Number(slot.dataset.person));
   });
 
   $('status').addEventListener('click', (e) => {

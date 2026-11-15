@@ -186,3 +186,7 @@
   .who .num { width: 22px; height: 22px; font-size: 0.8rem; }
   .verdict button { padding: 3px 10px 2px; }
 }
+
+@media (pointer: coarse) {
+  .verdict button { min-height: 40px; padding: 8px 14px 7px; }
+}

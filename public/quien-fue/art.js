@@ -204,5 +204,23 @@
   }
   setTimeout(blinkSomeone, 1500);
 
-  root.Art = { LOOKS, VICTIM_LOOK, blob, object };
+  // Paredes entre habitaciones, en una capa encima del tablero. Llevan el filtro "a mano";
+  // las casillas no, para que un parpadeo o un arrastre no obliguen a recalcularlo.
+  // Son elementos HTML (no SVG con viewBox) para que el ruido del filtro se mida en píxeles.
+  function walls(layer, N, room) {
+    const u = 100 / N;
+    let html = '';
+    for (let i = 0; i < N * N; i++) {
+      const r = Math.floor(i / N), c = i % N;
+      // Las que tocan el borde se alargan (clases s/e) hasta quedar bajo el marco.
+      const edge = (start, end) => (start ? ' s' : '') + (end ? ' e' : '');
+      if (r > 0 && room[i - N] !== room[i]) html += `<i class="h${edge(c === 0, c === N - 1)}" style="left:${c * u}%;top:${r * u}%;width:${u}%"></i>`;
+      if (c > 0 && room[i - 1] !== room[i]) html += `<i class="v${edge(r === 0, r === N - 1)}" style="left:${c * u}%;top:${r * u}%;height:${u}%"></i>`;
+    }
+    if (layer.dataset.key === html) return;
+    layer.dataset.key = html;
+    layer.innerHTML = html;
+  }
+
+  root.Art = { LOOKS, VICTIM_LOOK, blob, object, walls };
 })(window);
