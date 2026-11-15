@@ -49,7 +49,8 @@ export const apps: App[] = [
   {
     slug: 'tolli',
     name: 'Tolli',
-    status: 'soon',
+    status: 'live',
+    playUrl: 'https://play.google.com/store/apps/details?id=app.tolli',
     platforms: 'Android',
     icon: '/img/tolli-icon.png',
     tagline: {
