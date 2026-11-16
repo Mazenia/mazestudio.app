@@ -4,6 +4,7 @@
   const { generate, hashString, isObstacle, SIZES } = window.CaseGen;
   const { LOOKS, VICTIM_LOOK, blob, object } = window.Art;
   const LAUNCH = '2026-10-24';
+  const FAIR_FROM = '2026-11-17'; // desde aquí, sin pistas que delaten al culpable
   const $ = (id) => document.getElementById(id);
 
   const store = {
@@ -43,7 +44,7 @@
 
   function start() {
     const seed = practiceSeed ?? hashString(`${dateKey}:${size}`);
-    pz = generate(size, seed);
+    pz = generate(size, seed, { fair: practiceSeed !== null || dateKey >= FAIR_FROM });
     const saved = storageKey() && store.get(storageKey());
     state = saved && saved.placed && saved.placed.length === pz.N ? saved : freshState();
     selected = nextUnplaced(-1);

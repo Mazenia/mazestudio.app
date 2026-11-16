@@ -147,7 +147,7 @@
 
     for (let p = 0; p < people.length; p++) {
       const who = people[p].ref, cell = pos[p], rm = room[cell];
-      add({ p, weight: 2, text: `${cap(who)} estaba en ${rooms[rm].the}.`, cellOk: (i) => room[i] === rm });
+      add({ p, kind: 'room', weight: 2, text: `${cap(who)} estaba en ${rooms[rm].the}.`, cellOk: (i) => room[i] === rm });
       rooms.forEach((r, k) => {
         if (k !== rm) add({ p, weight: 0.8, text: `${cap(who)} no estaba en ${r.the}.`, cellOk: (i) => room[i] !== k });
       });
@@ -178,7 +178,7 @@
       for (let q = p + 1; q < people.length; q++) {
         const a = people[p].ref, b = people[q].ref;
         if (room[pos[p]] === room[pos[q]]) {
-          add({ p, q, weight: 2, text: `${cap(a)} y ${b} estuvieron en la misma habitación.`, pairOk: (x, y) => room[x] === room[y] });
+          add({ p, q, kind: 'same', weight: 2, text: `${cap(a)} y ${b} estuvieron en la misma habitación.`, pairOk: (x, y) => room[x] === room[y] });
         } else {
           add({ p, q, weight: 1, text: `${cap(a)} y ${b} no estuvieron en la misma habitación.`, pairOk: (x, y) => room[x] !== room[y] });
         }
@@ -254,7 +254,19 @@
     }) && murdererOf(pz.room, pos) >= 0;
   }
 
-  function generate(N, seed) {
+  // Pistas que delatan al culpable sin pensar: decir que alguien estuvo en la misma habitación
+  // que la víctima, o decir por separado la habitación de la víctima y la del culpable.
+  function revealsCulprit(clue, chosen, v, m) {
+    if (clue.kind === 'same' && (clue.p === v || clue.q === v)) return true;
+    if (clue.kind === 'room' && (clue.p === v || clue.p === m)) {
+      const other = clue.p === v ? m : v;
+      return chosen.some((c) => c.kind === 'room' && c.p === other);
+    }
+    return false;
+  }
+
+  // opts.fair: no usar pistas que delaten al culpable (casos desde el 17 nov 2026).
+  function generate(N, seed, opts = {}) {
     const cfg = SIZES[N];
     const rnd = mulberry32(seed);
     for (let attempt = 0; attempt < 100; attempt++) {
@@ -270,7 +282,9 @@
 
       const chosen = [];
       let unique = false;
+      const m = murdererOf(room, solution);
       for (const clue of weightedShuffle(candidateClues(pz), rnd)) {
+        if (opts.fair && revealsCulprit(clue, chosen, pz.victim, m)) continue;
         chosen.push(clue);
         if (countSolutions(pz, chosen) === 1) {
           unique = true;
