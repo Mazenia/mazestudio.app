@@ -8,6 +8,6 @@ export default defineConfig({
   site: 'https://mazestudio.app',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en', es: 'es' } } })],
-  i18n: { defaultLocale: 'en', locales: ['en', 'es'], routing: { prefixDefaultLocale: false } },
+  integrations: [sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en', es: 'es', pt: 'pt-BR' } } })],
+  i18n: { defaultLocale: 'en', locales: ['en', 'es', 'pt'], routing: { prefixDefaultLocale: false } },
 });

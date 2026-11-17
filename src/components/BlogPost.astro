@@ -3,27 +3,28 @@
 // cierra con una tarjeta para descargarla.
 import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { apps, appPath, statusLabel, type Lang } from '../data/apps';
-import { type Post, blogPath, formatDate } from '../lib/blog';
-interface Props { post: Post; lang: Lang }
+import { apps, appPath, statusLabel, type BlogLang } from '../data/apps';
+import { type Post, blogPath, formatDate, alternatesOf, langTag } from '../lib/blog';
+interface Props { post: Post; lang: BlogLang }
 const { post, lang } = Astro.props;
 const { Content } = await render(post);
-const other: Lang = lang === 'es' ? 'en' : 'es';
 const app = post.data.app ? apps.find((a) => a.slug === post.data.app) : undefined;
-const altPath = post.data.translation ? blogPath(other, post.data.translation) : blogPath(other);
+const alternates = await alternatesOf(post);
+const tagline = app ? (app.tagline as Record<string, string>)[lang] ?? app.tagline.en : '';
 const t = {
   en: { back: 'Blog', updated: 'Updated', more: 'See how it works', get: 'Get it on Google Play' },
   es: { back: 'Blog', updated: 'Actualizado', more: 'Ver cómo funciona', get: 'Descárgala en Google Play' },
+  pt: { back: 'Blog', updated: 'Atualizado', more: 'Veja como funciona', get: 'Baixe no Google Play' },
 }[lang];
 const jsonLd = {
   '@context': 'https://schema.org', '@type': 'BlogPosting',
-  headline: post.data.title, description: post.data.description, inLanguage: lang,
+  headline: post.data.title, description: post.data.description, inLanguage: langTag[lang],
   datePublished: post.data.date.toISOString().slice(0, 10),
   dateModified: (post.data.updated ?? post.data.date).toISOString().slice(0, 10),
   publisher: { '@type': 'Organization', name: 'Maze Studio', url: 'https://mazestudio.app' },
 };
 ---
-<Base title={`${post.data.title} · Maze Studio`} description={post.data.description} lang={lang} altPath={altPath} app={app}>
+<Base title={`${post.data.title} · Maze Studio`} description={post.data.description} lang={lang} alternates={alternates} app={app}>
   <article class="post">
     <a class="back" href={blogPath(lang)}>← {t.back}</a>
     <h1>{post.data.title}</h1>
@@ -34,7 +35,7 @@ const jsonLd = {
     {app && app.status !== 'building' && (
       <div class="app-top">
         <img src={app.icon} alt="" width="40" height="40" />
-        <p><strong>{app.name}</strong> · {app.tagline[lang]}</p>
+        <p><strong>{app.name}</strong> · {tagline}</p>
         {app.playUrl
           ? <a class="btn primary small" href={app.playUrl}>{t.get}</a>
           : !app.externalUrl && <a class="btn small" href={appPath(app, lang)}>{t.more}</a>}
@@ -48,7 +49,7 @@ const jsonLd = {
       <img src={app.icon} alt="" width="72" height="72" />
       <div>
         <p class="name">{app.name}</p>
-        <p>{app.tagline[lang]}</p>
+        <p>{tagline}</p>
       </div>
       <div class="ctas">
         {app.playUrl

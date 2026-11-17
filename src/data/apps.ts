@@ -3,6 +3,8 @@
 // (y, si tiene pagina propia, su componente en src/apps/<slug>/).
 
 export type Lang = 'en' | 'es';
+/** El blog tiene un idioma mas que el resto del sitio. */
+export type BlogLang = Lang | 'pt';
 export type Status = 'live' | 'soon' | 'building';
 
 export interface AppTheme {
@@ -18,7 +20,7 @@ export interface App {
   status: Status;
   platforms: string;
   icon: string;
-  tagline: Record<Lang, string>;
+  tagline: Record<Lang, string> & { pt?: string };
   /** Si la app vive en otro dominio (Dear Wander), la portada enlaza ahi y no hay pagina aqui. */
   externalUrl?: string;
   /** Enlaces de tienda cuando existan. */
@@ -42,6 +44,7 @@ export const apps: App[] = [
     tagline: {
       en: 'Your screen time companion.',
       es: 'Tu compañera para el tiempo en pantalla.',
+      pt: 'Sua companhia para o tempo de tela.',
     },
     externalUrl: 'https://dearwander.com',
     hover: { bg: '#F3DDBA', ink: '#3B2A1E' },
@@ -56,6 +59,7 @@ export const apps: App[] = [
     tagline: {
       en: 'A little bell that dings every few minutes so you keep track of time.',
       es: 'Una campanita que suena cada pocos minutos para que no pierdas la noción del tiempo.',
+      pt: 'Um sininho que toca a cada poucos minutos para você não perder a noção do tempo.',
     },
     theme: {
       bg: '#F4C230', surface: '#FFF8E6', ink: '#1E1A16', muted: '#5B5148', accent: '#E2482E', onAccent: '#FFFFFF',
@@ -73,6 +77,7 @@ export const apps: App[] = [
     tagline: {
       en: 'Flashcard questions in your pomodoro breaks, with cards your own AI makes.',
       es: 'Preguntas de repaso en las pausas del pomodoro, con tarjetas que arma tu IA.',
+      pt: 'Perguntas de revisão nas pausas do pomodoro, com cartões feitos pela sua IA.',
     },
     // Los colores de Pizarra, el estilo con que abre la app; el coral es el de Tolli en el icono.
     theme: {
@@ -87,11 +92,12 @@ export const apps: App[] = [
 /** Las apps con pagina propia en este sitio. */
 export const appsWithPage = apps.filter((a) => !a.externalUrl && a.status !== 'building');
 
-export const statusLabel: Record<Status, Record<Lang, string>> = {
-  live: { en: 'Available', es: 'Disponible' },
-  soon: { en: 'Coming soon', es: 'Pronto' },
-  building: { en: 'On the way', es: 'En camino' },
+export const statusLabel: Record<Status, Record<BlogLang, string>> = {
+  live: { en: 'Available', es: 'Disponible', pt: 'Disponível' },
+  soon: { en: 'Coming soon', es: 'Pronto', pt: 'Em breve' },
+  building: { en: 'On the way', es: 'En camino', pt: 'A caminho' },
 };
 
-export const appPath = (app: App, lang: Lang, sub = '') =>
+// Las paginas de las apps solo existen en ingles y espanol: en portugues se enlaza la inglesa.
+export const appPath = (app: App, lang: BlogLang, sub = '') =>
   `${lang === 'es' ? '/es' : ''}/${app.slug}/${sub ? `${sub}/` : ''}`;

@@ -3,27 +3,35 @@
 // los colores y la tipografia de esa app (src/data/apps.ts), asi su pagina se
 // parece a la app; la cabecera y el pie siguen siendo del estudio.
 import { getCollection } from 'astro:content';
-import { apps, appPath, type App, type Lang } from '../data/apps';
+import { apps, appPath, type App, type BlogLang } from '../data/apps';
+import { langTag, langName } from '../lib/blog';
 
 interface Props {
   title: string;
   description: string;
-  lang: Lang;
+  lang: BlogLang;
   /** La misma pagina en el otro idioma, para el selector y hreflang. */
-  altPath: string;
+  altPath?: string;
+  /** Si la pagina existe en mas de dos idiomas: la ruta de cada uno (incluido el propio). */
+  alternates?: Partial<Record<BlogLang, string>>;
   app?: App;
   ogImage?: string;
 }
-const { title, description, lang, altPath, app, ogImage = '/img/og-studio.png' } = Astro.props;
+const { title, description, lang, altPath = '/', alternates, app, ogImage = '/img/og-studio.png' } = Astro.props;
 const withSlash = (p: string) => (p.endsWith('/') ? p : `${p}/`);
 const canonical = new URL(withSlash(Astro.url.pathname), Astro.site);
-const alt = new URL(withSlash(altPath), Astro.site);
-const enUrl = lang === 'en' ? canonical : alt;
-const esUrl = lang === 'es' ? canonical : alt;
+// Las versiones de esta pagina: las que pasa la pagina o, si no, ingles y espanol.
+const versions: Partial<Record<BlogLang, string>> = alternates
+  ? { ...alternates, [lang]: Astro.url.pathname }
+  : { [lang]: Astro.url.pathname, [lang === 'en' ? 'es' : 'en']: altPath };
+const hreflangs = (Object.entries(versions) as [BlogLang, string][]).map(([l, p]) => [langTag[l], new URL(withSlash(p), Astro.site)] as const);
+const enUrl = versions.en ? new URL(withSlash(versions.en), Astro.site) : canonical;
+const others = (Object.entries(versions) as [BlogLang, string][]).filter(([l]) => l !== lang);
 const home = lang === 'es' ? '/es/' : '/';
 const t = {
-  en: { other: 'Español', apps: 'Apps', privacy: 'privacy', terms: 'terms' },
-  es: { other: 'English', apps: 'Apps', privacy: 'privacidad', terms: 'términos' },
+  en: { apps: 'Apps', privacy: 'privacy', terms: 'terms' },
+  es: { apps: 'Apps', privacy: 'privacidad', terms: 'términos' },
+  pt: { apps: 'Apps', privacy: 'privacidade', terms: 'termos' },
 }[lang];
 const th = app?.theme;
 const themeStyle = th
@@ -33,7 +41,7 @@ const footerApps = apps.filter((a) => a.status !== 'building');
 const withTerms = new Set((await getCollection('terms')).map((e) => e.id.split('.')[0]));
 ---
 <!doctype html>
-<html lang={lang} data-app={app?.slug} style={themeStyle}>
+<html lang={langTag[lang]} data-app={app?.slug} style={themeStyle}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,8 +49,7 @@ const withTerms = new Set((await getCollection('terms')).map((e) => e.id.split('
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
-  <link rel="alternate" hreflang="en" href={enUrl} />
-  <link rel="alternate" hreflang="es" href={esUrl} />
+  {hreflangs.map(([tag, url]) => <link rel="alternate" hreflang={tag} href={url} />)}
   <link rel="alternate" hreflang="x-default" href={enUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -91,9 +98,9 @@ const withTerms = new Set((await getCollection('terms')).map((e) => e.id.split('
     <header class="site">
       <a class="brand" href={home}>Maze Studio</a>
       <nav>
-        <a href={lang === 'es' ? '/es/blog/' : '/blog/'}>Blog</a>
+        <a href={lang === 'en' ? '/blog/' : `/${lang}/blog/`}>Blog</a>
         <a href="mailto:hola@mazestudio.app">hola@mazestudio.app</a>
-        <a class="lang" href={withSlash(altPath)} hreflang={lang === 'en' ? 'es' : 'en'}>{t.other}</a>
+        {others.map(([l, p]) => <a class="lang" href={withSlash(p)} hreflang={langTag[l]} lang={langTag[l]}>{langName[l]}</a>)}
       </nav>
     </header>
     <main><slot /></main>
