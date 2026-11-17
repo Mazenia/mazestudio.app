@@ -10,7 +10,7 @@ You sit down to answer one email. You look up and the afternoon is gone. Nothing
 
 People call this **time blindness**. The term comes up a lot in conversations about ADHD. Psychologist Russell Barkley, who has written about ADHD for decades, describes it as a kind of nearsightedness to the future: what is happening now feels sharp, and everything later feels blurry. You don't need a diagnosis to recognize the feeling, though. Long screens, deep focus and boring tasks blur time for almost everyone.
 
-The fix is rarely more willpower. It is making time show up outside your head, where you can see it or hear it. Here are seven ways to do that.
+What helps most is getting time out of your head and into the room, where you can see it or hear it. Here are seven ways to do that.
 
 ## 1. Put a clock where your eyes already are
 
@@ -28,7 +28,7 @@ Seeing time needs you to look. Hearing it doesn't. A soft sound every 15 or 30 m
 
 Before a task, write down how long you think it will take. Afterwards, write down how long it took. After a week you have your own correction factor. Most people find they underestimate, and seeing your real numbers is more convincing than any advice.
 
-## 5. Plan in blocks, not lists
+## 5. Plan in blocks of time
 
 A to-do list hides time. A day split into blocks of 15 or 30 minutes shows it. When a task has to fit in a block, you can see when it overflows.
 

@@ -1,6 +1,6 @@
 ---
 title: "Cómo no perder la noción del tiempo trabajando desde casa"
-description: "En casa no hay trayecto, ni hora de almuerzo compartida, ni compañeros que se van. Estas señales pequeñas le devuelven a tu día los bordes que antes le daba la oficina."
+description: "En casa nadie sale a comer ni se va a las seis, así que el día no tiene bordes. Unas pocas señales pequeñas se los devuelven."
 date: 2026-11-18
 app: tolli
 translation: keep-track-of-time-working-from-home
@@ -14,9 +14,9 @@ No hace falta un horario estricto para arreglarlo. Hacen falta unas pocas señal
 
 Una caminata corta, un café preparado sin prisa o diez minutos de lectura antes de abrir la computadora. Le dice a tu cabeza que empezó la jornada. Hacer lo mismo al final, como cerrar la computadora y guardarla donde no la veas, le dice que terminó.
 
-## Decide la forma del día, no cada minuto
+## Elige unos pocos puntos fijos
 
-Elige dos o tres anclas: cuándo empiezas, cuándo comes, cuándo paras. Todo lo demás puede moverse. Las anclas son más fáciles de cumplir que un horario detallado, y evitan que el día se derrita en un solo bloque largo.
+Elige un par de anclas, como cuándo empiezas y cuándo comes, y deja que todo lo demás se mueva. Las anclas son más fáciles de cumplir que un horario detallado, y evitan que el día se derrita en un solo bloque largo.
 
 ## Oye la hora en vez de mirarla
 
@@ -26,11 +26,11 @@ Tolli nació para esto. Es una campanita para Android que suena cada 10, 15, 30 
 
 ## Levántate con la campana
 
-Usa algunas campanadas como señal para moverte. Rellena el agua, estírate, mira por la ventana. Ibas a perder la concentración en algún momento de todos modos. Si lo haces a propósito, vuelves antes.
+Usa algunas campanadas como señal para moverte. Rellena el agua o mira un minuto por la ventana. Ibas a perder la concentración en algún momento de todos modos. Si lo haces a propósito, vuelves antes.
 
 ## Apunta lo que hiciste de verdad
 
-Al final del día, escribe tres líneas: qué planeaste, qué hiciste y qué tardó más de lo esperado. Lleva un minuto. En un par de semanas sabrás qué tareas siempre se alargan, y podrás planificarlas con honestidad.
+Al final del día, escribe dos líneas: qué terminaste y qué tardó más de lo esperado. Lleva un minuto. En un par de semanas sabrás qué tareas siempre se alargan, y podrás planificarlas con honestidad.
 
 ## Cuida el final del día
 

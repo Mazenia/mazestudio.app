@@ -14,7 +14,7 @@ Luego llegaron los teléfonos y la campanada se calló. La hora está siempre a 
 
 Mirar la hora es una acción. Tienes que acordarte, parar lo que haces y mirar. Cuando una tarea te absorbe, es justo el momento en que se te olvida.
 
-La campanada le da la vuelta. La hora viene a ti. No decides comprobarla, así que funciona aunque tengas la cabeza en otra cosa. Y como no levantas el teléfono, no hay nada más en la pantalla que te atrape.
+Con una campanada la hora viene a ti, así que funciona aunque tengas la cabeza en otra cosa. Y como no levantas el teléfono, no hay nada más en la pantalla que te atrape.
 
 ## Una hora suele ser demasiado
 

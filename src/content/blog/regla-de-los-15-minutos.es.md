@@ -12,7 +12,7 @@ Ese sesgo no se apaga del todo. Pero se puede detectar antes, y los bloques pequ
 
 ## Por qué 15 minutos
 
-Quince minutos alcanzan para hacer algo de verdad: contestar unos correos, doblar una tanda de ropa, escribir un párrafo. Son lo bastante cortos para que perder uno no arruine el día. Y cuatro hacen una hora, así que las cuentas son fáciles.
+Quince minutos alcanzan para contestar unos correos o doblar una tanda de ropa. Son lo bastante cortos para que perder uno no arruine el día. Y cuatro hacen una hora, así que las cuentas son fáciles.
 
 ## Cómo usar la regla
 
@@ -25,10 +25,10 @@ Quince minutos alcanzan para hacer algo de verdad: contestar unos correos, dobla
 
 Un plan en bloques solo funciona si notas cuándo termina cada bloque. Mirar el reloj cada pocos minutos cansa, y se te olvida justo cuando algo te absorbe.
 
-Ahí ayuda un sonido. Tolli es una campanita para Android que puede sonar cada 15 minutos. Cada ding es el borde de un bloque. No tienes que mirar nada. Lo oyes y te haces la pregunta: ¿sigo o cambio?
+Ahí ayuda un sonido. Tolli es una campanita para Android que puede sonar cada 15 minutos, así cada ding marca el final de un bloque mientras sigues con los ojos en lo tuyo, y decides si sigues o cambias.
 
 ## Empieza más pequeño de lo que crees
 
-Pruébalo una mañana, no una semana entera. Planifica tres horas en doce bloques, pon una campanada cada 15 minutos y apunta qué pasó en cada bloque. Al mediodía, compara. La diferencia entre tu plan y tus bloques es la información más útil que vas a tener en toda la semana, y es tuya, no un promedio de un estudio.
+Pruébalo primero una mañana. Planifica tres horas en doce bloques, pon una campanada cada 15 minutos y apunta qué pasó en cada bloque. Al mediodía, compara. La diferencia entre tu plan y tus bloques te dirá más sobre tu propio ritmo que cualquier promedio de un estudio.
 
 Tolli es gratis, sin cuenta y sin anuncios, y eliges en qué horario suena.

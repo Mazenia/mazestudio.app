@@ -17,13 +17,13 @@ La versión clásica es sencilla:
 
 ## La campana es lo importante
 
-Mucha gente se fija en los 25 minutos. Pero la herramienta original tenía algo igual de importante: sonaba. No tenías que mirar cuánto faltaba. Confiabas en la campana y le dabas a la tarea toda tu atención.
+Mucha gente se fija en los 25 minutos, pero el temporizador original además sonaba, y eso importa igual. No tenías que mirar cuánto faltaba. Confiabas en la campana y le dabas a la tarea toda tu atención.
 
 Muchas apps de pomodoro cambian la campana por una cuenta atrás enorme en la pantalla. Eso puede salir al revés. Mirar los números se vuelve otra distracción, y levantar el teléfono para ver el temporizador es un viaje corto hasta tus notificaciones.
 
 ## Cómo hacerlo sin cuenta atrás
 
-- **Pon el teléfono boca abajo.** Solo necesitas oír el temporizador, no verlo.
+- **Pon el teléfono boca abajo.** Ya oirás la campana cuando toque.
 - **Usa un sonido que te diga en qué parte estás.** Un sonido distinto para "empieza el descanso" y "vuelta al trabajo" te dice dónde estás sin mirar.
 - **Escribe la tarea en un papel antes de empezar.** Cuando suene la campana, sabes qué estabas haciendo y qué viene después.
 - **Que el descanso sea de verdad.** Levántate, toma agua, mira algo lejos. Si haces scroll en el descanso, casi nunca termina a los cinco minutos.

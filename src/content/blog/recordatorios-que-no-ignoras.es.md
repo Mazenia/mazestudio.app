@@ -6,7 +6,7 @@ app: tolli
 translation: reminders-that-dont-get-ignored
 ---
 
-Casi todo el mundo ha apagado una alarma sin leerla. El teléfono vibra, deslizas, y diez segundos después no sabrías decir para qué era. Técnicamente el recordatorio cumplió. Simplemente no te llegó.
+Casi todo el mundo ha apagado una alarma sin leerla. El teléfono vibra, deslizas, y diez segundos después no sabrías decir para qué era. El recordatorio sonó, y aun así no te llegó.
 
 Le pasa a cualquiera. El cerebro se acostumbra a las señales que se repiten, y todo lo que suena lo bastante seguido empieza a parecer ruido de fondo. En los hospitales, donde los monitores pitan sin parar, lo llaman fatiga de alarmas. En casa hay menos en juego, pero el patrón es el mismo.
 
@@ -14,7 +14,7 @@ Le pasa a cualquiera. El cerebro se acostumbra a las señales que se repiten, y 
 
 Cuando ignoras un recordatorio, el instinto es hacerlo más fuerte o más urgente. Funciona unos días. Luego te acostumbras al nuevo nivel, y ahora cada recordatorio parece una emergencia. El estrés es una mala forma de llevar el día.
 
-Un buen sistema de recordatorios tiene tres partes: el tipo de señal adecuado, el momento adecuado y un siguiente paso claro.
+Un sistema de recordatorios que sigas notando depende de unas pocas decisiones sobre el tipo de señal y cuándo suena.
 
 ## 1. Cada señal para su tarea
 

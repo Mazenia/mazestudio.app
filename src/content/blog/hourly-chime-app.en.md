@@ -14,13 +14,13 @@ Then phones arrived and the chime went quiet. The time is always one glance away
 
 Checking the time is an action. You have to remember to do it, stop what you are doing and look. When you are absorbed in a task, that is exactly the moment you forget.
 
-A chime turns it around. The time comes to you. You don't decide to check, so it still works when you are deep in something. And because you don't pick up the phone, there is nothing else on the screen to pull you in.
+With a chime the time comes to you, so it still works when you are deep in something. And because you don't pick up the phone, there is nothing else on the screen to pull you in.
 
 ## Every hour is often too long
 
 An hourly chime is great for knowing roughly where you are in the day. But a lot can slip in an hour. If you meant to spend 20 minutes on a task, the hourly bell tells you too late.
 
-Shorter intervals turn the chime into a gentle check-in:
+Shorter intervals turn the chime into a quick check-in:
 
 - **Every 15 minutes** for tasks that tend to swallow you, like scrolling, email or tidying.
 - **Every 30 minutes** for focused work, so you notice when it is time to stand up or switch.

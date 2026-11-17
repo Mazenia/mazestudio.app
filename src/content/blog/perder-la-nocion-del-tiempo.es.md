@@ -6,11 +6,11 @@ app: tolli
 translation: time-blindness-tips
 ---
 
-Te sientas a contestar un correo. Levantas la vista y se fue la tarde. No pasó nada raro. Simplemente no sentiste el tiempo pasar.
+Te sientas a contestar un correo. Levantas la vista y se fue la tarde. No pasó nada raro. Solo que no sentiste el tiempo pasar.
 
 Es **perder la noción del tiempo**, y le pasa a mucha gente. En inglés tiene nombre propio, *time blindness*, y se usa mucho cuando se habla de TDAH. El psicólogo Russell Barkley, que lleva décadas escribiendo sobre el TDAH, describe esa dificultad como una especie de miopía hacia el futuro: lo que pasa ahora se ve nítido y todo lo que viene después se ve borroso. Pero no hace falta un diagnóstico para reconocer la sensación. Las pantallas, la concentración profunda y las tareas aburridas le difuminan el tiempo a casi cualquiera.
 
-La solución casi nunca es más fuerza de voluntad. Es sacar el tiempo de tu cabeza y ponerlo donde puedas verlo u oírlo. Aquí van siete formas.
+Lo que más ayuda es sacar el tiempo de tu cabeza y ponerlo donde puedas verlo u oírlo. Aquí van siete formas.
 
 ## 1. Pon un reloj donde ya miras
 
@@ -28,7 +28,7 @@ Para ver el tiempo tienes que mirar. Para oírlo, no. Un sonido suave cada 15 o 
 
 Antes de una tarea, apunta cuánto crees que te va a llevar. Al terminar, apunta cuánto te llevó. En una semana tienes tu propio factor de corrección. A la mayoría le sale que se queda corta, y ver tus números convence más que cualquier consejo.
 
-## 5. Planifica en bloques, no en listas
+## 5. Planifica en bloques de tiempo
 
 Una lista de pendientes esconde el tiempo. Un día dividido en bloques de 15 o 30 minutos lo muestra. Cuando una tarea tiene que caber en un bloque, ves enseguida cuándo se desborda.
 

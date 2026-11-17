@@ -6,7 +6,7 @@ app: tolli
 translation: afternoon-routine
 ---
 
-En internet hay rutinas de mañana para dar y regalar. Las tardes reciben mucha menos atención, y es raro, porque ahí es donde muchos días se deshacen sin hacer ruido. La comida se alarga, baja la energía, un "vistazo rápido" al teléfono se convierte en cuarenta minutos y de pronto son las cinco.
+En internet hay rutinas de mañana para dar y regalar. Las tardes reciben mucha menos atención, aunque es ahí donde muchos días se deshacen. La comida se alarga, un "vistazo rápido" al teléfono se convierte en cuarenta minutos y ya son las cinco.
 
 A mucha gente le baja la energía a primera hora de la tarde. En vez de pelearte con eso, puedes planificar a su alrededor.
 
@@ -20,7 +20,7 @@ El bajón es buen momento para tareas que mantienen las manos ocupadas: contesta
 
 ## 15:00: muévete
 
-Levántate, sal un momento si puedes, toma agua. Cinco minutos bastan. A mucha gente se le despeja la cabeza después del bajón, y una caminata corta ayuda a aprovecharlo.
+Levántate y sal un momento si puedes. Cinco minutos bastan. A mucha gente se le despeja la cabeza después del bajón, y una caminata corta ayuda a aprovecharlo.
 
 ## 15:15 a 16:45: la única cosa
 
@@ -28,11 +28,11 @@ Ahora haz la tarea que elegiste después de comer. Pon el teléfono boca abajo, 
 
 ## 16:45 a 17:00: cierra el día
 
-Escribe lo que terminaste, lo que queda y la primera tarea de mañana. Cierra la computadora. Este pequeño final evita que el trabajo se cuele en la noche y hace que mañana sea más fácil empezar.
+Escribe lo que queda abierto y la primera tarea de mañana. Cierra la computadora. Este pequeño final evita que el trabajo se cuele en la noche y hace que mañana sea más fácil empezar.
 
 ## Ajusta el reloj, mantén la forma
 
-Tus horarios pueden ser otros, sobre todo si hay salida del colegio o turnos. Las horas de arriba dan igual. Lo que importa es la forma: reinicio, trabajo fácil, moverte, un bloque concentrado, cierre.
+Tus horarios pueden ser otros, sobre todo si hay salida del colegio o turnos. Mueve las horas según tu día y mantén el orden: un reinicio corto, trabajo fácil, una caminata, un bloque concentrado y un cierre claro.
 
 ## Que una campana lleve el ritmo
 

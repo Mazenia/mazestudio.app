@@ -17,13 +17,13 @@ The classic version is simple:
 
 ## The bell is the point
 
-People often focus on the 25 minutes. But the original tool had a feature that matters just as much: it rang. You didn't have to check how much time was left. You trusted the bell and gave the task your full attention.
+People often focus on the 25 minutes, yet the original timer also rang, and that matters just as much. You didn't have to check how much time was left. You trusted the bell and gave the task your full attention.
 
-Many pomodoro apps replace the bell with a big countdown on the screen. That can backfire. Watching the numbers become its own distraction, and picking up the phone to check the timer is a short trip to your notifications.
+Many pomodoro apps replace the bell with a big countdown on the screen. That can backfire. Watching the numbers becomes its own distraction, and picking up the phone to check the timer is a short trip to your notifications.
 
 ## How to run it without a countdown
 
-- **Put the phone face down.** You only need to hear the timer, not see it.
+- **Put the phone face down.** You will hear the bell when it is time.
 - **Use a sound that tells you which part you are in.** A different sound for "break starts" and "back to work" means you know where you are without looking.
 - **Write the task on paper before you start.** When the bell rings, you know what you were doing and what comes next.
 - **Treat the break as a real break.** Stand up, drink water, look at something far away. If you scroll during the break, it rarely ends after five minutes.

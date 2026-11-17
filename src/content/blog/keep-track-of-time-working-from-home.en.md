@@ -1,6 +1,6 @@
 ---
 title: "How to keep track of time when you work from home"
-description: "At home there is no commute, no lunch crowd and no colleague heading out. These small cues give your day the edges an office used to give it."
+description: "At home nobody heads out for lunch or leaves at six, so the day has no edges. A few small cues bring them back."
 date: 2026-11-18
 app: tolli
 translation: no-perder-el-tiempo-trabajando-en-casa
@@ -14,9 +14,9 @@ You don't need a strict schedule to fix this. You need a few cues that mark time
 
 A short walk, a coffee made slowly, or ten minutes of reading before you open the laptop. It tells your head the workday has started. Doing the same in the evening, like closing the laptop and putting it out of sight, tells it the day is over.
 
-## Decide the shape of the day, not every minute
+## Pick a few fixed points
 
-Pick two or three anchors: when you start, when you eat, when you stop. Everything else can move. Anchors are easier to keep than a detailed timetable, and they stop the day from melting into one long block.
+Choose a couple of anchors, like when you start and when you eat, and let everything else move. Anchors are easier to keep than a detailed timetable, and they stop the day from melting into one long block.
 
 ## Hear the time instead of checking it
 
@@ -26,11 +26,11 @@ Tolli was made for this. It is a little bell for Android that rings every 10, 15
 
 ## Stand up on the bell
 
-Use some of those chimes as a cue to move. Refill your water, stretch, look out the window. You were going to lose focus at some point anyway. Doing it on purpose means you come back sooner.
+Use some of those chimes as a cue to move. Refill your water or look out the window for a minute. You were going to lose focus at some point anyway. Doing it on purpose means you come back sooner.
 
 ## Write down what you actually did
 
-At the end of the day, write three lines: what you planned, what you did, and what took longer than expected. It takes a minute. After a couple of weeks you will know which tasks always run long, and you can plan for them honestly.
+At the end of the day, write two lines: what you got done and what took longer than expected. It takes a minute. After a couple of weeks you will know which tasks always run long, and you can plan for them honestly.
 
 ## Protect the end of the day
 

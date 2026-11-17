@@ -6,7 +6,7 @@ app: tolli
 translation: recordatorios-que-no-ignoras
 ---
 
-Most of us have dismissed an alarm without reading it. The phone buzzes, you swipe, and ten seconds later you can't say what it was for. The reminder did its job technically. It just didn't reach you.
+Most of us have dismissed an alarm without reading it. The phone buzzes, you swipe, and ten seconds later you can't say what it was for. The reminder rang, and it still didn't reach you.
 
 This happens to everyone. Our brains get used to signals that repeat, and anything that rings often enough starts to sound like background noise. In hospitals, staff surrounded by beeping monitors call it alarm fatigue. At home the stakes are lower, but the pattern is the same.
 
@@ -14,7 +14,7 @@ This happens to everyone. Our brains get used to signals that repeat, and anythi
 
 When a reminder gets ignored, the instinct is to make it louder or more urgent. That works for a few days. Then you get used to the new level too, and now every reminder feels like an emergency. Stress is a poor way to keep track of your day.
 
-A better reminder system has three parts: the right kind of signal, the right timing, and a clear next step.
+A reminder system you keep noticing comes down to a few choices about the kind of signal and when it rings.
 
 ## 1. Match the signal to the job
 
