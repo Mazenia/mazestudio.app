@@ -91,6 +91,7 @@ const withTerms = new Set((await getCollection('terms')).map((e) => e.id.split('
     <header class="site">
       <a class="brand" href={home}>Maze Studio</a>
       <nav>
+        <a href={lang === 'es' ? '/es/blog/' : '/blog/'}>Blog</a>
         <a href="mailto:hola@mazestudio.app">hola@mazestudio.app</a>
         <a class="lang" href={withSlash(altPath)} hreflang={lang === 'en' ? 'es' : 'en'}>{t.other}</a>
       </nav>

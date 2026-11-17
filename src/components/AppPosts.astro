@@ -1,0 +1,30 @@
+---
+// Los posts del blog etiquetados con una app, para su pagina. Sin posts no muestra nada.
+import type { App, Lang } from '../data/apps';
+import { getPosts, postSlug, blogPath } from '../lib/blog';
+interface Props { app: App; lang: Lang; limit?: number }
+const { app, lang, limit = 6 } = Astro.props;
+const posts = (await getPosts(lang, app.slug)).slice(0, limit);
+const t = { en: { title: `Reading about ${app.name}`, all: 'All posts' }, es: { title: `Para leer sobre ${app.name}`, all: 'Todos los artículos' } }[lang];
+---
+{posts.length > 0 && (
+  <section class="app-posts" aria-labelledby="app-posts-title">
+    <h2 id="app-posts-title">{t.title}</h2>
+    <ul>
+      {posts.map((p) => (
+        <li><a href={blogPath(lang, postSlug(p))}><strong>{p.data.title}</strong><span>{p.data.description}</span></a></li>
+      ))}
+    </ul>
+    <a class="all" href={blogPath(lang)}>{t.all} →</a>
+  </section>
+)}
+
+<style>
+  .app-posts h2 { font-size: clamp(30px, 4vw, 44px); margin: 72px 0 20px; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  li a { display: grid; gap: 8px; height: 100%; background: var(--surface); border: 3px solid var(--ink); border-radius: 24px; padding: 22px; text-decoration: none; }
+  li a:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+  strong { font: 700 21px/1.2 var(--display); }
+  span { font-size: 15px; color: var(--muted); }
+  .all { display: inline-block; margin-top: 16px; font-weight: 700; }
+</style>

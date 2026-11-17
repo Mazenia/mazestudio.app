@@ -1,0 +1,77 @@
+---
+// La portada del blog: todos los posts de un idioma, con un filtro por app.
+import Base from '../layouts/Base.astro';
+import { apps, type Lang } from '../data/apps';
+import { getPosts, postSlug, blogPath, formatDate } from '../lib/blog';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const posts = await getPosts(lang);
+const other: Lang = lang === 'es' ? 'en' : 'es';
+const byApp = new Map(apps.map((a) => [a.slug, a]));
+const tagged = apps.filter((a) => posts.some((p) => p.data.app === a.slug));
+const t = {
+  en: { title: 'Blog · Maze Studio', h1: 'Blog', lead: 'Notes on time, attention and the small habits our apps are built around.', all: 'All', empty: 'The first posts are on their way.', filter: 'Filter by app' },
+  es: { title: 'Blog · Maze Studio', h1: 'Blog', lead: 'Notas sobre el tiempo, la atención y los pequeños hábitos alrededor de los que hacemos nuestras apps.', all: 'Todos', empty: 'Los primeros artículos vienen en camino.', filter: 'Filtrar por app' },
+}[lang];
+---
+<Base title={t.title} description={t.lead} lang={lang} altPath={blogPath(other)}>
+  <section class="blog-head">
+    <h1>{t.h1}</h1>
+    <p class="lead">{t.lead}</p>
+    {tagged.length > 0 && (
+      <div class="filter" role="group" aria-label={t.filter}>
+        <button type="button" data-filter="" aria-pressed="true">{t.all}</button>
+        {tagged.map((a) => <button type="button" data-filter={a.slug} aria-pressed="false">{a.name}</button>)}
+      </div>
+    )}
+  </section>
+
+  {posts.length === 0
+    ? <p class="empty">{t.empty}</p>
+    : (
+      <ul class="posts">
+        {posts.map((p) => {
+          const app = p.data.app ? byApp.get(p.data.app) : undefined;
+          return (
+            <li data-app={p.data.app ?? ''} style={app?.theme ? `--tag-bg:${app.theme.bg};--tag-ink:${app.theme.ink}` : undefined}>
+              <a href={blogPath(lang, postSlug(p))}>
+                <span class="meta">
+                  {app && <span class="tag">{app.name}</span>}
+                  <time datetime={p.data.date.toISOString().slice(0, 10)}>{formatDate(p.data.date, lang)}</time>
+                </span>
+                <h2>{p.data.title}</h2>
+                <p>{p.data.description}</p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+</Base>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  buttons.forEach((b) => b.addEventListener('click', () => {
+    const f = b.dataset.filter;
+    buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll<HTMLElement>('.posts li').forEach((li) => { li.hidden = !!f && li.dataset.app !== f; });
+  }));
+</script>
+
+<style>
+  .blog-head { padding-block: 24px 40px; }
+  h1 { font-size: clamp(48px, 8vw, 92px); line-height: .96; letter-spacing: -0.03em; }
+  .lead { font-size: 21px; color: var(--muted); margin: 18px 0 0; }
+  .filter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .filter button { font: 600 15px/1 var(--body); padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+  .filter button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .empty { color: var(--muted); font-size: 18px; }
+  .posts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .posts li { border-bottom: 1px solid var(--line); }
+  .posts a { display: grid; gap: 8px; padding: 26px 4px; text-decoration: none; }
+  .posts a:hover h2 { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); }
+  .tag { font-weight: 700; font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--tag-bg, var(--line)); color: var(--tag-ink, var(--ink)); }
+  .posts h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.15; }
+  .posts p { margin: 0; color: var(--muted); }
+</style>

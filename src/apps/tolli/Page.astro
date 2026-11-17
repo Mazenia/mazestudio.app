@@ -3,6 +3,7 @@
 // y deja escucharla: el hero suena al tocarlo y la demo calcula el proximo
 // ding con la hora real de quien la visita.
 import Base from '../../layouts/Base.astro';
+import AppPosts from '../../components/AppPosts.astro';
 import Bell from './Bell.astro';
 import Face from './Face.astro';
 import { appPath, statusLabel, type App, type Lang } from '../../data/apps';
@@ -190,6 +191,8 @@ const mail = `mailto:hola@mazestudio.app?subject=${encodeURIComponent(c.testSubj
       <details><summary>{q}</summary><p>{a}</p></details>
     ))}
   </section>
+
+  <AppPosts app={app} lang={lang} />
 
   <section class="closing">
     <p>{c.privacy}</p>

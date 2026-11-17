@@ -2,6 +2,7 @@
 // La pagina de Tolli Estudio. Habla Tolli en primera persona, igual que la app,
 // y deja probar una pausa: la tarjeta de abajo pregunta como la notificacion.
 import Base from '../../layouts/Base.astro';
+import AppPosts from '../../components/AppPosts.astro';
 import Face from '../tolli/Face.astro';
 import { appPath, statusLabel, type App, type Lang } from '../../data/apps';
 
@@ -197,6 +198,8 @@ const data = JSON.stringify({ cards: c.cards, pause: c.pause, of: c.of });
       <details><summary>{q}</summary><p>{a}</p></details>
     ))}
   </section>
+
+  <AppPosts app={app} lang={lang} />
 
   <section class="closing">
     <p>{c.privacy}</p>

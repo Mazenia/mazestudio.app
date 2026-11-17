@@ -1,0 +1,91 @@
+---
+// Un post del blog. Si esta etiquetado con una app, usa los colores de la app y
+// cierra con una tarjeta para descargarla.
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { apps, appPath, statusLabel, type Lang } from '../data/apps';
+import { type Post, blogPath, formatDate } from '../lib/blog';
+interface Props { post: Post; lang: Lang }
+const { post, lang } = Astro.props;
+const { Content } = await render(post);
+const other: Lang = lang === 'es' ? 'en' : 'es';
+const app = post.data.app ? apps.find((a) => a.slug === post.data.app) : undefined;
+const altPath = post.data.translation ? blogPath(other, post.data.translation) : blogPath(other);
+const t = {
+  en: { back: 'Blog', updated: 'Updated', more: 'See how it works', get: 'Get it on Google Play' },
+  es: { back: 'Blog', updated: 'Actualizado', more: 'Ver cómo funciona', get: 'Descárgala en Google Play' },
+}[lang];
+const jsonLd = {
+  '@context': 'https://schema.org', '@type': 'BlogPosting',
+  headline: post.data.title, description: post.data.description, inLanguage: lang,
+  datePublished: post.data.date.toISOString().slice(0, 10),
+  dateModified: (post.data.updated ?? post.data.date).toISOString().slice(0, 10),
+  publisher: { '@type': 'Organization', name: 'Maze Studio', url: 'https://mazestudio.app' },
+};
+---
+<Base title={`${post.data.title} · Maze Studio`} description={post.data.description} lang={lang} altPath={altPath} app={app}>
+  <article class="post">
+    <a class="back" href={blogPath(lang)}>← {t.back}</a>
+    <h1>{post.data.title}</h1>
+    <p class="date">
+      <time datetime={post.data.date.toISOString().slice(0, 10)}>{formatDate(post.data.date, lang)}</time>
+      {post.data.updated && <> · {t.updated} {formatDate(post.data.updated, lang)}</>}
+    </p>
+    {app && app.status !== 'building' && (
+      <div class="app-top">
+        <img src={app.icon} alt="" width="40" height="40" />
+        <p><strong>{app.name}</strong> · {app.tagline[lang]}</p>
+        {app.playUrl
+          ? <a class="btn primary small" href={app.playUrl}>{t.get}</a>
+          : !app.externalUrl && <a class="btn small" href={appPath(app, lang)}>{t.more}</a>}
+      </div>
+    )}
+    <div class="body"><Content /></div>
+  </article>
+
+  {app && app.status !== 'building' && (
+    <aside class="app-card">
+      <img src={app.icon} alt="" width="72" height="72" />
+      <div>
+        <p class="name">{app.name}</p>
+        <p>{app.tagline[lang]}</p>
+      </div>
+      <div class="ctas">
+        {app.playUrl
+          ? <a class="btn primary" href={app.playUrl}>{t.get}</a>
+          : <span class="btn">{statusLabel[app.status][lang]}</span>}
+        {!app.externalUrl && <a class="btn" href={appPath(app, lang)}>{t.more}</a>}
+      </div>
+    </aside>
+  )}
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</Base>
+
+<style>
+  .post { background: var(--surface); border: 3px solid var(--ink); border-radius: 28px; padding: clamp(22px, 5vw, 56px); margin-top: 8px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 15px; }
+  h1 { font-size: clamp(34px, 5.5vw, 58px); line-height: 1.04; margin-top: 18px; letter-spacing: -0.02em; }
+  .date { color: var(--muted); font-size: 15px; margin: 14px 0 28px; }
+  .body { font-size: 18px; line-height: 1.7; }
+  .body :global(p), .body :global(ul), .body :global(ol) { max-width: 66ch; }
+  .body :global(h2) { font-size: clamp(24px, 3vw, 30px); margin: 44px 0 12px; line-height: 1.2; }
+  .body :global(h3) { font-size: 21px; margin: 28px 0 8px; }
+  .body :global(ul), .body :global(ol) { padding-left: 24px; }
+  .body :global(li) { margin: 6px 0; }
+  .body :global(img) { max-width: 100%; height: auto; border-radius: 18px; }
+  .body :global(blockquote) { margin: 24px 0; padding: 4px 0 4px 20px; border-left: 4px solid var(--accent); }
+  .body :global(a) { text-underline-offset: 3px; }
+  .app-top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; margin: 0 0 32px; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 20px; background: var(--bg); }
+  .app-top img { border-radius: 10px; flex: none; }
+  .app-top p { margin: 0; flex: 1 1 240px; font-size: 15px; line-height: 1.4; }
+  .btn.small { min-height: 40px; padding: 0 16px; font-size: 14px; border-width: 2.5px; }
+  .btn.primary.small { box-shadow: 0 3px 0 var(--ink); }
+  .app-card { margin-top: 24px; background: var(--bg); border: 3px solid var(--ink); border-radius: 28px; padding: 22px; display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 18px; align-items: center; }
+  .app-card img { border-radius: 18px; }
+  .app-card p { margin: 0; }
+  .name { font: 700 22px/1.1 var(--display); margin-bottom: 4px !important; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 3px solid var(--ink); background: var(--surface); font: 700 16px/1 var(--display); text-decoration: none; }
+  .btn.primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 4px 0 var(--ink); }
+  @media (max-width: 720px) { .app-card { grid-template-columns: 56px minmax(0, 1fr); } .app-card img { width: 56px; height: 56px; } .ctas { grid-column: 1 / -1; } }
+</style>
