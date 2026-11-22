@@ -1,0 +1,25 @@
+---
+// La pagina de error. GitHub Pages la sirve con estado 404 para cualquier ruta
+// que no exista; sin ella, a veces respondia 503 y Google volvia a intentarlo.
+// Es una sola para todos los idiomas, asi que habla en ingles y en espanol.
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found · Maze Studio" description="This page doesn't exist." lang="en" noindex>
+  <section class="nf">
+    <p class="code">404</p>
+    <h1>This page doesn't exist.</h1>
+    <p lang="es">Esta página no existe.</p>
+    <nav>
+      <a href="/">Maze Studio</a>
+      <a href="/blog/">Blog</a>
+      <a href="/es/" lang="es">Español</a>
+    </nav>
+  </section>
+</Base>
+<style>
+  .nf { padding-block: 56px 24px; }
+  .code { font: 700 18px/1 var(--display); color: var(--muted); margin: 0 0 16px; }
+  h1 { font-size: clamp(40px, 7vw, 88px); line-height: 0.95; letter-spacing: -0.04em; }
+  .nf > p[lang] { font-size: 21px; color: var(--muted); margin: 16px 0 0; }
+  nav { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 36px; font-weight: 700; }
+</style>

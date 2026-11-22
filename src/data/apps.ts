@@ -27,6 +27,8 @@ export interface App {
   playUrl?: string;
   appStoreUrl?: string;
   theme?: AppTheme;
+  /** Imagen para compartir (og:image) de su pagina y de sus posts, por idioma. El portugues usa la inglesa. */
+  og?: Record<Lang, string>;
   /** Color de la fila del indice al pasar por encima. */
   hover: { bg: string; ink: string };
   /** Tipografia del nombre en el indice. */
@@ -56,6 +58,7 @@ export const apps: App[] = [
     playUrl: 'https://play.google.com/store/apps/details?id=app.tolli',
     platforms: 'Android',
     icon: '/img/tolli-icon.png',
+    og: { en: '/img/tolli-og.png', es: '/img/tolli-og-es.png' },
     tagline: {
       en: 'A little bell that dings every few minutes so you keep track of time.',
       es: 'Una campanita que suena cada pocos minutos para que no pierdas la noción del tiempo.',

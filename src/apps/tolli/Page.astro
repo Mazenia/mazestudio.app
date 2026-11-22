@@ -109,8 +109,24 @@ const c = es ? {
   termsLink: 'Terms of use',
 };
 const mail = `mailto:hola@mazestudio.app?subject=${encodeURIComponent(c.testSubject)}`;
+// Datos de la app para Google: que es una app de Android, gratis, y donde se instala.
+const site = 'https://mazestudio.app';
+const appLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MobileApplication',
+  name: app.name,
+  description: c.description,
+  url: `${site}${appPath(app, lang)}`,
+  image: `${site}${app.icon}`,
+  operatingSystem: 'ANDROID',
+  applicationCategory: 'UtilitiesApplication',
+  inLanguage: lang,
+  ...(app.playUrl && { installUrl: app.playUrl, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } }),
+  publisher: { '@type': 'Organization', name: 'Maze Studio', url: `${site}/` },
+};
 ---
-<Base title={c.title} description={c.description} lang={lang} altPath={appPath(app, other)} app={app} ogImage={es ? '/img/tolli-og-es.png' : '/img/tolli-og.png'}>
+<Base title={c.title} description={c.description} lang={lang} altPath={appPath(app, other)} app={app} ogImage={app.og?.[lang]}>
+  <script type="application/ld+json" set:html={JSON.stringify(appLd)} />
 
   <section class="hero">
     <div class="copy">

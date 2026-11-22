@@ -16,8 +16,12 @@ interface Props {
   alternates?: Partial<Record<BlogLang, string>>;
   app?: App;
   ogImage?: string;
+  /** 'article' en los posts del blog; el resto son 'website'. */
+  ogType?: 'website' | 'article';
+  /** Para paginas que no deben salir en Google (la de error 404): sin canonical ni hreflang. */
+  noindex?: boolean;
 }
-const { title, description, lang, altPath = '/', alternates, app, ogImage = '/img/og-studio.png' } = Astro.props;
+const { title, description, lang, altPath = '/', alternates, app, ogImage = '/img/og-studio.png', ogType = 'website', noindex = false } = Astro.props;
 const withSlash = (p: string) => (p.endsWith('/') ? p : `${p}/`);
 const canonical = new URL(withSlash(Astro.url.pathname), Astro.site);
 // Las versiones de esta pagina: las que pasa la pagina o, si no, ingles y espanol.
@@ -48,22 +52,27 @@ const withTerms = new Set((await getCollection('terms')).map((e) => e.id.split('
   <meta name="p:domain_verify" content="d0a291c704c66467d8c73b4c2a67b0fc" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonical} />
-  {hreflangs.map(([tag, url]) => <link rel="alternate" hreflang={tag} href={url} />)}
-  <link rel="alternate" hreflang="x-default" href={enUrl} />
+  {noindex ? <meta name="robots" content="noindex" /> : <>
+    <link rel="canonical" href={canonical} />
+    {hreflangs.map(([tag, url]) => <link rel="alternate" hreflang={tag} href={url} />)}
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
+  </>}
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content="Maze Studio" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(ogImage, Astro.site)} />
-  <meta property="og:url" content={canonical} />
+  {!noindex && <meta property="og:url" content={canonical} />}
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href={app?.icon || '/favicon.svg'} />
   {th && <meta name="theme-color" content={th.bg} />}
-  <link rel="preload" href="/fonts/BricolageGrotesque.ttf" as="font" type="font/ttf" crossorigin />
+  {/* Se precarga la fuente del titulo de la pagina: la de la app o la del estudio. */}
+  <link rel="preload" href={th?.display.includes('Fredoka') ? '/fonts/Fredoka.woff2' : '/fonts/BricolageGrotesque.woff2'} as="font" type="font/woff2" crossorigin />
   <style is:global>
-    @font-face { font-family: 'Fredoka'; src: url('/fonts/Fredoka.ttf') format('truetype'); font-weight: 300 700; font-display: swap; }
-    @font-face { font-family: 'DM Sans'; src: url('/fonts/DMSans.ttf') format('truetype'); font-weight: 100 1000; font-display: swap; }
-    @font-face { font-family: 'Bricolage Grotesque'; src: url('/fonts/BricolageGrotesque.ttf') format('truetype'); font-weight: 200 800; font-display: swap; }
-    @font-face { font-family: 'Schibsted Grotesk'; src: url('/fonts/SchibstedGrotesk.ttf') format('truetype'); font-weight: 400 900; font-display: swap; }
+    @font-face { font-family: 'Fredoka'; src: url('/fonts/Fredoka.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
+    @font-face { font-family: 'DM Sans'; src: url('/fonts/DMSans.woff2') format('woff2'); font-weight: 100 1000; font-display: swap; }
+    @font-face { font-family: 'Bricolage Grotesque'; src: url('/fonts/BricolageGrotesque.woff2') format('woff2'); font-weight: 200 800; font-display: swap; }
+    @font-face { font-family: 'Schibsted Grotesk'; src: url('/fonts/SchibstedGrotesk.woff2') format('woff2'); font-weight: 400 900; font-display: swap; }
 
     /* Estudio (el indice): blanco, tinta casi negra y tipografia grande.
        Sin acento propio: el color lo pone cada app. */

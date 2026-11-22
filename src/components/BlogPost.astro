@@ -4,7 +4,7 @@
 import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { apps, appPath, statusLabel, type BlogLang } from '../data/apps';
-import { type Post, blogPath, formatDate, alternatesOf, langTag } from '../lib/blog';
+import { type Post, blogPath, postSlug, formatDate, alternatesOf, langTag } from '../lib/blog';
 interface Props { post: Post; lang: BlogLang }
 const { post, lang } = Astro.props;
 const { Content } = await render(post);
@@ -16,15 +16,25 @@ const t = {
   es: { back: 'Blog', updated: 'Actualizado', more: 'Ver cómo funciona', get: 'Descárgala en Google Play' },
   pt: { back: 'Blog', updated: 'Atualizado', more: 'Veja como funciona', get: 'Baixe no Google Play' },
 }[lang];
+// La imagen para compartir: la de la app del post, o la del estudio, en el idioma del post.
+const ogLang = lang === 'es' ? 'es' : 'en';
+const ogImage = app?.og?.[ogLang] ?? (ogLang === 'es' ? '/img/og-studio-es.png' : '/img/og-studio.png');
+// Google corta los titulos de mas de ~60 caracteres: el nombre del estudio solo se suma si cabe.
+const suffix = ' · Maze Studio';
+const pageTitle = post.data.title.length + suffix.length <= 60 ? post.data.title + suffix : post.data.title;
+const site = 'https://mazestudio.app';
+const url = `${site}${blogPath(lang, postSlug(post))}`;
+const studio = { '@type': 'Organization', name: 'Maze Studio', url: `${site}/`, logo: `${site}/img/maze-studio-logo.png` };
 const jsonLd = {
   '@context': 'https://schema.org', '@type': 'BlogPosting',
   headline: post.data.title, description: post.data.description, inLanguage: langTag[lang],
+  url, mainEntityOfPage: url, image: `${site}${ogImage}`,
   datePublished: post.data.date.toISOString().slice(0, 10),
   dateModified: (post.data.updated ?? post.data.date).toISOString().slice(0, 10),
-  publisher: { '@type': 'Organization', name: 'Maze Studio', url: 'https://mazestudio.app' },
+  author: studio, publisher: studio,
 };
 ---
-<Base title={`${post.data.title} · Maze Studio`} description={post.data.description} lang={lang} alternates={alternates} app={app}>
+<Base title={pageTitle} description={post.data.description} lang={lang} alternates={alternates} app={app} ogImage={ogImage} ogType="article">
   <article class="post">
     <a class="back" href={blogPath(lang)}>← {t.back}</a>
     <h1>{post.data.title}</h1>
