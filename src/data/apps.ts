@@ -17,6 +17,8 @@ export interface AppTheme {
 export interface App {
   slug: string;
   name: string;
+  /** El nombre en otro idioma, si cambia (Tolli Study es Tolli Estudio en espanol). Usar appName(). */
+  localName?: Partial<Record<BlogLang, string>>;
   status: Status;
   platforms: string;
   icon: string;
@@ -74,6 +76,7 @@ export const apps: App[] = [
   {
     slug: 'tolli-study',
     name: 'Tolli Study',
+    localName: { es: 'Tolli Estudio' },
     status: 'soon',
     platforms: 'Android',
     icon: '/img/tolli-study-icon.png',
@@ -100,6 +103,9 @@ export const statusLabel: Record<Status, Record<BlogLang, string>> = {
   soon: { en: 'Coming soon', es: 'Pronto', pt: 'Em breve' },
   building: { en: 'On the way', es: 'En camino', pt: 'A caminho' },
 };
+
+/** El nombre de la app en un idioma. */
+export const appName = (app: App, lang: BlogLang) => app.localName?.[lang] ?? app.name;
 
 // Las paginas de las apps solo existen en ingles y espanol: en portugues se enlaza la inglesa.
 export const appPath = (app: App, lang: BlogLang, sub = '') =>

@@ -6,7 +6,7 @@ import Base from '../../layouts/Base.astro';
 import AppPosts from '../../components/AppPosts.astro';
 import Bell from './Bell.astro';
 import Face from './Face.astro';
-import { appPath, statusLabel, type App, type Lang } from '../../data/apps';
+import { appPath, appName, statusLabel, type App, type Lang } from '../../data/apps';
 
 interface Props { app: App; lang: Lang }
 const { app, lang } = Astro.props;
@@ -114,7 +114,7 @@ const site = 'https://mazestudio.app';
 const appLd = {
   '@context': 'https://schema.org',
   '@type': 'MobileApplication',
-  name: app.name,
+  name: appName(app, lang),
   description: c.description,
   url: `${site}${appPath(app, lang)}`,
   image: `${site}${app.icon}`,

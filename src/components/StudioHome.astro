@@ -2,24 +2,22 @@
 // Portada del estudio, direccion C del lienzo: titulo enorme y las apps como
 // filas de un indice que se tinen del color de cada app al pasar por encima.
 import Base from '../layouts/Base.astro';
-import { apps, appPath, statusLabel } from '../data/apps';
+import { apps, appPath, appName, statusLabel } from '../data/apps';
 interface Props { lang: 'en' | 'es' }
 const { lang } = Astro.props;
 const es = lang === 'es';
+// La descripcion nombra las apps de la portada, asi se actualiza sola al sumar una app o un juego.
+const names = new Intl.ListFormat(lang, { type: 'conjunction' }).format(apps.map((a) => appName(a, lang)));
 const c = es ? {
-  title: 'Maze Studio · Apps pequeñas para tu tiempo y tu atención',
-  description: 'Maze Studio hace apps para iPhone y Android que te ayudan con tu tiempo y tu atención: Dear Wander y Tolli.',
-  h1: 'Apps pequeñas para tu tiempo y tu atención.',
-  about: 'Sin cuenta y sin anuncios.',
-  aboutBody: 'Lo que guardas en cada app se queda en tu teléfono. Si algo falla, escríbeme a',
-  aboutEnd: 'y te respondo yo.',
+  title: 'Maze Studio · Apps y juegos indie',
+  description: `Maze Studio: las apps y los juegos que hago por mi cuenta. Por ahora, ${names}.`,
+  h1: 'Apps y juegos que hago por mi cuenta.',
+  contact: 'Si encuentras un error o tienes una idea, escríbeme a',
 } : {
-  title: 'Maze Studio · Small apps for your time and attention',
-  description: 'Maze Studio makes iPhone and Android apps that help with your time and attention: Dear Wander and Tolli.',
-  h1: 'Small apps for your time and attention.',
-  about: 'No accounts and no ads.',
-  aboutBody: "What you save in each app stays on your phone. If something breaks, write to",
-  aboutEnd: "and I'll reply myself.",
+  title: 'Maze Studio · Indie apps and games',
+  description: `Maze Studio: the apps and games I make on my own. Right now, ${names}.`,
+  h1: 'Apps and games I make on my own.',
+  contact: 'If you find a bug or have an idea, write to me at',
 };
 // Datos para que Google entienda que es un estudio con varias apps.
 const org = {
@@ -46,7 +44,7 @@ const org = {
           style={`--hover-bg:${app.hover.bg};--hover-ink:${app.hover.ink}`}>
           {app.icon ? <img src={app.icon} alt="" width="96" height="96" /> : <span class="placeholder" aria-hidden="true"></span>}
           <div class="text">
-            <span class="name" style={app.nameFont ? `font-family:${app.nameFont};letter-spacing:0` : undefined}>{app.name}</span>
+            <span class="name" style={app.nameFont ? `font-family:${app.nameFont};letter-spacing:0` : undefined}>{appName(app, lang)}</span>
             <span class="line">{app.tagline[lang]}</span>
           </div>
           <span class="meta">{meta}{href && <span class="arrow" aria-hidden="true">{app.externalUrl ? '↗' : '→'}</span>}</span>
@@ -56,8 +54,7 @@ const org = {
   </section>
 
   <section class="about">
-    <p class="big">{c.about}</p>
-    <p>{c.aboutBody} <a href="mailto:hola@mazestudio.app">hola@mazestudio.app</a> {c.aboutEnd}</p>
+    <p>{c.contact} <a href="mailto:hola@mazestudio.app">hola@mazestudio.app</a>.</p>
   </section>
 </Base>
 <style>
@@ -77,7 +74,6 @@ const org = {
   .row.soon { color: var(--muted); border-bottom: 2px solid var(--ink); }
   .about { margin-top: 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px 64px; }
   .about p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
-  .about .big { font: 600 30px/1.2 var(--display); letter-spacing: -0.02em; color: var(--ink); }
   .about a { font-weight: 700; color: var(--ink); }
   @media (max-width: 640px) {
     .row { grid-template-columns: 64px minmax(0, 1fr); padding: 24px 8px; }

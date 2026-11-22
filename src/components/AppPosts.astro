@@ -1,11 +1,12 @@
 ---
 // Los posts del blog etiquetados con una app, para su pagina. Sin posts no muestra nada.
-import type { App, Lang } from '../data/apps';
+import { appName, type App, type Lang } from '../data/apps';
 import { getPosts, postSlug, blogPath } from '../lib/blog';
 interface Props { app: App; lang: Lang; limit?: number }
 const { app, lang, limit = 6 } = Astro.props;
 const posts = (await getPosts(lang, app.slug)).slice(0, limit);
-const t = { en: { title: `Reading about ${app.name}`, all: 'All posts' }, es: { title: `Para leer sobre ${app.name}`, all: 'Todos los artículos' } }[lang];
+const name = appName(app, lang);
+const t = { en: { title: `Reading about ${name}`, all: 'All posts' }, es: { title: `Para leer sobre ${name}`, all: 'Todos los artículos' } }[lang];
 ---
 {posts.length > 0 && (
   <section class="app-posts" aria-labelledby="app-posts-title">

@@ -3,7 +3,7 @@
 // cierra con una tarjeta para descargarla.
 import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { apps, appPath, statusLabel, type BlogLang } from '../data/apps';
+import { apps, appPath, appName, statusLabel, type BlogLang } from '../data/apps';
 import { type Post, blogPath, postSlug, formatDate, alternatesOf, langTag } from '../lib/blog';
 interface Props { post: Post; lang: BlogLang }
 const { post, lang } = Astro.props;
@@ -45,7 +45,7 @@ const jsonLd = {
     {app && app.status !== 'building' && (
       <div class="app-top">
         <img src={app.icon} alt="" width="40" height="40" />
-        <p><strong>{app.name}</strong> · {tagline}</p>
+        <p><strong>{appName(app, lang)}</strong> · {tagline}</p>
         {app.playUrl
           ? <a class="btn primary small" href={app.playUrl}>{t.get}</a>
           : !app.externalUrl && <a class="btn small" href={appPath(app, lang)}>{t.more}</a>}
@@ -58,7 +58,7 @@ const jsonLd = {
     <aside class="app-card">
       <img src={app.icon} alt="" width="72" height="72" />
       <div>
-        <p class="name">{app.name}</p>
+        <p class="name">{appName(app, lang)}</p>
         <p>{tagline}</p>
       </div>
       <div class="ctas">

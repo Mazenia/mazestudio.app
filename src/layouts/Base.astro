@@ -3,7 +3,7 @@
 // los colores y la tipografia de esa app (src/data/apps.ts), asi su pagina se
 // parece a la app; la cabecera y el pie siguen siendo del estudio.
 import { getCollection } from 'astro:content';
-import { apps, appPath, type App, type BlogLang } from '../data/apps';
+import { apps, appPath, appName, type App, type BlogLang } from '../data/apps';
 import { langTag, langName } from '../lib/blog';
 
 interface Props {
@@ -116,9 +116,9 @@ const withTerms = new Set((await getCollection('terms')).map((e) => e.id.split('
     <footer class="site">
       <span>© 2026 Maze Studio</span>
       <nav aria-label={t.apps}>
-        {footerApps.map((a) => <a href={a.externalUrl ?? appPath(a, lang)}>{a.name}</a>)}
-        {footerApps.filter((a) => !a.externalUrl).map((a) => <a href={appPath(a, lang, 'privacy')}>{a.name} · {t.privacy}</a>)}
-        {footerApps.filter((a) => withTerms.has(a.slug)).map((a) => <a href={appPath(a, lang, 'terms')}>{a.name} · {t.terms}</a>)}
+        {footerApps.map((a) => <a href={a.externalUrl ?? appPath(a, lang)}>{appName(a, lang)}</a>)}
+        {footerApps.filter((a) => !a.externalUrl).map((a) => <a href={appPath(a, lang, 'privacy')}>{appName(a, lang)} · {t.privacy}</a>)}
+        {footerApps.filter((a) => withTerms.has(a.slug)).map((a) => <a href={appPath(a, lang, 'terms')}>{appName(a, lang)} · {t.terms}</a>)}
       </nav>
     </footer>
   </div>
