@@ -22,7 +22,7 @@ Cada vez que miras el teléfono pierdes más que esos segundos, porque volver a 
 
 ## Estudia en bloques con un descanso planificado
 
-Bloques de 25, 45 o 50 minutos con una pausa corta entre medias le funcionan a casi todo el mundo. El método importa menos que el descanso tenga final, porque diez minutos de pausa con el teléfono se convierten fácilmente en cuarenta. Decide cuándo termina la pausa antes de empezarla. Si te gusta la técnica pomodoro, aquí va [cómo hacerla sin mirar el reloj](/es/blog/pomodoro-sin-mirar-el-reloj/).
+Bloques de 25, 45 o 50 minutos con una pausa corta entre medias le funcionan a casi todo el mundo. El método importa menos que el descanso tenga final, porque diez minutos de pausa con el teléfono se convierten fácilmente en cuarenta. Decide cuándo termina la pausa antes de empezarla. Si te gusta la técnica pomodoro, aquí va [cómo hacerla sin mirar el reloj](/es/blog/pomodoro-sin-mirar-el-reloj/). Y si quieres aprovechar la pausa para repasar, mira cómo funciona la [repetición espaciada](/es/blog/repeticion-espaciada/).
 
 ## Que una campana te pregunte cada cierto tiempo
 

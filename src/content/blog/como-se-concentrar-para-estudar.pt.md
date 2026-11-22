@@ -22,7 +22,7 @@ Cada olhada no celular custa mais do que os segundos que leva, porque voltar par
 
 ## Estude em blocos com uma pausa planejada
 
-Blocos de 25, 45 ou 50 minutos com uma pausa curta no meio funcionam para quase todo mundo. O método importa menos do que a pausa ter fim, porque dez minutos de pausa no celular viram quarenta fácil. Defina quando a pausa acaba antes de começar. Se você gosta da técnica pomodoro, veja [como fazer sem olhar o relógio](/pt/blog/pomodoro-sem-olhar-o-relogio/).
+Blocos de 25, 45 ou 50 minutos com uma pausa curta no meio funcionam para quase todo mundo. O método importa menos do que a pausa ter fim, porque dez minutos de pausa no celular viram quarenta fácil. Defina quando a pausa acaba antes de começar. Se você gosta da técnica pomodoro, veja [como fazer sem olhar o relógio](/pt/blog/pomodoro-sem-olhar-o-relogio/). E se quiser aproveitar a pausa para revisar, veja como funciona a [repetição espaçada](/pt/blog/repeticao-espacada/).
 
 ## Deixe um sino perguntar de tempos em tempos
 

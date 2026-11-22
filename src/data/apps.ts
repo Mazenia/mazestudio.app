@@ -76,7 +76,7 @@ export const apps: App[] = [
   {
     slug: 'tolli-study',
     name: 'Tolli Study',
-    localName: { es: 'Tolli Estudio' },
+    localName: { es: 'Tolli Estudio', pt: 'Tolli Estudo' },
     status: 'soon',
     platforms: 'Android',
     icon: '/img/tolli-study-icon.png',

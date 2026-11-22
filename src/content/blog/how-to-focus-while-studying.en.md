@@ -22,7 +22,7 @@ Every look at the phone costs more than the seconds it takes, because getting ba
 
 ## Work in blocks with a planned break
 
-Blocks of 25, 45 or 50 minutes with a short break in between work for most people. The method matters less than the break having an end, because a ten-minute break on the phone easily becomes forty. Set the break's end before you start it. If you like the pomodoro technique, here's [how to do it without watching the clock](/blog/pomodoro-technique-bell/).
+Blocks of 25, 45 or 50 minutes with a short break in between work for most people. The method matters less than the break having an end, because a ten-minute break on the phone easily becomes forty. Set the break's end before you start it. If you like the pomodoro technique, here's [how to do it without watching the clock](/blog/pomodoro-technique-bell/). And if you want to use the break to review, see how [spaced repetition](/blog/spaced-repetition/) works.
 
 ## Let a bell check in
 
