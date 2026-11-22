@@ -21,7 +21,8 @@ const ogLang = lang === 'es' ? 'es' : 'en';
 const ogImage = app?.og?.[ogLang] ?? (ogLang === 'es' ? '/img/og-studio-es.png' : '/img/og-studio.png');
 // Google corta los titulos de mas de ~60 caracteres: el nombre del estudio solo se suma si cabe.
 const suffix = ' · Maze Studio';
-const pageTitle = post.data.title.length + suffix.length <= 60 ? post.data.title + suffix : post.data.title;
+const baseTitle = post.data.seoTitle ?? post.data.title;
+const pageTitle = baseTitle.length + suffix.length <= 60 ? baseTitle + suffix : baseTitle;
 const site = 'https://mazestudio.app';
 const url = `${site}${blogPath(lang, postSlug(post))}`;
 const studio = { '@type': 'Organization', name: 'Maze Studio', url: `${site}/`, logo: `${site}/img/maze-studio-logo.png` };

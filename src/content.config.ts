@@ -19,6 +19,8 @@ const blog = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/blog', generateId: ({ entry }) => entry.replace(/\.md$/, '') }),
   schema: z.object({
     title: z.string(),
+    /** Titulo para Google y redes si el del post pasa de ~60 caracteres; el H1 sigue siendo `title`. */
+    seoTitle: z.string().optional(),
     description: z.string(),
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),

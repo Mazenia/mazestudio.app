@@ -1,6 +1,7 @@
 ---
 title: "Lembretes que você não ignora: avisos suaves contra alarmes barulhentos"
-description: "Alarmes barulhentos funcionam uma vez e depois viram ruído de fundo. Como montar um sistema de lembretes que você continua percebendo, do tipo de som ao momento certo."
+seoTitle: "Lembretes que você não ignora: avisos suaves e alarmes"
+description: "Alarmes barulhentos funcionam uma vez e depois viram ruído de fundo. Como montar lembretes que você continua percebendo, do tipo de som ao momento certo."
 date: 2026-11-18
 app: tolli
 translation: reminders-that-dont-get-ignored
@@ -19,7 +20,7 @@ Um sistema de lembretes que você continua percebendo depende de algumas escolha
 ## 1. Cada sinal para a sua função
 
 - **Alarmes** são para o que precisa acontecer numa hora exata: sair para buscar as crianças na escola, tomar um remédio, uma reunião.
-- **Avisos suaves** são para perceber as coisas: notar o tempo passando, ver como você está indo, levantar. Um som suave a cada 15 ou 30 minutos se encaixa aqui.
+- **Avisos suaves** são para perceber as coisas: notar o tempo passando, ver como você está indo, levantar. [Um som suave a cada 15 ou 30 minutos](/pt/blog/timer-de-intervalos-android/) se encaixa aqui.
 - **Bilhetes que você vê** são para dar contexto: um post-it na porta, uma lista na geladeira.
 
 Usar um alarme para o trabalho de um aviso suave é o que desgasta o alarme.
@@ -42,4 +43,4 @@ Lembretes que tocam à noite ou nos dias de folga ensinam você a ignorá-los. D
 
 ## Onde a Tolli entra
 
-A Tolli é a parte dos avisos suaves nesse sistema. É um sininho para Android que toca a cada 10, 15, 30 ou 60 minutos, só nos dias e no horário que você escolher. Ela usa o volume do alarme, então você ouve mesmo com o volume do toque baixo, e se a economia de bateria ou o Não perturbe puderem calar a Tolli, o app mostra o que mudar. Guarde os alarmes para os momentos exatos e deixe um sininho cuidar do resto.
+A Tolli é a parte dos avisos suaves nesse sistema. É um sininho para Android que toca a cada 10, 15, 30 ou 60 minutos, só nos dias e no horário que você escolher. Ela usa o volume do alarme, então você ouve mesmo com o volume do toque baixo, e se [a economia de bateria ou o Não perturbe](/pt/blog/alarme-nao-toca-na-hora-android/) puderem calar a Tolli, o app mostra o que mudar. Guarde os alarmes para os momentos exatos e deixe um sininho cuidar do resto.

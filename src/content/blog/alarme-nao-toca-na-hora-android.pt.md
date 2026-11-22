@@ -1,6 +1,6 @@
 ---
 title: "Por que o alarme ou o lembrete não toca na hora no Android"
-description: "A otimização de bateria do Android pode atrasar ou silenciar lembretes e alarmes de apps. Quais configurações causam isso e o passo a passo para Samsung, Xiaomi, OnePlus, Huawei e Pixel."
+description: "A otimização de bateria atrasa ou silencia alarmes e lembretes no Android. O que causa isso e o passo a passo para Samsung, Xiaomi, OnePlus, Huawei e Pixel."
 date: 2026-11-21
 app: tolli
 translation: android-alarm-not-going-off-on-time

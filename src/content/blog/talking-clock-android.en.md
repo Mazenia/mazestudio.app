@@ -1,6 +1,6 @@
 ---
 title: "Talking clock for Android: make your phone say the time"
-description: "Ways to have your Android phone say the time out loud, from asking the assistant to a talking clock that announces the time every 15, 30 or 60 minutes on its own."
+description: "Ways to make your Android phone say the time out loud, from asking the assistant to a talking clock that announces it every 15, 30 or 60 minutes."
 date: 2026-11-21
 app: tolli
 translation: reloj-parlante
@@ -26,4 +26,4 @@ Hearing the time takes less effort than checking it. Looking at the phone to see
 
 ## Tolli's "Say the time"
 
-Tolli is a little bell for Android that dings every 10, 15, 30 or 60 minutes. With "Say the time" turned on, it says the time after each ding, for example "It's 10:45." It uses the voice installed on your phone, in your phone's language, and plays it at alarm volume so you hear it even with the ringer down. It stays quiet outside the hours you set. It's free, with no account and no ads.
+[Tolli](/tolli/) is a little bell for Android that dings every 10, 15, 30 or 60 minutes. With "Say the time" turned on, it says the time after each ding, for example "It's 10:45." It uses the voice installed on your phone, in your phone's language, and plays it at alarm volume so you hear it even with the ringer down. It stays quiet outside the hours you set. It's free, with no account and no ads.

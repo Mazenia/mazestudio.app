@@ -1,6 +1,6 @@
 ---
 title: "Como se concentrar para estudar sem perder a noção do tempo"
-description: "Ideias práticas para se concentrar nos estudos e continuar sabendo que horas são: um horário para parar, um primeiro passo pequeno, o celular longe, blocos com pausa e um sino que pergunta."
+description: "Ideias para se concentrar nos estudos sem perder a noção do tempo: um horário para parar, um primeiro passo pequeno, o celular longe e um sino que pergunta."
 date: 2026-11-21
 app: tolli
 translation: how-to-focus-while-studying

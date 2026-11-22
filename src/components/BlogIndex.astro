@@ -9,9 +9,9 @@ const posts = await getPosts(lang);
 const byApp = new Map(apps.map((a) => [a.slug, a]));
 const tagged = apps.filter((a) => posts.some((p) => p.data.app === a.slug));
 const t = {
-  en: { title: 'Blog · Maze Studio', h1: 'Blog', lead: 'Notes on time, attention and the small habits behind my apps.', all: 'All', empty: 'The first posts are on their way.', filter: 'Filter by app' },
-  es: { title: 'Blog · Maze Studio', h1: 'Blog', lead: 'Notas sobre el tiempo, la atención y los pequeños hábitos detrás de mis apps.', all: 'Todos', empty: 'Los primeros artículos vienen en camino.', filter: 'Filtrar por app' },
-  pt: { title: 'Blog · Maze Studio', h1: 'Blog', lead: 'Notas sobre o tempo, a atenção e os pequenos hábitos por trás dos meus apps.', all: 'Todos', empty: 'Os primeiros artigos estão a caminho.', filter: 'Filtrar por app' },
+  en: { title: 'Blog on time and focus · Maze Studio', h1: 'Blog', lead: 'Notes on time, attention and the small habits behind my apps.', all: 'All', empty: 'The first posts are on their way.', filter: 'Filter by app' },
+  es: { title: 'Blog sobre tiempo y concentración · Maze Studio', h1: 'Blog', lead: 'Notas sobre el tiempo, la atención y los pequeños hábitos detrás de mis apps.', all: 'Todos', empty: 'Los primeros artículos vienen en camino.', filter: 'Filtrar por app' },
+  pt: { title: 'Blog sobre tempo e concentração · Maze Studio', h1: 'Blog', lead: 'Notas sobre o tempo, a atenção e os pequenos hábitos por trás dos meus apps.', all: 'Todos', empty: 'Os primeiros artigos estão a caminho.', filter: 'Filtrar por app' },
 }[lang];
 ---
 <Base title={t.title} description={t.lead} lang={lang} alternates={blogAlternates}>

@@ -22,7 +22,7 @@ Os timers visuais mostram o tempo restante como um disco colorido que vai encolh
 
 ## 3. Deixe um som marcar o tempo
 
-Para ver as horas você precisa olhar, enquanto um som chega até quando seus olhos estão grudados em outra coisa. Um toque suave a cada 15 ou 30 minutos avisa que mais um bloco passou. A Tolli foi pensada para isso. Ela é um sininho que toca de tempos em tempos, e cada ding vira uma pequena checagem. "Quinze minutos desde o último. Ainda estou fazendo o que eu queria fazer?"
+Para ver as horas você precisa olhar, enquanto um som chega até quando seus olhos estão grudados em outra coisa. [Um toque suave a cada 15 ou 30 minutos](/pt/blog/timer-de-intervalos-android/) avisa que mais um bloco passou. A Tolli foi pensada para isso. Ela é um sininho que toca de tempos em tempos, e cada ding vira uma pequena checagem. "Quinze minutos desde o último. Ainda estou fazendo o que eu queria fazer?"
 
 ## 4. Primeiro chute, depois confira
 
@@ -30,7 +30,7 @@ Antes de uma tarefa, anote quanto tempo você acha que ela vai levar. Depois, an
 
 ## 5. Planeje em blocos de tempo
 
-Numa lista de tarefas o tempo fica escondido, e num dia dividido em blocos de 15 ou 30 minutos ele aparece. Quando uma tarefa precisa caber em um bloco, você percebe na hora quando ela transborda.
+Numa lista de tarefas o tempo fica escondido, e num dia dividido em [blocos de 15 ou 30 minutos](/pt/blog/regra-dos-15-minutos/) ele aparece. Quando uma tarefa precisa caber em um bloco, você percebe na hora quando ela transborda.
 
 ## 6. Reserve tempo para as transições
 

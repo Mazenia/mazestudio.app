@@ -1,6 +1,6 @@
 ---
 title: "Relógio falante: como fazer o celular Android falar a hora"
-description: "Jeitos de fazer o celular Android falar a hora em voz alta, desde perguntar ao assistente até um relógio falante que anuncia a hora a cada 15, 30 ou 60 minutos sozinho."
+description: "Jeitos de fazer o Android falar a hora em voz alta, desde perguntar ao assistente até um relógio falante que anuncia a hora a cada 15, 30 ou 60 minutos."
 date: 2026-11-21
 app: tolli
 translation: talking-clock-android

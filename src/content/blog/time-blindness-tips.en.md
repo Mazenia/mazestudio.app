@@ -22,7 +22,7 @@ Visual timers show the remaining time as a colored disc that gets smaller. You d
 
 ## 3. Let a sound mark the time
 
-Seeing time needs you to look. Hearing it doesn't. A soft sound every 15 or 30 minutes tells you that another block has gone by, even when your eyes are glued to something else. That is the whole idea behind Tolli: a little bell that dings every few minutes, so each ding is a small check-in. "Fifteen minutes since the last one. Am I still doing what I meant to do?"
+Seeing time needs you to look. Hearing it doesn't. [A soft sound every 15 or 30 minutes](/blog/interval-timer-android/) tells you that another block has gone by, even when your eyes are glued to something else. That is the whole idea behind [Tolli](/tolli/): a little bell that dings every few minutes, so each ding is a small check-in. "Fifteen minutes since the last one. Am I still doing what I meant to do?"
 
 ## 4. Guess first, then check
 
@@ -30,7 +30,7 @@ Before a task, write down how long you think it will take. Afterwards, write dow
 
 ## 5. Plan in blocks of time
 
-A to-do list hides time. A day split into blocks of 15 or 30 minutes shows it. When a task has to fit in a block, you can see when it overflows.
+A to-do list hides time. A day split into [blocks of 15 or 30 minutes](/blog/15-minute-rule/) shows it. When a task has to fit in a block, you can see when it overflows.
 
 ## 6. Give transitions their own time
 

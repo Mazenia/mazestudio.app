@@ -1,6 +1,6 @@
 ---
 title: "Reloj parlante: que tu teléfono Android diga la hora en voz alta"
-description: "Formas de que el teléfono Android diga la hora en voz alta, desde preguntarle al asistente hasta un reloj parlante que la anuncia cada 15, 30 o 60 minutos sin que se lo pidas."
+description: "Formas de que tu Android diga la hora en voz alta, desde preguntarle al asistente hasta un reloj parlante que la anuncia cada 15, 30 o 60 minutos."
 date: 2026-11-21
 app: tolli
 translation: talking-clock-android
@@ -26,4 +26,4 @@ Oír la hora cuesta menos que mirarla. Desbloquear el teléfono para ver la hora
 
 ## "Decir la hora" en Tolli
 
-Tolli es una campanita para Android que suena cada 10, 15, 30 o 60 minutos. Si activas "Decir la hora", después de cada ding dice la hora en voz alta, por ejemplo "Son las 10:45". Usa la voz que tiene instalada tu teléfono, en su idioma, y suena con el volumen de alarma para que la oigas aunque bajes el timbre. Fuera del horario que elijas se queda callada. Es gratis, sin cuenta y sin anuncios.
+[Tolli](/es/tolli/) es una campanita para Android que suena cada 10, 15, 30 o 60 minutos. Si activas "Decir la hora", después de cada ding dice la hora en voz alta, por ejemplo "Son las 10:45". Usa la voz que tiene instalada tu teléfono, en su idioma, y suena con el volumen de alarma para que la oigas aunque bajes el timbre. Fuera del horario que elijas se queda callada. Es gratis, sin cuenta y sin anuncios.

@@ -1,6 +1,6 @@
 ---
 title: "Técnica pomodoro sin mirar el reloj"
-description: "La técnica pomodoro nació con un temporizador de cocina que sonaba. Cómo funciona, por qué importa la campana y cómo aplicarla sin quedarte mirando una cuenta atrás."
+description: "La técnica pomodoro nació con un temporizador de cocina que sonaba. Cómo funciona, por qué importa la campana y cómo aplicarla sin mirar una cuenta atrás."
 date: 2026-11-18
 app: tolli
 translation: pomodoro-technique-bell
@@ -34,6 +34,6 @@ Veinticinco minutos es solo el punto de partida. Hay quien rinde mejor en rondas
 
 ## Pomodoro con Tolli
 
-Tolli es una campanita para Android. Con Tolli Pro tienes un modo Pomodoro con tres planes (25/5, 50/10 y 15/3), una campana en cada cambio y un sonido distinto para los descansos, así sabes en qué parte estás sin mirar. Pro también deja que la campana normal suene en cualquier intervalo de 1 a 180 minutos. Es un solo pago de 2,99 US$, sin suscripción.
+[Tolli](/es/tolli/) es una campanita para Android. Con Tolli Pro tienes un modo Pomodoro con tres planes (25/5, 50/10 y 15/3), una campana en cada cambio y un sonido distinto para los descansos, así sabes en qué parte estás sin mirar. Pro también deja que la campana normal suene en cualquier intervalo de 1 a 180 minutos. Es un solo pago de 2,99 US$, sin suscripción.
 
-La versión gratis suena cada 10, 15, 30 o 60 minutos, y eso basta para probar un ritmo más suelto: trabaja hasta el ding de los 30 minutos y levántate unos minutos antes de seguir.
+La versión gratis [suena cada 10, 15, 30 o 60 minutos](/es/blog/temporizador-de-intervalos/), y eso basta para probar un ritmo más suelto: trabaja hasta el ding de los 30 minutos y levántate unos minutos antes de seguir.

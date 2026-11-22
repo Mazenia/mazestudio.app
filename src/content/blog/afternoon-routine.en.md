@@ -16,7 +16,7 @@ Don't jump straight into your hardest task. Take ten minutes to look at what is 
 
 ## 1:30 to 3:00: easy, active work
 
-The slump is a good time for tasks that keep your hands busy: replying to messages, tidying files, errands, calls. Save deep thinking for later if you can. A soft chime every 30 minutes helps here, because this is exactly when time stretches without you noticing.
+The slump is a good time for tasks that keep your hands busy: replying to messages, tidying files, errands, calls. Save deep thinking for later if you can. A soft chime every 30 minutes helps here, because this is exactly when [time stretches without you noticing](/blog/time-blindness-tips/).
 
 ## 3:00: move
 
@@ -24,11 +24,11 @@ Stand up and go outside if you can. Five minutes is enough. Many people find the
 
 ## 3:15 to 4:45: the one thing
 
-Now do the task you chose after lunch. Put the phone face down, close the tabs you don't need, and work in blocks. If you like the pomodoro technique, this is a good slot for two or three rounds.
+Now do the task you chose after lunch. Put the phone face down, close the tabs you don't need, and work in blocks. If you like [the pomodoro technique](/blog/pomodoro-technique-bell/), this is a good slot for two or three rounds.
 
 ## 4:45 to 5:00: close the day
 
-Write what is still open and the first task for tomorrow. Close the laptop. This small ending stops work from leaking into the evening and makes tomorrow easier to start.
+Write what is still open and the first task for tomorrow. Close the laptop. This small ending [stops work from leaking into the evening](/blog/keep-track-of-time-working-from-home/) and makes tomorrow easier to start.
 
 ## Adjust the clock, keep the shape
 
@@ -36,4 +36,4 @@ Your hours might be different, especially with school runs or shifts. Move the t
 
 ## Let a bell keep the rhythm
 
-The hardest part of any routine is noticing when to switch. Tolli is a little bell for Android that rings every 10, 15, 30 or 60 minutes during the hours you choose. Set it to 30 minutes for the afternoon and let each ding ask the question: am I still where I meant to be? It is free, with no account and no ads.
+The hardest part of any routine is noticing when to switch. [Tolli](/tolli/) is a little bell for Android that rings every 10, 15, 30 or 60 minutes during the hours you choose. Set it to 30 minutes for the afternoon and let each ding ask the question: am I still where I meant to be? It is free, with no account and no ads.

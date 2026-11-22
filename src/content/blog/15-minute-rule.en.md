@@ -1,6 +1,7 @@
 ---
 title: "The 15-minute rule: plan your day in small blocks you can actually see"
-description: "We are bad at guessing how long things take. Splitting the day into 15-minute blocks makes the gap between plan and reality visible early, while you can still fix it."
+seoTitle: "The 15-minute rule: plan your day in small blocks"
+description: "We're bad at guessing how long things take. Blocks of 15 minutes show the gap between plan and reality early, while you can still fix it."
 date: 2026-11-18
 app: tolli
 translation: regla-de-los-15-minutos
@@ -25,10 +26,10 @@ Fifteen minutes is long enough to answer a few emails or fold a load of laundry.
 
 A plan in blocks only works if you notice when a block ends. Looking at the clock every few minutes is tiring, and you will forget the moment you get absorbed.
 
-A sound helps here. Tolli is a little bell for Android that can ring every 15 minutes, so each ding marks the end of a block while your eyes stay on the work, and you decide whether to keep going or change.
+A sound helps here. [Tolli](/tolli/) is a little bell for Android that can ring every 15 minutes, so each ding marks the end of a block while your eyes stay on the work, and you decide whether to keep going or change.
 
 ## Start smaller than you think
 
-Try it for one morning first. Plan three hours in twelve blocks, set a 15-minute chime, and write down what happened in each block. At lunch, compare. The gap between your plan and your blocks will tell you more about your own pace than any study average.
+Try it for one morning first. Plan three hours in twelve blocks, set [a 15-minute chime](/blog/interval-timer-android/), and write down what happened in each block. At lunch, compare. The gap between your plan and your blocks will tell you more about your own pace than any study average.
 
 Tolli is free, with no account and no ads, and you can choose the hours it rings.

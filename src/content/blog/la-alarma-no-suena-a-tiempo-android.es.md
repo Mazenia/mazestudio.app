@@ -1,6 +1,6 @@
 ---
 title: "Por qué la alarma o el recordatorio no suena a tiempo en Android"
-description: "La optimización de batería de Android puede retrasar o silenciar los recordatorios y las alarmas de las apps. Qué ajustes lo causan y los pasos para Samsung, Xiaomi, OnePlus, Huawei y Pixel."
+description: "La optimización de batería retrasa o silencia alarmas y recordatorios en Android. Qué lo causa y los pasos para Samsung, Xiaomi, OnePlus, Huawei y Pixel."
 date: 2026-11-21
 app: tolli
 translation: android-alarm-not-going-off-on-time
@@ -35,6 +35,6 @@ Para probar, pon un recordatorio para dentro de cinco minutos, bloquea el teléf
 
 ## Cómo lo resuelve Tolli
 
-Tolli es una campanita para Android que suena cada 10, 15, 30 o 60 minutos. Un ding que llega tarde no sirve de nada, así que usa alarmas exactas y el volumen de alarma, y revisa estos ajustes por ti. Si el ahorro de batería o No molestar pueden silenciarla, te avisa con los pasos para la marca de tu teléfono, los mismos de esta lista. Es gratis, sin cuenta y sin anuncios.
+[Tolli](/es/tolli/) es una campanita para Android que suena cada 10, 15, 30 o 60 minutos. Un ding que llega tarde no sirve de nada, así que usa alarmas exactas y el volumen de alarma, y revisa estos ajustes por ti. Si el ahorro de batería o No molestar pueden silenciarla, te avisa con los pasos para la marca de tu teléfono, los mismos de esta lista. Es gratis, sin cuenta y sin anuncios.
 
 Si quieres saber por qué ayuda oír una campanada cada 15 o 30 minutos, lee [la regla de los 15 minutos](/es/blog/regla-de-los-15-minutos/).

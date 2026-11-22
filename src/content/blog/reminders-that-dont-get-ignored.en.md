@@ -19,7 +19,7 @@ A reminder system you keep noticing comes down to a few choices about the kind o
 ## 1. Match the signal to the job
 
 - **Alarms** are for things that must happen at an exact time: leaving for school pickup, taking medicine, a meeting.
-- **Gentle cues** are for awareness: noticing time passing, checking in with yourself, standing up. A soft sound every 15 or 30 minutes fits here.
+- **Gentle cues** are for awareness: noticing time passing, checking in with yourself, standing up. [A soft sound every 15 or 30 minutes](/blog/interval-timer-android/) fits here.
 - **Notes you can see** are for context: a sticky note on the door, a list on the fridge.
 
 Using an alarm for an awareness job is what wears it out.
@@ -42,4 +42,4 @@ Reminders that ring at night or on days off teach you to ignore them. Let them r
 
 ## Where Tolli fits
 
-Tolli is the gentle-cue part of this system. It is a little bell for Android that rings every 10, 15, 30 or 60 minutes, only on the days and hours you choose. It uses the alarm volume so you hear it with the ringer low, and if battery saver or Do Not Disturb might silence it, the app tells you what to change. Keep your alarms for the exact moments, and let a small bell handle the rest.
+[Tolli](/tolli/) is the gentle-cue part of this system. It is a little bell for Android that rings every 10, 15, 30 or 60 minutes, only on the days and hours you choose. It uses the alarm volume so you hear it with the ringer low, and if [battery saver or Do Not Disturb](/blog/android-alarm-not-going-off-on-time/) might silence it, the app tells you what to change. Keep your alarms for the exact moments, and let a small bell handle the rest.

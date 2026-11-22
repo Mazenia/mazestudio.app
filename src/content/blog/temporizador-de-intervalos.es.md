@@ -1,5 +1,6 @@
 ---
 title: "Temporizador de intervalos en Android: un aviso cada 15 o 30 minutos"
+seoTitle: "Temporizador de intervalos en Android: cada 15 o 30 minutos"
 description: "Cómo hacer que el teléfono Android suene cada 15, 30 o 60 minutos durante el día, qué puede hacer la app Reloj y qué buscar en un temporizador de intervalos."
 date: 2026-11-21
 app: tolli
@@ -32,4 +33,4 @@ Si dudas, empieza con 30 y ajusta después de un día. Si dejas de notar el ding
 
 ## Tolli como temporizador de intervalos
 
-Tolli es una campanita para Android que suena cada 10, 15, 30 o 60 minutos en el horario que elijas y calla fuera de él. Usa alarmas exactas para que cada ding llegue a su minuto, y puede vibrar cuando el teléfono está en vibración. Con Tolli Pro, un pago único, puedes elegir cualquier intervalo de 1 a 180 minutos. La versión gratis no tiene cuenta ni anuncios.
+[Tolli](/es/tolli/) es una campanita para Android que suena cada 10, 15, 30 o 60 minutos en el horario que elijas y calla fuera de él. Usa alarmas exactas para que cada ding llegue a su minuto, y puede vibrar cuando el teléfono está en vibración. Con Tolli Pro, un pago único, puedes elegir cualquier intervalo de 1 a 180 minutos. La versión gratis no tiene cuenta ni anuncios.

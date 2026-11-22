@@ -1,6 +1,7 @@
 ---
 title: "A regra dos 15 minutos: planeje o dia em blocos pequenos que você consegue ver"
-description: "A gente erra feio ao calcular quanto as coisas demoram. Dividir o dia em blocos de 15 minutos mostra cedo a distância entre o plano e a realidade, quando ainda dá para corrigir."
+seoTitle: "A regra dos 15 minutos: planeje o dia em blocos"
+description: "A gente erra ao calcular quanto as coisas demoram. Blocos de 15 minutos mostram cedo a distância entre o plano e a realidade, quando ainda dá para corrigir."
 date: 2026-11-18
 app: tolli
 translation: 15-minute-rule
@@ -29,6 +30,6 @@ Aqui um som ajuda. A Tolli é um sininho para Android que pode tocar a cada 15 m
 
 ## Comece menor do que você imagina
 
-Teste primeiro numa manhã. Planeje três horas em doze blocos, ponha um toque a cada 15 minutos e anote o que aconteceu em cada bloco. Na hora do almoço, compare. A diferença entre o seu plano e os seus blocos vai dizer mais sobre o seu ritmo do que qualquer média de estudo.
+Teste primeiro numa manhã. Planeje três horas em doze blocos, ponha [um toque a cada 15 minutos](/pt/blog/timer-de-intervalos-android/) e anote o que aconteceu em cada bloco. Na hora do almoço, compare. A diferença entre o seu plano e os seus blocos vai dizer mais sobre o seu ritmo do que qualquer média de estudo.
 
 A Tolli é grátis, sem conta e sem anúncios, e você escolhe o horário em que ela toca.

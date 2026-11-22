@@ -1,6 +1,7 @@
 ---
 title: "Recordatorios que no ignoras: avisos suaves frente a alarmas fuertes"
-description: "Las alarmas fuertes funcionan una vez y luego se vuelven ruido de fondo. Cómo armar un sistema de recordatorios que sigas notando, desde el sonido hasta el momento justo."
+seoTitle: "Recordatorios que no ignoras: avisos suaves y alarmas"
+description: "Las alarmas fuertes funcionan una vez y luego se vuelven ruido de fondo. Cómo armar recordatorios que sigas notando, desde el sonido hasta el momento justo."
 date: 2026-11-18
 app: tolli
 translation: reminders-that-dont-get-ignored
@@ -19,7 +20,7 @@ Un sistema de recordatorios que sigas notando depende de unas pocas decisiones s
 ## 1. Cada señal para su tarea
 
 - **Las alarmas** son para lo que tiene que pasar a una hora exacta: salir a buscar a los niños, tomar una medicina, una reunión.
-- **Los avisos suaves** son para darte cuenta: notar que pasa el tiempo, preguntarte cómo vas, levantarte. Un sonido suave cada 15 o 30 minutos encaja aquí.
+- **Los avisos suaves** son para darte cuenta: notar que pasa el tiempo, preguntarte cómo vas, levantarte. [Un sonido suave cada 15 o 30 minutos](/es/blog/temporizador-de-intervalos/) encaja aquí.
 - **Las notas que ves** son para el contexto: un pósit en la puerta, una lista en la nevera.
 
 Usar una alarma para un trabajo de aviso suave es lo que la desgasta.
@@ -42,4 +43,4 @@ Los recordatorios que suenan de noche o en días libres te enseñan a ignorarlos
 
 ## Dónde encaja Tolli
 
-Tolli es la parte de avisos suaves de este sistema. Es una campanita para Android que suena cada 10, 15, 30 o 60 minutos, solo los días y en el horario que elijas. Usa el volumen de alarma para que la oigas con el timbre bajo, y si el ahorro de batería o No molestar pueden callarla, la app te dice qué cambiar. Deja las alarmas para los momentos exactos y que una campanita se ocupe del resto.
+[Tolli](/es/tolli/) es la parte de avisos suaves de este sistema. Es una campanita para Android que suena cada 10, 15, 30 o 60 minutos, solo los días y en el horario que elijas. Usa el volumen de alarma para que la oigas con el timbre bajo, y si [el ahorro de batería o No molestar](/es/blog/la-alarma-no-suena-a-tiempo-android/) pueden callarla, la app te dice qué cambiar. Deja las alarmas para los momentos exactos y que una campanita se ocupe del resto.

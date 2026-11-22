@@ -1,6 +1,6 @@
 ---
 title: "Cómo concentrarse para estudiar sin perder la noción del tiempo"
-description: "Ideas prácticas para concentrarte al estudiar y seguir sabiendo qué hora es: una hora de fin, un primer paso pequeño, el teléfono lejos, bloques con descanso y una campana que te pregunta."
+description: "Ideas para concentrarte al estudiar sin perder la noción del tiempo: una hora de fin, un primer paso pequeño, el teléfono lejos y una campana que pregunta."
 date: 2026-11-21
 app: tolli
 translation: how-to-focus-while-studying
@@ -34,4 +34,4 @@ En los dos últimos minutos, escribe el siguiente paso para mañana, tan pequeñ
 
 ## Tolli para estudiar
 
-Tolli es una campanita para Android que suena cada 10, 15, 30 o 60 minutos en el horario que elijas. Para la biblioteca o una habitación compartida tiene la campana de madera, un golpe seco que se oye sin molestar, y si el teléfono está en vibración puede vibrar en lugar de sonar. Es gratis, sin cuenta y sin anuncios.
+[Tolli](/es/tolli/) es una campanita para Android que suena cada 10, 15, 30 o 60 minutos en el horario que elijas. Para la biblioteca o una habitación compartida tiene la campana de madera, un golpe seco que se oye sin molestar, y si el teléfono está en vibración puede vibrar en lugar de sonar. Es gratis, sin cuenta y sin anuncios.

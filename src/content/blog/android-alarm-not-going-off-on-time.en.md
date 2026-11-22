@@ -1,6 +1,7 @@
 ---
 title: "Why your Android alarm or reminder doesn't go off on time (and how to fix it by brand)"
-description: "Battery optimization on Android can delay or silence reminders, timers and alarms from apps. Here are the settings that cause it and the steps for Samsung, Xiaomi, OnePlus, Huawei and Pixel."
+seoTitle: "Android alarm not going off on time: fixes by brand"
+description: "Battery optimization can delay or silence alarms and reminders on Android. What causes it, and the fix for Samsung, Xiaomi, OnePlus, Huawei and Pixel."
 date: 2026-11-21
 app: tolli
 translation: la-alarma-no-suena-a-tiempo-android
@@ -41,6 +42,6 @@ After changing the settings, set a reminder for five minutes from now, lock the 
 
 ## How Tolli handles it
 
-Tolli is a little bell for Android that dings every 10, 15, 30 or 60 minutes. Because a late ding is useless, it uses exact alarms and the alarm volume, and it checks these settings for you. If battery saving or Do Not Disturb could silence it, Tolli shows a warning with the steps for your phone's brand, the same ones listed above. It is free, with no account and no ads.
+[Tolli](/tolli/) is a little bell for Android that dings every 10, 15, 30 or 60 minutes. Because a late ding is useless, it uses exact alarms and the alarm volume, and it checks these settings for you. If battery saving or Do Not Disturb could silence it, Tolli shows a warning with the steps for your phone's brand, the same ones listed above. It is free, with no account and no ads.
 
 If you want to know why a chime every 15 or 30 minutes helps in the first place, read [the 15-minute rule](/blog/15-minute-rule/) or [why hearing the time helps you keep track of it](/blog/hourly-chime-app/).

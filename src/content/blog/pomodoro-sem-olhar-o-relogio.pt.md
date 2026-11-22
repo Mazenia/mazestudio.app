@@ -1,6 +1,6 @@
 ---
 title: "Técnica Pomodoro sem ficar olhando o relógio"
-description: "A técnica Pomodoro nasceu com um timer de cozinha que tocava. Como ela funciona, por que o sino faz diferença e como aplicar sem ficar encarando uma contagem regressiva."
+description: "A técnica Pomodoro nasceu com um timer de cozinha que tocava. Como ela funciona, por que o sino importa e como aplicar sem encarar uma contagem regressiva."
 date: 2026-11-18
 app: tolli
 translation: pomodoro-technique-bell
@@ -36,4 +36,4 @@ Vinte e cinco minutos é só o ponto de partida. Tem gente que rende mais em rod
 
 A Tolli é um sininho para Android. Com o Tolli Pro você ganha um modo Pomodoro com três combinações de blocos (25/5, 50/10 e 15/3), um sino em cada troca e um som diferente para as pausas, assim você sabe em que parte está sem olhar. O Pro também deixa o sino normal tocar em qualquer intervalo, de 1 a 180 minutos. É um pagamento só de US$ 2,99, sem assinatura.
 
-A versão grátis toca a cada 10, 15, 30 ou 60 minutos, o que já basta para testar um ritmo mais solto: trabalhe até o ding dos 30 minutos e levante por alguns minutos antes de continuar.
+A versão grátis [toca a cada 10, 15, 30 ou 60 minutos](/pt/blog/timer-de-intervalos-android/), o que já basta para testar um ritmo mais solto: trabalhe até o ding dos 30 minutos e levante por alguns minutos antes de continuar.

@@ -1,6 +1,6 @@
 ---
 title: "How to focus while studying without losing track of time"
-description: "Practical ways to concentrate on studying and still know what time it is: an end time, a first step, the phone out of reach, blocks with breaks and a bell that checks in."
+description: "Ways to concentrate on studying and still know what time it is: an end time, a small first step, the phone out of reach and a bell that checks in."
 date: 2026-11-21
 app: tolli
 translation: como-concentrarse-para-estudiar
@@ -34,4 +34,4 @@ In the last two minutes, write the next step for tomorrow, as small as the first
 
 ## Tolli for study sessions
 
-Tolli is a little bell for Android that dings every 10, 15, 30 or 60 minutes during the hours you choose. For a library or a shared room there's a wood bell, a dry tap that's easy to hear without bothering anyone, and the phone can vibrate instead when it's on vibrate. It's free, with no account and no ads.
+[Tolli](/tolli/) is a little bell for Android that dings every 10, 15, 30 or 60 minutes during the hours you choose. For a library or a shared room there's a wood bell, a dry tap that's easy to hear without bothering anyone, and the phone can vibrate instead when it's on vibrate. It's free, with no account and no ads.

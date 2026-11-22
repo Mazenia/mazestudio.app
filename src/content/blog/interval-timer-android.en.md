@@ -1,6 +1,6 @@
 ---
 title: "Interval timer on Android: a reminder every 15 or 30 minutes"
-description: "How to get your Android phone to ring every 15, 30 or 60 minutes all day, what the built-in Clock app can and can't do, and what to look for in an interval timer app."
+description: "How to make your Android phone ring every 15, 30 or 60 minutes all day, what the Clock app can't do, and what to look for in an interval timer app."
 date: 2026-11-21
 app: tolli
 translation: temporizador-de-intervalos
@@ -34,4 +34,4 @@ If you're unsure, start with 30 and adjust after a day. When you stop noticing t
 
 ## Using Tolli as an interval timer
 
-Tolli is a little bell for Android that dings every 10, 15, 30 or 60 minutes between the hours you pick and stays quiet outside them. It uses exact alarms so each ding lands on the minute, and it can vibrate instead when the phone is on vibrate. Tolli Pro, a one-time purchase, lets you set any interval from 1 to 180 minutes. The free version has no account and no ads.
+[Tolli](/tolli/) is a little bell for Android that dings every 10, 15, 30 or 60 minutes between the hours you pick and stays quiet outside them. It uses exact alarms so each ding lands on the minute, and it can vibrate instead when the phone is on vibrate. Tolli Pro, a one-time purchase, lets you set any interval from 1 to 180 minutes. The free version has no account and no ads.

@@ -20,7 +20,7 @@ Escolha duas âncoras, como a hora de começar e a hora de comer, e deixe o rest
 
 ## Ouça as horas em vez de olhar
 
-Toda vez que você pega o celular para ver as horas, tem uma notificação esperando. Um sino a cada 30 minutos dá a mesma informação sem o desvio. Cada ding é uma pergunta rápida: isto ainda é a coisa mais útil que eu posso fazer agora?
+Toda vez que você pega o celular para ver as horas, tem uma notificação esperando. [Um sino a cada 30 minutos](/pt/blog/sino-de-hora-em-hora/) dá a mesma informação sem o desvio. Cada ding é uma pergunta rápida: isto ainda é a coisa mais útil que eu posso fazer agora?
 
 A Tolli foi feita para isso. É um sininho para Android que toca a cada 10, 15, 30 ou 60 minutos, só no horário que você definir. Fora do seu horário de trabalho ela dorme, então as noites continuam tranquilas.
 

@@ -20,9 +20,9 @@ Elige un par de anclas, como cuándo empiezas y cuándo comes, y deja que todo l
 
 ## Oye la hora en vez de mirarla
 
-Cada vez que levantas el teléfono para ver la hora, hay una notificación esperándote. Una campanada cada 30 minutos te da la misma información sin el desvío. Cada ding es una pregunta rápida: ¿sigue siendo esto lo más útil que puedo hacer?
+Cada vez que levantas el teléfono para ver la hora, hay una notificación esperándote. [Una campanada cada 30 minutos](/es/blog/campanada-cada-hora/) te da la misma información sin el desvío. Cada ding es una pregunta rápida: ¿sigue siendo esto lo más útil que puedo hacer?
 
-Tolli nació para esto. Es una campanita para Android que suena cada 10, 15, 30 o 60 minutos, solo en el horario que elijas. Fuera de tu jornada duerme, así que las noches siguen tranquilas.
+[Tolli](/es/tolli/) nació para esto. Es una campanita para Android que suena cada 10, 15, 30 o 60 minutos, solo en el horario que elijas. Fuera de tu jornada duerme, así que las noches siguen tranquilas.
 
 ## Levántate con la campana
 

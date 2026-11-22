@@ -34,6 +34,6 @@ Twenty-five minutes is only where to start. Some people work better in 50-minute
 
 ## Pomodoro with Tolli
 
-Tolli is a little bell for Android. With Tolli Pro you get a Pomodoro mode with three plans (25/5, 50/10 and 15/3), a bell at every change and a different sound for breaks, so you know which part you are in without looking. Pro also lets the regular bell ring at any interval from 1 to 180 minutes. It is a single payment of US$2.99, no subscription.
+[Tolli](/tolli/) is a little bell for Android. With Tolli Pro you get a Pomodoro mode with three plans (25/5, 50/10 and 15/3), a bell at every change and a different sound for breaks, so you know which part you are in without looking. Pro also lets the regular bell ring at any interval from 1 to 180 minutes. It is a single payment of US$2.99, no subscription.
 
-The free version rings every 10, 15, 30 or 60 minutes, which is enough to try a looser rhythm: work until the 30-minute ding, then stand up for a few minutes before you continue.
+The free version [rings every 10, 15, 30 or 60 minutes](/blog/interval-timer-android/), which is enough to try a looser rhythm: work until the 30-minute ding, then stand up for a few minutes before you continue.

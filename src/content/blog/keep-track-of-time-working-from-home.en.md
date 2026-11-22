@@ -20,9 +20,9 @@ Choose a couple of anchors, like when you start and when you eat, and let everyt
 
 ## Hear the time instead of checking it
 
-Every time you pick up the phone to check the hour, there is a notification waiting. A chime every 30 minutes gives you the same information without the detour. Each ding is a quick question: is this still the most useful thing to do?
+Every time you pick up the phone to check the hour, there is a notification waiting. [A chime every 30 minutes](/blog/hourly-chime-app/) gives you the same information without the detour. Each ding is a quick question: is this still the most useful thing to do?
 
-Tolli was made for this. It is a little bell for Android that rings every 10, 15, 30 or 60 minutes, only during the hours you set. Outside your work hours it sleeps, so evenings stay quiet.
+[Tolli](/tolli/) was made for this. It is a little bell for Android that rings every 10, 15, 30 or 60 minutes, only during the hours you set. Outside your work hours it sleeps, so evenings stay quiet.
 
 ## Stand up on the bell
 

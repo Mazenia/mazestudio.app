@@ -1,6 +1,6 @@
 ---
-title: "Campanada cada hora: por qué oír la hora te ayuda a no perderla"
-description: "Los relojes antiguos daban la hora para que nadie tuviera que mirar. Una campanada en el teléfono hace lo mismo, y funciona mejor en intervalos más cortos."
+title: "Alarma cada hora: por qué oír la hora te ayuda a no perderla"
+description: "Una alarma cada hora, o una campanada suave, te dice la hora sin mirar el teléfono. Por qué funciona, y por qué conviene probar intervalos más cortos."
 date: 2026-11-18
 app: tolli
 translation: hourly-chime-app
@@ -20,7 +20,7 @@ Con una campanada la hora viene a ti, así que funciona aunque tengas la cabeza 
 
 Una campanada cada hora sirve para saber más o menos en qué parte del día estás. Pero en una hora se escapan muchas cosas. Si querías dedicarle 20 minutos a algo, la campana de la hora te avisa tarde.
 
-Con intervalos más cortos, la campanada se convierte en un aviso amable:
+Con [intervalos más cortos](/es/blog/temporizador-de-intervalos/), la campanada se convierte en un aviso amable:
 
 - **Cada 15 minutos** para lo que suele tragarte, como el scroll, el correo u ordenar la casa.
 - **Cada 30 minutos** para trabajo concentrado, y así notas cuándo toca levantarte o cambiar de tarea.
@@ -28,10 +28,10 @@ Con intervalos más cortos, la campanada se convierte en un aviso amable:
 
 ## Que el sonido encaje con el lugar
 
-Una campanada tiene que notarse sin parecer una alarma. En un cuarto tranquilo basta un sonido corto y suave. En una casa con ruido quizá quieras algo más grave que se oiga desde otra habitación. Si compartes espacio, la vibración sola puede bastar.
+Una campanada tiene que notarse [sin parecer una alarma](/es/blog/recordatorios-que-no-ignoras/). En un cuarto tranquilo basta un sonido corto y suave. En una casa con ruido quizá quieras algo más grave que se oiga desde otra habitación. Si compartes espacio, la vibración sola puede bastar.
 
 ## Cómo lo hace Tolli
 
-Tolli es una campanita para Android que suena cada 10, 15, 30 o 60 minutos. Eliges las horas y los días en que suena, así se queda callada de noche o el fin de semana si quieres. Usa el volumen de alarma, de modo que suena aunque tengas el timbre bajo, y después del ding puede decir la hora en voz alta. Es gratis, sin cuenta y sin anuncios.
+[Tolli](/es/tolli/) es una campanita para Android que suena cada 10, 15, 30 o 60 minutos. Eliges las horas y los días en que suena, así se queda callada de noche o el fin de semana si quieres. Usa el volumen de alarma, de modo que suena aunque tengas el timbre bajo, y después del ding puede [decir la hora en voz alta](/es/blog/reloj-parlante/). Es gratis, sin cuenta y sin anuncios.
 
 Si alguna vez quisiste que tu teléfono se pareciera un poco más a la campana del pueblo, pruébala una tarde y fíjate en cómo se siente el día.

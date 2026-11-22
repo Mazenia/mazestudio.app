@@ -1,5 +1,6 @@
 ---
 title: "Si pierdes la noción del tiempo: 7 formas de verlo (y oírlo) pasar"
+seoTitle: "Perder la noción del tiempo: 7 formas de verlo y oírlo"
 description: "Cuando cinco minutos se te convierten en dos horas, estos cambios pequeños te ayudan a notar el tiempo mientras pasa, y no después."
 date: 2026-11-18
 app: tolli
@@ -22,7 +23,7 @@ Los temporizadores visuales muestran el tiempo restante como un disco de color q
 
 ## 3. Deja que un sonido marque el tiempo
 
-Para ver el tiempo tienes que mirar. Para oírlo, no. Un sonido suave cada 15 o 30 minutos te avisa de que pasó otro bloque, aunque tengas los ojos pegados a otra cosa. Esa es la idea de Tolli: una campanita que suena cada pocos minutos, así cada ding es una pequeña pausa para preguntarte "¿sigo haciendo lo que quería hacer?".
+Para ver el tiempo tienes que mirar. Para oírlo, no. [Un sonido suave cada 15 o 30 minutos](/es/blog/temporizador-de-intervalos/) te avisa de que pasó otro bloque, aunque tengas los ojos pegados a otra cosa. Esa es la idea de [Tolli](/es/tolli/): una campanita que suena cada pocos minutos, así cada ding es una pequeña pausa para preguntarte "¿sigo haciendo lo que quería hacer?".
 
 ## 4. Primero adivina, luego comprueba
 
@@ -30,7 +31,7 @@ Antes de una tarea, apunta cuánto crees que te va a llevar. Al terminar, apunta
 
 ## 5. Planifica en bloques de tiempo
 
-Una lista de pendientes esconde el tiempo. Un día dividido en bloques de 15 o 30 minutos lo muestra. Cuando una tarea tiene que caber en un bloque, ves enseguida cuándo se desborda.
+Una lista de pendientes esconde el tiempo. Un día dividido en [bloques de 15 o 30 minutos](/es/blog/regla-de-los-15-minutos/) lo muestra. Cuando una tarea tiene que caber en un bloque, ves enseguida cuándo se desborda.
 
 ## 6. Dale su tiempo a las transiciones
 
