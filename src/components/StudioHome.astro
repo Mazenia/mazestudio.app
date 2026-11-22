@@ -11,12 +11,14 @@ const names = new Intl.ListFormat(lang, { type: 'conjunction' }).format(apps.map
 const c = es ? {
   title: 'Maze Studio · Apps y juegos indie',
   description: `Maze Studio: las apps y los juegos que hago por mi cuenta. Por ahora, ${names}.`,
-  h1: 'Apps y juegos que hago por mi cuenta.',
+  // Espacio duro entre "que" y "hago", por lo mismo que en ingles.
+  h1: 'Apps y juegos que\u00A0hago por mi cuenta.',
   contact: 'Si encuentras un error o tienes una idea, escríbeme a',
 } : {
   title: 'Maze Studio · Indie apps and games',
   description: `Maze Studio: the apps and games I make on my own. Right now, ${names}.`,
-  h1: 'Apps and games I make on my own.',
+  // Espacio duro entre "I" y "make": que la "I" no quede sola al final de la linea.
+  h1: 'Apps and games I\u00A0make on my own.',
   contact: 'If you find a bug or have an idea, write to me at',
 };
 // Datos para que Google entienda que es un estudio con varias apps.
