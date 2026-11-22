@@ -25,7 +25,6 @@ const c = es ? {
   demoTitle: 'Si me activaras ahora',
   demoNext: 'mi próximo ding sería a las',
   demoIn: 'en',
-  demoMin: 'min',
   every: 'Cada',
   bellsTitle: 'Mis cinco campanas',
   bells: [
@@ -72,7 +71,6 @@ const c = es ? {
   demoTitle: 'If you activated me now',
   demoNext: 'my next ding would be at',
   demoIn: 'in',
-  demoMin: 'min',
   every: 'Every',
   bellsTitle: 'My five bells',
   bells: [
@@ -149,7 +147,7 @@ const appLd = {
     <div class="demo-clock">
       <h2 id="demo-title" class="eyebrow">{c.demoTitle}</h2>
       <p class="next">{c.demoNext} <strong data-next>--:--</strong></p>
-      <p class="countdown">{c.demoIn} <span data-left>--</span> {c.demoMin}</p>
+      <p class="countdown">{c.demoIn} <span data-left>-- min</span></p>
       <div class="chips" role="radiogroup" aria-label={c.every}>
         <span class="chips-label">{c.every}</span>
         {[10, 15, 30, 60].map((m) => (
@@ -234,17 +232,27 @@ const appLd = {
     });
   });
 
-  // La demo: el proximo ding con la hora de quien visita, en multiplos del intervalo.
+  // La demo: el proximo ding con la hora de quien visita, como lo calcula la app
+  // (ChimeSchedule.nextChime en tolli-ringwell): en multiplos del intervalo contados
+  // desde el inicio de la ventana, y solo dentro de ella. La ventana es la que trae
+  // la app de fabrica, de 08:00 a 18:00; fuera de ella, el proximo ding es a las 08:00.
+  const START = 8 * 60, END = 18 * 60;
   let interval = 15;
   const next = document.querySelector('[data-next]')!;
   const left = document.querySelector('[data-left]')!;
   const tick = () => {
     const now = new Date();
     const mins = now.getHours() * 60 + now.getMinutes();
-    const nextMins = (Math.floor(mins / interval) + 1) * interval;
+    let nextMins = START;
+    if (mins >= START) {
+      const k = Math.floor((mins - START) / interval) + 1;
+      nextMins = START + k * interval;
+      if (nextMins > END) nextMins = START + 24 * 60; // manana a las 08:00
+    }
     const h = Math.floor(nextMins / 60) % 24, m = nextMins % 60;
     next.textContent = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-    left.textContent = String(nextMins - mins);
+    const wait = nextMins - mins;
+    left.textContent = wait >= 60 ? `${Math.floor(wait / 60)} h ${wait % 60} min` : `${wait} min`;
   };
   document.querySelectorAll<HTMLButtonElement>('[data-interval]').forEach((b) => {
     b.addEventListener('click', () => {
