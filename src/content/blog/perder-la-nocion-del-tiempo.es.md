@@ -9,7 +9,7 @@ translation: time-blindness-tips
 
 Te sientas a contestar un correo. Levantas la vista y se fue la tarde. No pasó nada raro. Solo que no sentiste el tiempo pasar.
 
-Es **perder la noción del tiempo**, y le pasa a mucha gente. En inglés tiene nombre propio, *time blindness*, y se usa mucho cuando se habla de TDAH. El psicólogo Russell Barkley, que lleva décadas escribiendo sobre el TDAH, describe esa dificultad como una especie de miopía hacia el futuro: lo que pasa ahora se ve nítido y todo lo que viene después se ve borroso. Pero no hace falta un diagnóstico para reconocer la sensación. Las pantallas, la concentración profunda y las tareas aburridas le difuminan el tiempo a casi cualquiera.
+Es **perder la noción del tiempo**, y le pasa a mucha gente. En inglés tiene nombre propio, *time blindness*, y se usa mucho cuando se habla de TDAH. El psicólogo Russell Barkley, que lleva décadas escribiendo sobre el TDAH, describe esa dificultad como una especie de miopía hacia el futuro: lo que pasa ahora se ve nítido y todo lo que viene después se ve borroso. Pero no hace falta un diagnóstico para reconocer la sensación. Las pantallas, la [concentración profunda](/es/blog/hiperfoco/) y las tareas aburridas le difuminan el tiempo a casi cualquiera.
 
 Lo que más ayuda es sacar el tiempo de tu cabeza y ponerlo donde puedas verlo u oírlo. Aquí van siete formas.
 

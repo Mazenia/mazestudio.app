@@ -42,6 +42,6 @@ On Friday, look at what you planned and what actually happened. It shows you how
 
 ## Start with one
 
-You don't need all seven. Pick the one that matches the moment you lose time most often. If it is during deep focus at the computer, a sound works better than anything you have to look at.
+You don't need all seven. Pick the one that matches the moment you lose time most often. If it is during [deep focus at the computer](/blog/hyperfocus/), a sound works better than anything you have to look at.
 
 Tolli is free on Android. It rings every 10, 15, 30 or 60 minutes, only during the hours you choose, and can say the time out loud after the ding.
