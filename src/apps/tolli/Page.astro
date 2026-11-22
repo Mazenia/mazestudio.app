@@ -136,7 +136,8 @@ const appLd = {
         {app.playUrl
           ? <a class="btn primary" href={app.playUrl}>Google Play</a>
           : <span class="btn primary is-soon">{statusLabel[app.status][lang]} · Google Play</span>}
-        <a class="btn" href={mail}>{c.test}</a>
+        {/* La prueba anticipada solo tiene sentido mientras la app no esta en Google Play. */}
+        {!app.playUrl && <a class="btn" href={mail}>{c.test}</a>}
       </div>
     </div>
     <button class="bell-button" type="button" data-sound="tolli" aria-label={c.bell}>
@@ -254,7 +255,8 @@ const appLd = {
     const h = Math.floor(nextMins / 60) % 24, m = nextMins % 60;
     next.textContent = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
     const wait = nextMins - mins;
-    left.textContent = wait >= 60 ? `${Math.floor(wait / 60)} h ${wait % 60} min` : `${wait} min`;
+    const hh = Math.floor(wait / 60), mm = wait % 60;
+    left.textContent = hh === 0 ? `${mm} min` : mm === 0 ? `${hh} h` : `${hh} h ${mm} min`;
   };
   document.querySelectorAll<HTMLButtonElement>('[data-interval]').forEach((b) => {
     b.addEventListener('click', () => {

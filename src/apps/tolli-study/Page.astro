@@ -16,8 +16,8 @@ const c = es ? {
   description: 'Flashcards con repetición espaciada y temporizador pomodoro para Android. Haz tarjetas con tus apuntes, a mano o con tu IA, y repásalas en las pausas.',
   face: 'Tolli, una campanita coral con cara sonriente.',
   h1: 'Hola, soy Tolli.',
-  lead: 'Soy una app de flashcards con repetición espaciada y temporizador pomodoro. Tú haces las tarjetas con tus apuntes o con tu IA, y yo te traigo cada una justo antes de que la olvides: en las pausas de estudio o cuando me abras para repasar.',
-  test: 'Quiero probarla',
+  lead: 'Junto flashcards, repetición espaciada y un temporizador pomodoro. Tú haces las tarjetas con tus apuntes o con tu IA, y yo te traigo cada una justo antes de que la olvides: en las pausas de estudio o cuando me abras para repasar.',
+  test: 'Pedir entrar a la prueba',
   testSubject: 'Quiero probar Tolli Estudio',
   demoTitle: 'Así llega una pregunta',
   demoHint: 'Pruébala: responde de memoria y después mira la respuesta.',
@@ -32,7 +32,7 @@ const c = es ? {
   ],
   done: 'Listo. Vuelve el enfoque y la pregunta que quede sin responder se va sola.',
   again: 'Otra vez',
-  stepsTitle: 'Las tarjetas las arma tu IA',
+  stepsTitle: 'Arma las tarjetas con tu IA',
   steps: [
     ['Te doy unas instrucciones', 'Las mando a la IA que ya usas, o las copio para que las pegues donde quieras.'],
     ['Le pasas tu material', 'Tus apuntes, una foto del pizarrón, un PDF o el enlace de una clase.'],
@@ -51,7 +51,7 @@ const c = es ? {
   facesTitle: 'Mi cara te cuenta cómo vas',
   faces: [['awake', 'Enfoque'], ['soon', 'Ya casi es la pausa'], ['happy', 'Al día'], ['worried', 'Algo me calla'], ['sleeping', 'Hasta mañana']],
   proTitle: 'Gratis. Y Pro, si quieres más.',
-  proBody: 'Gratis: una materia activa, completa: todas las tarjetas que quieras, su fecha de examen y su plan, las preguntas en la pausa, agregar con tu IA, todos los planes y sonidos, y exportar tu copia. Pro, sin suscripción: materias sin límite, tarjetas con imagen para tapar partes de un diagrama, sincronizar con tu Drive, el modo AnkiDroid y tres estilos más.',
+  proBody: 'Gratis: una materia activa con todo, todas las tarjetas que quieras, su fecha de examen y su plan, las preguntas en la pausa, agregar con tu IA, todos los planes y sonidos, y exportar tu copia. Pro, sin suscripción: materias sin límite, tarjetas con imagen para tapar partes de un diagrama, sincronizar con tu Drive, el modo AnkiDroid y tres estilos más.',
   proPrice: 'Un solo pago',
   faqTitle: 'Preguntas',
   faq: [
@@ -68,8 +68,8 @@ const c = es ? {
   description: 'Flashcards with spaced repetition and a pomodoro timer for Android. Make cards from your notes, by hand or with your AI, and review them in your breaks.',
   face: 'Tolli, a little coral bell with a smiling face.',
   h1: "Hi, I'm Tolli.",
-  lead: "I'm a flashcard app with spaced repetition and a pomodoro timer. You make the cards from your notes or with your AI, and I bring each one back right before you'd forget it: in your study breaks, or any time you open me to review.",
-  test: 'I want to try it',
+  lead: "I mix flashcards, spaced repetition and a pomodoro timer. You make the cards from your notes or with your AI, and I bring each one back right before you'd forget it: in your study breaks, or any time you open me to review.",
+  test: 'Ask to join the test',
   testSubject: 'I want to try Tolli Study',
   demoTitle: 'This is how a question arrives',
   demoHint: 'Try it: answer in your head first, then show the answer.',
@@ -84,7 +84,7 @@ const c = es ? {
   ],
   done: 'Done. Focus starts again, and any question you skipped goes away by itself.',
   again: 'Again',
-  stepsTitle: 'Your AI makes the cards',
+  stepsTitle: 'Make cards with your AI',
   steps: [
     ['I give you instructions', 'I send them to the AI you already use, or copy them so you can paste them anywhere.'],
     ['You give it your material', 'Your notes, a photo of the whiteboard, a PDF or a lecture link.'],
@@ -103,7 +103,7 @@ const c = es ? {
   facesTitle: 'My face tells you how it’s going',
   faces: [['awake', 'Focus'], ['soon', 'Break soon'], ['happy', 'All caught up'], ['worried', 'Something stops me'], ['sleeping', 'See you tomorrow']],
   proTitle: 'Free. And Pro, if you want more.',
-  proBody: 'Free: one active subject, complete: as many cards as you want, its exam date and plan, questions in your breaks, adding with your AI, every study plan and sound, and exporting your copy. Pro, no subscription: unlimited subjects, image cards where you cover parts of a diagram, sync with your Drive, AnkiDroid mode, and three more styles.',
+  proBody: 'Free: one active subject with everything, as many cards as you want, its exam date and plan, questions in your breaks, adding with your AI, every study plan and sound, and exporting your copy. Pro, no subscription: unlimited subjects, image cards where you cover parts of a diagram, sync with your Drive, AnkiDroid mode, and three more styles.',
   proPrice: 'One payment',
   faqTitle: 'Questions',
   faq: [
@@ -129,7 +129,8 @@ const data = JSON.stringify({ cards: c.cards, pause: c.pause, of: c.of });
         {app.playUrl
           ? <a class="btn primary" href={app.playUrl}>Google Play</a>
           : <span class="btn primary is-soon">{statusLabel[app.status][lang]} · Google Play</span>}
-        <a class="btn" href={mail}>{c.test}</a>
+        {/* La prueba anticipada solo tiene sentido mientras la app no esta en Google Play. */}
+        {!app.playUrl && <a class="btn" href={mail}>{c.test}</a>}
       </div>
     </div>
     <div class="hero-face" role="img" aria-label={c.face}><Face mood="happy" size={260} fill="#EE7A5C" /></div>
