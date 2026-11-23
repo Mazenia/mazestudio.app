@@ -9,7 +9,7 @@ translation: como-estudiar-para-un-examen
 
 You've got the exam date and a stack of notes. Most people read them over a few times with a highlighter in hand. It feels productive, and the day after the exam you realize you remembered less than you thought.
 
-This plan uses the two techniques that come out best in research on studying: quizzing yourself and spreading your reviews over several days. You can start it today, whether you have a month or a week.
+This plan uses the two [study techniques](/blog/study-techniques/) that come out best in research: quizzing yourself and spreading your reviews over several days. You can start it today, whether you have a month or a week.
 
 ## Start with the date and the syllabus
 

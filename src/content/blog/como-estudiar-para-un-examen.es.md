@@ -9,7 +9,7 @@ translation: how-to-study-for-an-exam
 
 Te dieron la fecha del examen y tienes una pila de apuntes. Casi todo el mundo los lee varias veces con un resaltador en la mano. Se siente productivo, y al día siguiente del examen te das cuenta de que te acordabas de menos de lo que creías.
 
-Este plan usa las dos técnicas que mejor salen en las investigaciones sobre estudio: hacerte preguntas y repartir el repaso en varios días. Lo puedes empezar hoy, tengas un mes o una semana.
+Este plan usa las dos [técnicas de estudio](/es/blog/tecnicas-de-estudio/) que mejor salen en las investigaciones: hacerte preguntas y repartir el repaso en varios días. Lo puedes empezar hoy, tengas un mes o una semana.
 
 ## Empieza por la fecha y el temario
 

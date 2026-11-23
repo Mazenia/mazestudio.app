@@ -9,7 +9,7 @@ translation: how-to-study-for-an-exam
 
 Você já sabe a data da prova e tem uma pilha de anotações. Quase todo mundo lê tudo várias vezes com um marca-texto na mão. Parece produtivo, e no dia seguinte à prova você percebe que lembrava menos do que achava.
 
-Este plano usa as duas técnicas que se saem melhor nas pesquisas sobre estudo: fazer perguntas a si mesmo e distribuir a revisão em vários dias. Dá para começar hoje, com um mês ou com uma semana pela frente.
+Este plano usa as duas [técnicas de estudo](/pt/blog/tecnicas-de-estudo/) que se saem melhor nas pesquisas: fazer perguntas a si mesmo e distribuir a revisão em vários dias. Dá para começar hoje, com um mês ou com uma semana pela frente.
 
 ## Comece pela data e pelo conteúdo
 

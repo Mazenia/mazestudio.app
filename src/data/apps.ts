@@ -27,6 +27,8 @@ export interface App {
   externalUrl?: string;
   /** Enlaces de tienda cuando existan. */
   playUrl?: string;
+  /** En prueba cerrada: los posts invitan a pedir entrar por correo en vez de "Pronto". */
+  testSignup?: boolean;
   appStoreUrl?: string;
   theme?: AppTheme;
   /** Imagen para compartir (og:image) de su pagina y de sus posts, por idioma. El portugues usa la inglesa. */
@@ -78,6 +80,7 @@ export const apps: App[] = [
     name: 'Tolli Study',
     localName: { es: 'Tolli Estudio', pt: 'Tolli Estudo' },
     status: 'soon',
+    testSignup: true,
     platforms: 'Android',
     icon: '/img/tolli-study-icon.png',
     tagline: {

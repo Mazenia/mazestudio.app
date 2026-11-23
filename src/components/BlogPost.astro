@@ -12,10 +12,15 @@ const app = post.data.app ? apps.find((a) => a.slug === post.data.app) : undefin
 const alternates = await alternatesOf(post);
 const tagline = app ? (app.tagline as Record<string, string>)[lang] ?? app.tagline.en : '';
 const t = {
-  en: { back: 'Blog', updated: 'Updated', more: 'See how it works', get: 'Get it on Google Play' },
-  es: { back: 'Blog', updated: 'Actualizado', more: 'Ver cómo funciona', get: 'Descárgala en Google Play' },
-  pt: { back: 'Blog', updated: 'Atualizado', more: 'Veja como funciona', get: 'Baixe no Google Play' },
+  en: { back: 'Blog', updated: 'Updated', more: 'See how it works', get: 'Get it on Google Play',
+    join: 'Join the test', subject: 'I want to test', testNote: "It's in a closed test on Google Play. Write to us and we'll send you an invite." },
+  es: { back: 'Blog', updated: 'Actualizado', more: 'Ver cómo funciona', get: 'Descárgala en Google Play',
+    join: 'Únete a la prueba', subject: 'Quiero probar', testNote: 'Está en prueba cerrada en Google Play. Escríbenos y te mandamos la invitación.' },
+  pt: { back: 'Blog', updated: 'Atualizado', more: 'Veja como funciona', get: 'Baixe no Google Play',
+    join: 'Entre no teste', subject: 'Quero testar', testNote: 'Está em teste fechado no Google Play. Escreva para a gente e mandamos o convite.' },
 }[lang];
+// Mientras la app esta en prueba cerrada, el boton abre un correo para pedir la invitacion.
+const testHref = app?.testSignup ? `mailto:hola@mazestudio.app?subject=${encodeURIComponent(`${t.subject} ${appName(app, lang)}`)}` : undefined;
 // La imagen para compartir: la de la app del post, o la del estudio, en el idioma del post.
 const ogLang = lang === 'es' ? 'es' : 'en';
 const ogImage = app?.og?.[ogLang] ?? (ogLang === 'es' ? '/img/og-studio-es.png' : '/img/og-studio.png');
@@ -49,7 +54,9 @@ const jsonLd = {
         <p><strong>{appName(app, lang)}</strong> · {tagline}</p>
         {app.playUrl
           ? <a class="btn primary small" href={app.playUrl}>{t.get}</a>
-          : !app.externalUrl && <a class="btn small" href={appPath(app, lang)}>{t.more}</a>}
+          : testHref
+            ? <a class="btn primary small" href={testHref}>{t.join}</a>
+            : !app.externalUrl && <a class="btn small" href={appPath(app, lang)}>{t.more}</a>}
       </div>
     )}
     <div class="body"><Content /></div>
@@ -61,11 +68,14 @@ const jsonLd = {
       <div>
         <p class="name">{appName(app, lang)}</p>
         <p>{tagline}</p>
+        {testHref && <p class="test-note">{t.testNote}</p>}
       </div>
       <div class="ctas">
         {app.playUrl
           ? <a class="btn primary" href={app.playUrl}>{t.get}</a>
-          : <span class="btn">{statusLabel[app.status][lang]}</span>}
+          : testHref
+            ? <a class="btn primary" href={testHref}>{t.join}</a>
+            : <span class="btn">{statusLabel[app.status][lang]}</span>}
         {!app.externalUrl && <a class="btn" href={appPath(app, lang)}>{t.more}</a>}
       </div>
     </aside>
@@ -95,6 +105,7 @@ const jsonLd = {
   .app-card { margin-top: 24px; background: var(--bg); border: 3px solid var(--ink); border-radius: 28px; padding: 22px; display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 18px; align-items: center; }
   .app-card img { border-radius: 18px; }
   .app-card p { margin: 0; }
+  .app-card .test-note { margin-top: 6px; font-size: 14px; }
   .name { font: 700 22px/1.1 var(--display); margin-bottom: 4px !important; }
   .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
   .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 3px solid var(--ink); background: var(--surface); font: 700 16px/1 var(--display); text-decoration: none; }
