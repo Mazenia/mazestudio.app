@@ -46,7 +46,7 @@ No papel, o **método Leitner** faz isso com caixas. Cada cartão que você acer
 
 ### Comece com semanas de antecedência
 
-Se a prova é daqui a um mês, comece hoje com poucos cartões por dia. Juntar tudo na última semana não deixa espaço para os intervalos crescerem.
+Se a prova é daqui a um mês, comece hoje com poucos cartões por dia. Juntar tudo na última semana não deixa espaço para os intervalos crescerem. Se você já tem a data, em [como estudar para prova](/pt/blog/como-estudar-para-prova/) há um plano de hoje até esse dia.
 
 ## Com o Tolli Estudo, nas pausas do pomodoro
 

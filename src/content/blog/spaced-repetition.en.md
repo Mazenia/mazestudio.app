@@ -46,7 +46,7 @@ On paper, the **Leitner system** does this with boxes. Each card you get right m
 
 ### Start weeks ahead
 
-If the exam is a month away, start today with a few cards a day. Cramming everything into the last week leaves no room for the gaps to grow.
+If the exam is a month away, start today with a few cards a day. Cramming everything into the last week leaves no room for the gaps to grow. If you already have the date, [how to study for an exam](/blog/how-to-study-for-an-exam/) lays out a plan from today until that day.
 
 ## With Tolli Study, in your pomodoro breaks
 

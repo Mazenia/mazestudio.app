@@ -46,7 +46,7 @@ En papel, el **método Leitner** hace esto con cajas. Cada tarjeta que aciertas 
 
 ### Empieza con semanas de margen
 
-Si el examen es en un mes, empieza hoy con pocas tarjetas por día. Juntar todo en la última semana te deja sin espacio para que los intervalos crezcan.
+Si el examen es en un mes, empieza hoy con pocas tarjetas por día. Juntar todo en la última semana te deja sin espacio para que los intervalos crezcan. Si ya tienes la fecha, en [cómo estudiar para un examen](/es/blog/como-estudiar-para-un-examen/) tienes un plan desde hoy hasta ese día.
 
 ## Con Tolli Estudio, en las pausas del pomodoro
 
