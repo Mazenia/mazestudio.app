@@ -44,11 +44,11 @@
       const r = rows[k];
       const cls = r && r.at === highlight ? ' class="new"' : '';
       html += r
-        ? `<li${cls}><span class="hs-pos">${k + 1}</span><span class="hs-ini">${r.ini}</span><span class="hs-time">${fmt(r.score)}</span><span class="hs-day">${r.day}</span></li>`
+        ? `<li${cls}><span class="hs-pos">${k + 1}</span><span class="hs-ini">${r.ini}</span><span class="hs-time">${fmt(r.score)}${r.t != null && r.score > r.t ? ` <small>+${fmt(r.score - r.t)}</small>` : ''}</span><span class="hs-day">${r.day}</span></li>`
         : `<li class="empty"><span class="hs-pos">${k + 1}</span><span class="hs-ini">---</span><span class="hs-time">-:--</span><span class="hs-day"></span></li>`;
     }
     el.innerHTML = `<h2>Récords</h2><p class="hs-level">${label}, en esta máquina</p><ol class="hs-list">${html}</ol>` +
-      '<p class="card-foot">Solo cuentan los casos del día. Cada pista o fallo suma 30 segundos.</p>';
+      '<p class="card-foot">Solo cuentan los casos del día. Cada pista o fallo suma 30 segundos a la marca.</p>';
   }
 
   // Si la partida entra en la tabla, pide las iniciales dentro del diálogo de victoria.
@@ -62,8 +62,9 @@
     const box = document.createElement('form');
     box.className = 'hs-entry';
     const penalty = score - result.elapsed;
+    const n = result.hints + result.errors;
     box.innerHTML = `<p class="hs-title">¡Nuevo récord! Puesto ${rank}</p>` +
-      `<p class="hs-score">${fmt(score)}${penalty ? ` <small>(${fmt(result.elapsed)} + ${fmt(penalty)})</small>` : ''}</p>` +
+      `<p class="hs-score">${fmt(score)}${penalty ? `<br><small>${fmt(result.elapsed)} + ${fmt(penalty)} (${n} ${n === 1 ? 'pista o fallo' : 'pistas o fallos'})</small>` : ''}</p>` +
       '<label for="hs-ini">Escribe tus iniciales</label>' +
       `<div class="hs-row"><input id="hs-ini" maxlength="3" autocomplete="off" autocapitalize="characters" spellcheck="false" value="${store.get('records:last') || ''}">` +
       '<button type="submit">Guardar</button></div>';
@@ -86,7 +87,7 @@
       if (!ini) return input.focus();
       const now = new Date();
       const at = now.getTime();
-      add(result.game, result.level, { ini, score, at, day: `${pad(now.getDate())}/${pad(now.getMonth() + 1)}` });
+      add(result.game, result.level, { ini, score, t: result.elapsed, at, day: `${pad(now.getDate())}/${pad(now.getMonth() + 1)}` });
       store.set('records:last', ini);
       box.innerHTML = `<p class="hs-title">Guardado: ${ini}, puesto ${rank}</p>`;
       finish(at);
