@@ -23,7 +23,7 @@ export interface App {
   platforms: string;
   icon: string;
   tagline: Record<Lang, string> & { pt?: string };
-  /** Si la app vive en otro dominio (Dear Wander), la portada enlaza ahi y no hay pagina aqui. */
+  /** Si la app vive fuera de su pagina de app (Dear Wander en otro dominio, ¿Quién fue? en /quien-fue/), la portada enlaza ahi y no hay pagina aqui. */
   externalUrl?: string;
   /** Enlaces de tienda cuando existan. */
   playUrl?: string;
@@ -74,6 +74,21 @@ export const apps: App[] = [
     },
     hover: { bg: '#F4C230', ink: '#1E1A16' },
     nameFont: "'Fredoka', sans-serif",
+  },
+  {
+    // Juego web en español; vive en /quien-fue/ y no tiene pagina de app aparte.
+    slug: 'quien-fue',
+    name: '¿Quién fue?',
+    status: 'live',
+    platforms: 'Web',
+    icon: '/img/quien-fue-icon.png',
+    tagline: {
+      en: 'A daily logic mystery: place the suspects and find who did it. In Spanish.',
+      es: 'Un misterio de lógica cada día: coloca a los sospechosos y descubre quién fue.',
+      pt: 'Um mistério de lógica por dia: posicione os suspeitos e descubra quem foi. Em espanhol.',
+    },
+    externalUrl: '/quien-fue/',
+    hover: { bg: '#2B1C3D', ink: '#FFE88A' },
   },
   {
     slug: 'tolli-study',

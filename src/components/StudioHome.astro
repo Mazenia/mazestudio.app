@@ -49,7 +49,7 @@ const org = {
             <span class="name" style={app.nameFont ? `font-family:${app.nameFont};letter-spacing:0` : undefined}>{appName(app, lang)}</span>
             <span class="line">{app.tagline[lang]}</span>
           </div>
-          <span class="meta">{meta}{href && <span class="arrow" aria-hidden="true">{app.externalUrl ? '↗' : '→'}</span>}</span>
+          <span class="meta">{meta}{href && <span class="arrow" aria-hidden="true">{app.externalUrl?.startsWith('http') ? '↗' : '→'}</span>}</span>
         </Tag>
       );
     })}
